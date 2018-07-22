@@ -1,4 +1,4 @@
-package com.corujito.champz.rest.controller;
+package com.corujito.champz.rest.resource;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +13,15 @@ import com.corujito.champz.rest.model.Championship;
 import com.corujito.champz.rest.service.IChampionshipService;
 
 @RestController
-@RequestMapping("/championships")
-public class ChampionshipController {
+@RequestMapping("/api/championships")
+public class ChampionshipResource {
 
     @Autowired
     IChampionshipService championshipService;
 
     @GetMapping(path = "/{id}")
     public Championship getChampionship(@PathVariable String id) {
-        Championship championship = championshipService.getChampionship(id);
-        championship.setName(id);
-        return championship;
+        return championshipService.getChampionship(id);
     }
 
     @GetMapping

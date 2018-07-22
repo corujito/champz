@@ -3,7 +3,7 @@ package com.corujito.champz.rest.model;
 import java.util.Date;
 import java.util.List;
 
-public class Player {
+public class Player extends BaseDomain {
 
     private String fullName;
     private String popularName;

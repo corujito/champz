@@ -1,6 +1,6 @@
 package com.corujito.champz.rest.model;
 
-public class Attendance {
+public class Attendance extends BaseDomain {
 
     private Player player;
     private Match match;

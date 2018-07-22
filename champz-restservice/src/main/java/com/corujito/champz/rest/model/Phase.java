@@ -1,6 +1,6 @@
 package com.corujito.champz.rest.model;
 
-public class Phase {
+public class Phase extends BaseDomain {
 
     private String name;
     private int upZone;

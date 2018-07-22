@@ -2,7 +2,7 @@ package com.corujito.champz.rest.model;
 
 import java.util.List;
 
-public class Team {
+public class Team extends BaseDomain {
 
     private User user;
     private String name;

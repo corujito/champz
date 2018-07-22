@@ -1,10 +1,12 @@
-package com.corujito.champz.rest.model;
+package com.corujito.champz.rest.repository.entity;
 
-public class Championship extends BaseDomain {
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "championships")
+public class ChampionshipEntity extends BaseEntity {
 
     private String name;
     private String description;
-    private User user;
 
     public String getName() {
         return name;
@@ -20,13 +22,5 @@ public class Championship extends BaseDomain {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 }

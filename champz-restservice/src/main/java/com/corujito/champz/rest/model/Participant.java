@@ -1,6 +1,6 @@
 package com.corujito.champz.rest.model;
 
-public class Participant {
+public class Participant extends BaseDomain {
 
     private Season season;
     private Team team;

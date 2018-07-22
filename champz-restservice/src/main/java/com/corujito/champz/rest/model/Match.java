@@ -3,7 +3,7 @@ package com.corujito.champz.rest.model;
 import java.util.Date;
 import java.util.List;
 
-public class Match {
+public class Match extends BaseDomain {
 
     private Season season;
     private Team homeTeam;

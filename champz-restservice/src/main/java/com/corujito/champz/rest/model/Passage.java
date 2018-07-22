@@ -2,7 +2,7 @@ package com.corujito.champz.rest.model;
 
 import java.util.Date;
 
-public class Passage {
+public class Passage extends BaseDomain {
 
     private Player player;
     private Team team;

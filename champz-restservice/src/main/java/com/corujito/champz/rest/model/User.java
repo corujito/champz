@@ -1,6 +1,6 @@
 package com.corujito.champz.rest.model;
 
-public class User {
+public class User extends BaseDomain {
 
     private String name;
     private String email;

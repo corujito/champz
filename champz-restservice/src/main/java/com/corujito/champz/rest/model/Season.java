@@ -2,7 +2,7 @@ package com.corujito.champz.rest.model;
 
 import java.util.List;
 
-public class Season {
+public class Season extends BaseDomain {
 
     private String title;
     private String regulation;
