@@ -1,4 +1,4 @@
-package com.corujito.champz;
+package com.corujito.champz.rest;
 
 import java.util.Arrays;
 

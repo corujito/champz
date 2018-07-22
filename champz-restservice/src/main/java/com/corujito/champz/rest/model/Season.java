@@ -1,4 +1,4 @@
-package com.corujito.champz.model;
+package com.corujito.champz.rest.model;
 
 import java.util.List;
 
