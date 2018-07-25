@@ -1,7 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -12,11 +11,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.client.support.BasicAuthorizationInterceptor;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.corujito.champz.rest.Application;
+import com.corujito.champz.rest.ChampionshipUtils;
 import com.corujito.champz.rest.model.Championship;
 import com.corujito.champz.rest.repository.config.MongoConfigIT;
 import com.corujito.champz.rest.repository.entity.ChampionshipEntity;
@@ -46,9 +48,9 @@ public class ChampionshipResourceIT {
 
     @Before
     public void setUp() throws Exception {
+        template.withBasicAuth("user", "password");
         template.getRestTemplate().getInterceptors().add(new BasicAuthorizationInterceptor("user", "password"));
         this.base = new URL("http://localhost:" + port + "/api/championships");
-
         mongoTemplate.dropCollection(ChampionshipEntity.class);
     }
 
@@ -59,16 +61,57 @@ public class ChampionshipResourceIT {
 
     @Test
     public void getChampionship() throws Exception {
-        ChampionshipEntity entity = new ChampionshipEntity();
-        entity.setName("name");
-        entity.setDescription("description");
+        ChampionshipEntity entity = ChampionshipUtils.createChampionshipEntity();
         mongoTemplate.save(entity);
 
+        Championship championship = template.getForObject(base.toString() + "/" + entity.getId(), Championship.class);
+        ChampionshipUtils.assertObjects(entity, championship);
+    }
+
+    @Test
+    public void getAllChampionship() throws Exception {
+        mongoTemplate.save(ChampionshipUtils.createChampionshipEntity());
+        mongoTemplate.save(ChampionshipUtils.createChampionshipEntity());
+
+        Championship[] championships = template.getForObject(base.toString(), Championship[].class);
+        assertEquals(2, championships.length);
+    }
+
+    @Test
+    public void testAddChampionship() {
+        Championship c = ChampionshipUtils.createChampionship("2");
+        Championship championship = template.postForObject(base.toString(), c, Championship.class);
+        ChampionshipUtils.assertObjects(c, championship);
+
+        ChampionshipEntity entity = mongoTemplate.findById(championship.getId(), ChampionshipEntity.class);
+        ChampionshipUtils.assertObjects(entity, championship);
+    }
+
+    @Test
+    public void testUpdateChampionship() {
+        ChampionshipEntity entity = ChampionshipUtils.createChampionshipEntity();
+        entity.setName("campeonato brasileiro");
+        mongoTemplate.save(entity);
+
+        Championship newChampionship = ChampionshipUtils.createChampionship(entity.getId());
+        newChampionship.setName("campeonato paulista");
+        HttpEntity<Championship> c = new HttpEntity<>(newChampionship);
         ResponseEntity<Championship> response =
-                template.getForEntity(base.toString() + "/" + entity.getId(), Championship.class);
-        Championship championship = response.getBody();
-        assertThat(championship.getId(), equalTo(entity.getId()));
-        assertThat(championship.getName(), equalTo(entity.getName()));
-        assertThat(championship.getDescription(), equalTo(entity.getDescription()));
+                template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, Championship.class);
+        ChampionshipUtils.assertObjects(newChampionship, response.getBody());
+    }
+
+    @Test
+    public void deleteChampionship() throws Exception {
+        ChampionshipEntity entity = ChampionshipUtils.createChampionshipEntity();
+        mongoTemplate.save(entity);
+
+        Championship[] championships = template.getForObject(base.toString(), Championship[].class);
+        assertEquals(1, championships.length);
+
+        template.delete(base.toString() + "/" + entity.getId());
+
+        championships = template.getForObject(base.toString(), Championship[].class);
+        assertEquals(0, championships.length);
     }
 }

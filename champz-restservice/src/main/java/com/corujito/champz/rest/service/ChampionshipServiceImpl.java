@@ -17,12 +17,8 @@ public class ChampionshipServiceImpl implements IChampionshipService {
 
     @Override
     public Championship getChampionship(String id) {
-        Championship championship = null;
         Optional<ChampionshipEntity> opt = repository.findById(id);
-        if (opt.isPresent()) {
-            championship = mapChampionship(opt.get());
-        }
-        return championship;
+        return opt.map(entity -> mapChampionship(entity)).orElse(null);
     }
 
     @Override
