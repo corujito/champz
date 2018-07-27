@@ -5,9 +5,6 @@ import static org.junit.Assert.assertThat;
 import java.util.Date;
 import com.corujito.champz.rest.model.Match;
 import com.corujito.champz.rest.model.MatchStatus;
-import com.corujito.champz.rest.model.Phase;
-import com.corujito.champz.rest.model.Season;
-import com.corujito.champz.rest.model.Team;
 import com.corujito.champz.rest.repository.entity.MatchEntity;
 
 public class MatchUtils {
@@ -33,31 +30,12 @@ public class MatchUtils {
     }
 
     public static Match createMatch(String id) {
-        Match match = new Match();
-        match.setId(id);
-        match.setAwayExtraTimeScore(1);
-        match.setAwayPenaltyScore(2);
-        match.setAwayScore(3);
-        Team awayTeam = new Team();
-        awayTeam.setId("1");
-        match.setAwayTeam(awayTeam);
-        match.setHomeExtraTimeScore(5);
-        match.setHomePenaltyScore(7);
-        match.setHomeScore(1);
-        Team homeTeam = new Team();
-        homeTeam.setId("3");
-        match.setHomeTeam(homeTeam);
-        match.setMatchDate(new Date());
-        match.setOriginalDate(new Date());
-        Phase phase = new Phase();
-        phase.setId("4");
-        match.setPhase(phase);
-        match.setRound(8);
-        Season season = new Season();
-        season.setId("7");
-        match.setSeason(season);
-        match.setStatus(MatchStatus.CANCELED);
-        return match;
+        return new Match().withId(id).withAwayExtraTimeScore(1).withAwayPenaltyScore(2).withAwayScore(3)
+                .withAwayTeam(TeamUtils.createTeam("awayTeamId"))
+                .withHomeExtraTimeScore(5).withHomePenaltyScore(7).withHomeScore(1)
+                .withHomeTeam(TeamUtils.createTeam("homeTeamId"))
+                .withMatchDate(new Date()).withOriginalDate(new Date()).withPhase(PhaseUtils.createPhase("phaseId"))
+                .withRound(8).withSeason(SeasonUtils.createSeason("seasonId")).withStatus(MatchStatus.CANCELED);
     }
 
     public static void assertObjects(MatchEntity entity, Match match) {

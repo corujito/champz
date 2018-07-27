@@ -41,4 +41,28 @@ public class Passage extends BaseDomain {
         this.end = end;
     }
 
+    public Passage withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public Passage withPlayer(Player player) {
+        setPlayer(player);
+        return this;
+    }
+
+    public Passage withTeam(Team team) {
+        setTeam(team);
+        return this;
+    }
+
+    public Passage withBegin(Date begin) {
+        setBegin(begin);
+        return this;
+    }
+
+    public Passage withEnd(Date end) {
+        setEnd(end);
+        return this;
+    }
 }

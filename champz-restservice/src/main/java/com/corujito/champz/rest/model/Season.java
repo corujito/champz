@@ -40,4 +40,29 @@ public class Season extends BaseDomain {
     public void setTeams(List<Participant> teams) {
         this.teams = teams;
     }
+
+    public Season withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public Season withTitle(String title) {
+        setTitle(title);
+        return this;
+    }
+
+    public Season withRegulation(String regulation) {
+        setRegulation(regulation);
+        return this;
+    }
+
+    public Season withChampionship(Championship championship) {
+        setChampionship(championship);
+        return this;
+    }
+
+    public Season withTeams(List<Participant> teams) {
+        setTeams(teams);
+        return this;
+    }
 }

@@ -2,8 +2,8 @@ package com.corujito.champz.rest;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
+import java.util.Date;
 import com.corujito.champz.rest.model.Player;
-import com.corujito.champz.rest.model.User;
 import com.corujito.champz.rest.repository.entity.PlayerEntity;
 import com.corujito.champz.rest.repository.entity.UserEntity;
 
@@ -24,13 +24,8 @@ public class PlayerUtils {
     }
 
     public static Player createPlayer(String id) {
-        Player player = new Player();
-        player.setId(id);
-        User user = new User();
-        user.setId("1");
-        user.setEmail("email");
-        player.setUser(user);
-        return player;
+        return new Player().withId(id).withUser(UserUtils.createUser("userId")).withBirth(new Date())
+                .withFullName("fullName").withPopularName("popularName").withPhotoImage("photo");
     }
 
     public static void assertObjects(PlayerEntity entity, Player player) {

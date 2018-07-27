@@ -20,4 +20,19 @@ public class User extends BaseDomain {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public User withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public User withName(String name) {
+        setName(name);
+        return this;
+    }
+
+    public User withEmail(String email) {
+        setEmail(email);
+        return this;
+    }
 }

@@ -20,14 +20,7 @@ public class TeamUtils {
     }
 
     public static Team createTeam(String id) {
-        Team team = new Team();
-        team.setId(id);
-        team.setName("name");
-        User user = new User();
-        user.setId("1");
-        user.setEmail("email");
-        team.setUser(user);
-        return team;
+        return new Team().withId(id).withName("name").withUser(new User().withId("userId").withEmail("email"));
     }
 
     public static void assertObjects(TeamEntity entity, Team team) {

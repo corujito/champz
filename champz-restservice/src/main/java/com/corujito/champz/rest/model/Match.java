@@ -158,4 +158,94 @@ public class Match extends BaseDomain {
     public void setPlays(List<Play> plays) {
         this.plays = plays;
     }
+
+    public Match withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public Match withSeason(Season season) {
+        setSeason(season);
+        return this;
+    }
+
+    public Match withHomeTeam(Team homeTeam) {
+        setHomeTeam(homeTeam);
+        return this;
+    }
+
+    public Match withAwayTeam(Team awayTeam) {
+        setAwayTeam(awayTeam);
+        return this;
+    }
+
+    public Match withHomeScore(int homeScore) {
+        setHomeScore(homeScore);
+        return this;
+    }
+
+    public Match withAwayScore(int awayScore) {
+        setAwayScore(awayScore);
+        return this;
+    }
+
+    public Match withHomeExtraTimeScore(int homeExtraTimeScore) {
+        setHomeExtraTimeScore(homeExtraTimeScore);
+        return this;
+    }
+
+    public Match withAwayExtraTimeScore(int awayExtraTimeScore) {
+        setAwayExtraTimeScore(awayExtraTimeScore);
+        return this;
+    }
+
+    public Match withHomePenaltyScore(int homePenaltyScore) {
+        setHomePenaltyScore(homePenaltyScore);
+        return this;
+    }
+
+    public Match withAwayPenaltyScore(int awayPenaltyScore) {
+        setAwayPenaltyScore(awayPenaltyScore);
+        return this;
+    }
+
+    public Match withRound(int round) {
+        setRound(round);
+        return this;
+    }
+
+    public Match withOriginalDate(Date originalDate) {
+        setOriginalDate(originalDate);
+        return this;
+    }
+
+    public Match withMatchDate(Date matchDate) {
+        setMatchDate(matchDate);
+        return this;
+    }
+
+    public Match withStatus(MatchStatus status) {
+        setStatus(status);
+        return this;
+    }
+
+    public Match withPhase(Phase phase) {
+        setPhase(phase);
+        return this;
+    }
+
+    public Match withHomePlayers(List<Attendance> homePlayers) {
+        setHomePlayers(homePlayers);
+        return this;
+    }
+
+    public Match withAwayPlayers(List<Attendance> awayPlayers) {
+        setAwayPlayers(awayPlayers);
+        return this;
+    }
+
+    public Match withPlays(List<Play> plays) {
+        setPlays(plays);
+        return this;
+    }
 }

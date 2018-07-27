@@ -3,9 +3,6 @@ package com.corujito.champz.rest;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import com.corujito.champz.rest.model.Attendance;
-import com.corujito.champz.rest.model.Match;
-import com.corujito.champz.rest.model.Player;
-import com.corujito.champz.rest.model.Team;
 import com.corujito.champz.rest.repository.entity.AttendanceEntity;
 
 public class AttendanceUtils {
@@ -28,22 +25,9 @@ public class AttendanceUtils {
     }
 
     public static Attendance createAttendance(String id) {
-        Attendance attendance = new Attendance();
-        attendance.setId(id);
-        attendance.setMacroPosition("macroPosition");
-        Match match = new Match();
-        match.setId("match");
-        attendance.setMatch(match);
-        Player player = new Player();
-        player.setId("playerId");
-        attendance.setPlayer(player);
-        attendance.setPosition("position");
-        attendance.setScore(3);
-        attendance.setStartedMatch(true);
-        Team team = new Team();
-        team.setId("teamId");
-        attendance.setTeam(team);
-        return attendance;
+        return new Attendance().withId(id).withMacroPosition("macroPosition")
+                .withMatch(MatchUtils.createMatch("matchId")).withPlayer(PlayerUtils.createPlayer("playerId"))
+                .withPosition("position").withScore(3).withStartedMatch(true).withTeam(TeamUtils.createTeam("teamId"));
     }
 
     public static void assertObjects(AttendanceEntity entity, Attendance attendance) {

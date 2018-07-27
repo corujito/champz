@@ -65,4 +65,44 @@ public class Phase extends BaseDomain {
     public void setRepetitions(int repetitions) {
         this.repetitions = repetitions;
     }
+
+    public Phase withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public Phase withName(String name) {
+        setName(name);
+        return this;
+    }
+
+    public Phase withUpZone(int upZone) {
+        setUpZone(upZone);
+        return this;
+    }
+
+    public Phase withDownZone(int downZone) {
+        setDownZone(downZone);
+        return this;
+    }
+
+    public Phase withMain(boolean isMain) {
+        setMain(isMain);
+        return this;
+    }
+
+    public Phase withCurrentRound(int currentRound) {
+        setCurrentRound(currentRound);
+        return this;
+    }
+
+    public Phase withSeason(Season season) {
+        setSeason(season);
+        return this;
+    }
+
+    public Phase withRepetitions(int repetitions) {
+        setRepetitions(repetitions);
+        return this;
+    }
 }

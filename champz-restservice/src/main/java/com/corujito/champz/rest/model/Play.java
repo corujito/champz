@@ -65,4 +65,44 @@ public class Play extends BaseDomain {
     public void setComment(String comment) {
         this.comment = comment;
     }
+
+    public Play withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public Play withMatch(Match match) {
+        setMatch(match);
+        return this;
+    }
+
+    public Play withPlayer(Attendance player) {
+        setPlayer(player);
+        return this;
+    }
+
+    public Play withSecondaryPlayer(Attendance secondaryPlayer) {
+        setSecondaryPlayer(secondaryPlayer);
+        return this;
+    }
+
+    public Play withMinute(int minute) {
+        setMinute(minute);
+        return this;
+    }
+
+    public Play withPeriod(int period) {
+        setPeriod(period);
+        return this;
+    }
+
+    public Play withType(PlayType type) {
+        setType(type);
+        return this;
+    }
+
+    public Play withComment(String comment) {
+        setComment(comment);
+        return this;
+    }
 }

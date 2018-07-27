@@ -68,4 +68,44 @@ public class Player extends BaseDomain {
     public void setPassages(List<Passage> passages) {
         this.passages = passages;
     }
+
+    public Player withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public Player withFullName(String fullName) {
+        setFullName(fullName);
+        return this;
+    }
+
+    public Player withPopularName(String popularName) {
+        setPopularName(popularName);
+        return this;
+    }
+
+    public Player withBirth(Date birth) {
+        setBirth(birth);
+        return this;
+    }
+
+    public Player withUser(User user) {
+        setUser(user);
+        return this;
+    }
+
+    public Player withBirthLocation(Location birthLocation) {
+        setBirthLocation(birthLocation);
+        return this;
+    }
+
+    public Player withPhotoImage(String photoImage) {
+        setPhotoImage(photoImage);
+        return this;
+    }
+
+    public Player withPassages(List<Passage> passages) {
+        setPassages(passages);
+        return this;
+    }
 }

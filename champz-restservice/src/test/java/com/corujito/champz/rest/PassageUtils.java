@@ -4,8 +4,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import java.util.Date;
 import com.corujito.champz.rest.model.Passage;
-import com.corujito.champz.rest.model.Player;
-import com.corujito.champz.rest.model.Team;
 import com.corujito.champz.rest.repository.entity.PassageEntity;
 
 public class PassageUtils {
@@ -25,17 +23,8 @@ public class PassageUtils {
     }
 
     public static Passage createPassage(String id) {
-        Passage passage = new Passage();
-        passage.setId(id);
-        passage.setBegin(new Date());
-        passage.setEnd(new Date());
-        Player player = new Player();
-        player.setId("playerId");
-        passage.setPlayer(player);
-        Team team = new Team();
-        team.setId("teamId");
-        passage.setTeam(team);
-        return passage;
+        return new Passage().withId(id).withBegin(new Date()).withEnd(new Date())
+                .withPlayer(PlayerUtils.createPlayer("playerId")).withTeam(TeamUtils.createTeam("teamId"));
     }
 
     public static void assertObjects(PassageEntity entity, Passage passage) {

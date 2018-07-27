@@ -20,4 +20,19 @@ public class Participant extends BaseDomain {
     public void setTeam(Team team) {
         this.team = team;
     }
+
+    public Participant withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public Participant withSeason(Season season) {
+        setSeason(season);
+        return this;
+    }
+
+    public Participant withTeam(Team team) {
+        setTeam(team);
+        return this;
+    }
 }

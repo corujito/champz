@@ -65,4 +65,44 @@ public class Attendance extends BaseDomain {
     public void setScore(int score) {
         this.score = score;
     }
+
+    public Attendance withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public Attendance withPlayer(Player player) {
+        setPlayer(player);
+        return this;
+    }
+
+    public Attendance withMatch(Match match) {
+        setMatch(match);
+        return this;
+    }
+
+    public Attendance withTeam(Team team) {
+        setTeam(team);
+        return this;
+    }
+
+    public Attendance withStartedMatch(boolean startedMatch) {
+        setStartedMatch(startedMatch);
+        return this;
+    }
+
+    public Attendance withMacroPosition(String macroPosition) {
+        setMacroPosition(macroPosition);
+        return this;
+    }
+
+    public Attendance withPosition(String position) {
+        setPosition(position);
+        return this;
+    }
+
+    public Attendance withScore(int score) {
+        setScore(score);
+        return this;
+    }
 }

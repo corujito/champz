@@ -19,10 +19,7 @@ public class UserUtils {
     }
 
     public static User createUser(String id) {
-        User user = new User();
-        user.setId(id);
-        user.setName("name");
-        return user;
+        return new User().withId(id).withName("name");
     }
 
     public static void assertObjects(UserEntity entity, User user) {

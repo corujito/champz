@@ -28,22 +28,9 @@ public class PlayUtils {
     }
 
     public static Play createPlay(String id) {
-        Play play = new Play();
-        play.setId(id);
-        play.setComment("comment");
-        Match match = new Match();
-        match.setId("matchId");
-        play.setMatch(match);
-        play.setMinute(12);
-        play.setPeriod(2);
-        Attendance player = new Attendance();
-        player.setId("playerId");
-        play.setPlayer(player);
-        Attendance player2 = new Attendance();
-        player2.setId("secondaryPlayerId");
-        play.setSecondaryPlayer(player2);
-        play.setType(PlayType.GOAL);
-        return play;
+        return new Play().withId(id).withComment("comment").withMatch(new Match().withId("matchId"))
+                .withMinute(12).withPeriod(2).withPlayer(new Attendance().withId("playerId"))
+                .withSecondaryPlayer(new Attendance().withId("secondaryPlayerId")).withType(PlayType.GOAL);
     }
 
     public static void assertObjects(PlayEntity entity, Play play) {

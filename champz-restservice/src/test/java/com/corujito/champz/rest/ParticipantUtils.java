@@ -3,8 +3,6 @@ package com.corujito.champz.rest;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import com.corujito.champz.rest.model.Participant;
-import com.corujito.champz.rest.model.Season;
-import com.corujito.champz.rest.model.Team;
 import com.corujito.champz.rest.repository.entity.ParticipantEntity;
 
 public class ParticipantUtils {
@@ -22,15 +20,8 @@ public class ParticipantUtils {
     }
 
     public static Participant createParticipant(String id) {
-        Participant participant = new Participant();
-        participant.setId(id);
-        Season season = new Season();
-        season.setId("seasonId");
-        participant.setSeason(season);
-        Team team = new Team();
-        team.setId("teamId");
-        participant.setTeam(team);
-        return participant;
+        return new Participant().withId(id).withSeason(SeasonUtils.createSeason("seasonId"))
+                .withTeam(TeamUtils.createTeam("teamId"));
     }
 
     public static void assertObjects(ParticipantEntity entity, Participant participant) {

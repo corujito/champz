@@ -22,14 +22,8 @@ public class SeasonUtils {
     }
 
     public static Season createSeason(String id) {
-        Season season = new Season();
-        season.setId(id);
-        season.setTitle("title");
-        season.setRegulation("regulation");
-        Championship championship = new Championship();
-        championship.setId("1");
-        season.setChampionship(championship);
-        return season;
+        return new Season().withId(id).withTitle("title").withRegulation("regulation")
+                .withChampionship(new Championship().withId("champId"));
     }
 
     public static void assertObjects(SeasonEntity entity, Season season) {

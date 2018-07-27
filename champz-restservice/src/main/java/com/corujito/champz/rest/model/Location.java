@@ -29,4 +29,19 @@ public class Location {
     public void setCity(Integer city) {
         this.city = city;
     }
+
+    public Location withCountry(Integer country) {
+        setCountry(country);
+        return this;
+    }
+
+    public Location withState(Integer state) {
+        setState(state);
+        return this;
+    }
+
+    public Location withCity(Integer city) {
+        setCity(city);
+        return this;
+    }
 }

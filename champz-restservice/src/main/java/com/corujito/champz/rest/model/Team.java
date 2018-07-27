@@ -85,4 +85,54 @@ public class Team extends BaseDomain {
     public void setPassages(List<Passage> passages) {
         this.passages = passages;
     }
+
+    public Team withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public Team withUser(User user) {
+        setUser(user);
+        return this;
+    }
+
+    public Team withName(String name) {
+        setName(name);
+        return this;
+    }
+
+    public Team withNickname(String nickname) {
+        setNickname(nickname);
+        return this;
+    }
+
+    public Team withPopularName(String popularName) {
+        setPopularName(popularName);
+        return this;
+    }
+
+    public Team withType(TeamType type) {
+        setType(type);
+        return this;
+    }
+
+    public Team withTeamLocation(Location teamLocation) {
+        setTeamLocation(teamLocation);
+        return this;
+    }
+
+    public Team withSymbolImage(String symbolImage) {
+        setSymbolImage(symbolImage);
+        return this;
+    }
+
+    public Team withJerseyImage(String jerseyImage) {
+        setJerseyImage(jerseyImage);
+        return this;
+    }
+
+    public Team withPaassages(List<Passage> passages) {
+        setPassages(passages);
+        return this;
+    }
 }
