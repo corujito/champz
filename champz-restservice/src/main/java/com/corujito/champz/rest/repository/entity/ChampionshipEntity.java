@@ -7,6 +7,7 @@ public class ChampionshipEntity extends BaseEntity {
 
     private String name;
     private String description;
+    private String userId;
 
     public String getName() {
         return name;
@@ -22,5 +23,13 @@ public class ChampionshipEntity extends BaseEntity {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

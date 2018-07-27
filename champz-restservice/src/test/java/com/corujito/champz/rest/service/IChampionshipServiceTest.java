@@ -16,6 +16,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.corujito.champz.rest.ChampionshipUtils;
 import com.corujito.champz.rest.model.Championship;
 import com.corujito.champz.rest.repository.IChampionshipRepository;
 import com.corujito.champz.rest.repository.entity.ChampionshipEntity;
@@ -32,7 +33,7 @@ public class IChampionshipServiceTest {
 
     @Test
     public void testGetChampionship() throws Exception {
-        Optional<ChampionshipEntity> x = Optional.of(createChampionshipEntity("1"));
+        Optional<ChampionshipEntity> x = Optional.of(ChampionshipUtils.createChampionshipEntity("1"));
         when(repository.findById("1")).thenReturn(x);
 
         Championship championship = championshipService.getChampionship("1");
@@ -41,7 +42,7 @@ public class IChampionshipServiceTest {
 
     @Test
     public void testAddChampionship() {
-        ChampionshipEntity c = createChampionshipEntity("1");
+        ChampionshipEntity c = ChampionshipUtils.createChampionshipEntity("1");
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Championship championship = championshipService.addChampionship(new Championship());
@@ -50,7 +51,7 @@ public class IChampionshipServiceTest {
 
     @Test
     public void testUpdateChampionship() {
-        ChampionshipEntity c = createChampionshipEntity("1");
+        ChampionshipEntity c = ChampionshipUtils.createChampionshipEntity("1");
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Championship championship = championshipService.updateChampionship(new Championship());
@@ -59,7 +60,8 @@ public class IChampionshipServiceTest {
 
     @Test
     public void testGetAllChampionships() {
-        List<ChampionshipEntity> entities = Arrays.asList(createChampionshipEntity("1"), createChampionshipEntity("2"));
+        List<ChampionshipEntity> entities = Arrays.asList(ChampionshipUtils.createChampionshipEntity("1"),
+                ChampionshipUtils.createChampionshipEntity("2"));
         when(repository.findAll()).thenReturn(entities);
 
         List<Championship> championships = championshipService.getAllChampionships();
@@ -71,13 +73,4 @@ public class IChampionshipServiceTest {
         championshipService.deleteChampionship("1");
         verify(repository, times(1)).deleteById("1");
     }
-
-    private ChampionshipEntity createChampionshipEntity(String id) {
-        ChampionshipEntity championship = new ChampionshipEntity();
-        championship.setId(id);
-        championship.setDescription("description");
-        championship.setName("name");
-        return championship;
-    }
-
 }

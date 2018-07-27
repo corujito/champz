@@ -3,6 +3,7 @@ package com.corujito.champz.rest.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.corujito.champz.rest.model.Championship;
@@ -12,13 +13,15 @@ import com.corujito.champz.rest.repository.entity.ChampionshipEntity;
 @Service
 public class ChampionshipServiceImpl implements IChampionshipService {
 
+    ModelMapper modelMapper = new ModelMapper();
+
     @Autowired
     private IChampionshipRepository repository;
 
     @Override
     public Championship getChampionship(String id) {
         Optional<ChampionshipEntity> opt = repository.findById(id);
-        return opt.map(entity -> mapChampionship(entity)).orElse(null);
+        return opt.map(c -> modelMapper.map(c, Championship.class)).orElse(null);
     }
 
     @Override
@@ -26,15 +29,15 @@ public class ChampionshipServiceImpl implements IChampionshipService {
         List<Championship> championships = new ArrayList<>();
         List<ChampionshipEntity> entities = repository.findAll();
         for (ChampionshipEntity entity : entities) {
-            championships.add(mapChampionship(entity));
+            championships.add(modelMapper.map(entity, Championship.class));
         }
         return championships;
     }
 
     @Override
     public Championship addChampionship(Championship championship) {
-        ChampionshipEntity entity = repository.save(mapChampionship(championship));
-        return mapChampionship(entity);
+        ChampionshipEntity entity = repository.save(modelMapper.map(championship, ChampionshipEntity.class));
+        return modelMapper.map(entity, Championship.class);
     }
 
     @Override
@@ -45,21 +48,5 @@ public class ChampionshipServiceImpl implements IChampionshipService {
     @Override
     public void deleteChampionship(String id) {
         repository.deleteById(id);
-    }
-
-    private Championship mapChampionship(ChampionshipEntity entity) {
-        Championship championship = new Championship();
-        championship.setId(entity.getId());
-        championship.setDescription(entity.getDescription());
-        championship.setName(entity.getName());
-        return championship;
-    }
-
-    private ChampionshipEntity mapChampionship(Championship object) {
-        ChampionshipEntity entity = new ChampionshipEntity();
-        entity.setId(object.getId());
-        entity.setDescription(object.getDescription());
-        entity.setName(object.getName());
-        return entity;
     }
 }
