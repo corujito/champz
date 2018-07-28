@@ -7,9 +7,6 @@ import com.corujito.champz.rest.model.MatchStatus;
 @Document(collection = "matches")
 public class MatchEntity extends BaseEntity {
 
-    private String seasonId;
-    private String homeTeamId;
-    private String awayTeamId;
     private int homeScore;
     private int awayScore;
     private int homeExtraTimeScore;
@@ -19,8 +16,16 @@ public class MatchEntity extends BaseEntity {
     private int round;
     private Date originalDate;
     private Date matchDate;
+    private String locale;
+    private String title;
+    private String subTitle;
     private MatchStatus status;
+
+    private String seasonId;
     private String phaseId;
+    private String groupId;
+    private String homeTeamId;
+    private String awayTeamId;
 
     public String getSeasonId() {
         return seasonId;
@@ -132,5 +137,132 @@ public class MatchEntity extends BaseEntity {
 
     public void setPhaseId(String phaseId) {
         this.phaseId = phaseId;
+    }
+
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getSubTitle() {
+        return subTitle;
+    }
+
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
+
+    public String getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(String groupId) {
+        this.groupId = groupId;
+    }
+
+    public MatchEntity withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public MatchEntity withLocale(String locale) {
+        setLocale(locale);
+        return this;
+    }
+
+    public MatchEntity withTitle(String title) {
+        setTitle(title);
+        return this;
+    }
+
+    public MatchEntity withSubTitle(String subTitle) {
+        setSubTitle(subTitle);
+        return this;
+    }
+
+    public MatchEntity withSeasonId(String seasonId) {
+        setSeasonId(seasonId);
+        return this;
+    }
+
+    public MatchEntity withGroupId(String groupId) {
+        setGroupId(groupId);
+        return this;
+    }
+
+    public MatchEntity withHomeTeamId(String homeTeamId) {
+        setHomeTeamId(homeTeamId);
+        return this;
+    }
+
+    public MatchEntity withAwayTeamId(String awayTeamId) {
+        setAwayTeamId(awayTeamId);
+        return this;
+    }
+
+    public MatchEntity withHomeScore(int homeScore) {
+        setHomeScore(homeScore);
+        return this;
+    }
+
+    public MatchEntity withAwayScore(int awayScore) {
+        setAwayScore(awayScore);
+        return this;
+    }
+
+    public MatchEntity withHomeExtraTimeScore(int homeExtraTimeScore) {
+        setHomeExtraTimeScore(homeExtraTimeScore);
+        return this;
+    }
+
+    public MatchEntity withAwayExtraTimeScore(int awayExtraTimeScore) {
+        setAwayExtraTimeScore(awayExtraTimeScore);
+        return this;
+    }
+
+    public MatchEntity withHomePenaltyScore(int homePenaltyScore) {
+        setHomePenaltyScore(homePenaltyScore);
+        return this;
+    }
+
+    public MatchEntity withAwayPenaltyScore(int awayPenaltyScore) {
+        setAwayPenaltyScore(awayPenaltyScore);
+        return this;
+    }
+
+    public MatchEntity withRound(int round) {
+        setRound(round);
+        return this;
+    }
+
+    public MatchEntity withOriginalDate(Date originalDate) {
+        setOriginalDate(originalDate);
+        return this;
+    }
+
+    public MatchEntity withMatchDate(Date matchDate) {
+        setMatchDate(matchDate);
+        return this;
+    }
+
+    public MatchEntity withStatus(MatchStatus status) {
+        setStatus(status);
+        return this;
+    }
+
+    public MatchEntity withPhaseId(String phaseId) {
+        setPhaseId(phaseId);
+        return this;
     }
 }

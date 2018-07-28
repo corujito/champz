@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.corujito.champz.rest.model.Attendance;
+import com.corujito.champz.rest.model.PlayerMatchAttendance;
 import com.corujito.champz.rest.service.IAttendanceService;
 
 @RestController
@@ -25,25 +25,25 @@ public class AttendanceResource {
     IAttendanceService attendanceService;
 
     @GetMapping(path = "/{id}")
-    public Attendance getAttendance(@PathVariable String id) {
+    public PlayerMatchAttendance getAttendance(@PathVariable String id) {
         LOGGER.debug("Attendance.getAttendance {}", id);
         return attendanceService.getAttendance(id);
     }
 
     @GetMapping
-    public List<Attendance> getAllAttendances() {
+    public List<PlayerMatchAttendance> getAllAttendances() {
         LOGGER.debug("Attendance.getAllAttendances");
         return attendanceService.getAllAttendances();
     }
 
     @PostMapping
-    public Attendance addAttendance(@RequestBody Attendance attendance) {
+    public PlayerMatchAttendance addAttendance(@RequestBody PlayerMatchAttendance attendance) {
         LOGGER.debug("Attendance.addAttendance");
         return attendanceService.addAttendance(attendance);
     }
 
     @PutMapping(path = "/{id}")
-    public Attendance updateAttendance(@PathVariable String id, @RequestBody Attendance attendance) {
+    public PlayerMatchAttendance updateAttendance(@PathVariable String id, @RequestBody PlayerMatchAttendance attendance) {
         LOGGER.debug("Attendance.updateAttendance {}", id);
         return attendanceService.updateAttendance(attendance);
     }

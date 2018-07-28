@@ -1,14 +1,20 @@
 package com.corujito.champz.rest.model;
 
+import java.util.List;
+
 public class Phase extends BaseDomain {
 
+    private int order;
     private String name;
     private int upZone;
     private int downZone;
     private boolean isMain;
     private int currentRound;
-    private Season season;
     private int repetitions;
+    private PhaseType type;
+
+    private Season season;
+    private List<Group> groups;
 
     public String getName() {
         return name;
@@ -66,6 +72,30 @@ public class Phase extends BaseDomain {
         this.repetitions = repetitions;
     }
 
+    public int getOrder() {
+        return order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
+    }
+
+    public PhaseType getType() {
+        return type;
+    }
+
+    public void setType(PhaseType type) {
+        this.type = type;
+    }
+
+    public List<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(List<Group> groups) {
+        this.groups = groups;
+    }
+
     public Phase withId(String id) {
         setId(id);
         return this;
@@ -103,6 +133,21 @@ public class Phase extends BaseDomain {
 
     public Phase withRepetitions(int repetitions) {
         setRepetitions(repetitions);
+        return this;
+    }
+
+    public Phase withGroups(List<Group> groups) {
+        setGroups(groups);
+        return this;
+    }
+
+    public Phase withOrder(int order) {
+        setOrder(order);
+        return this;
+    }
+
+    public Phase withType(PhaseType type) {
+        setType(type);
         return this;
     }
 }

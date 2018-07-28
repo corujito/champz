@@ -7,14 +7,15 @@ import com.corujito.champz.rest.model.TeamType;
 @Document(collection = "teams")
 public class TeamEntity extends BaseEntity {
 
-    private String userId;
     private String name;
-    private String nickname;
     private String popularName;
-    private TeamType type;
-    private Location teamLocation;
+    private String nickname;
     private String symbolImage;
     private String jerseyImage;
+    private Location teamLocation;
+    private TeamType type;
+
+    private String userId;
 
     public String getUserId() {
         return userId;
@@ -78,5 +79,50 @@ public class TeamEntity extends BaseEntity {
 
     public void setJerseyImage(String jerseyImage) {
         this.jerseyImage = jerseyImage;
+    }
+
+    public TeamEntity withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public TeamEntity withUserId(String userId) {
+        setUserId(userId);
+        return this;
+    }
+
+    public TeamEntity withName(String name) {
+        setName(name);
+        return this;
+    }
+
+    public TeamEntity withNickname(String nickname) {
+        setNickname(nickname);
+        return this;
+    }
+
+    public TeamEntity withPopularName(String popularName) {
+        setPopularName(popularName);
+        return this;
+    }
+
+    public TeamEntity withType(TeamType type) {
+        setType(type);
+        return this;
+    }
+
+    public TeamEntity withTeamLocation(Location teamLocation) {
+        setTeamLocation(teamLocation);
+        return this;
+    }
+
+    public TeamEntity withSymbolImage(String symbolImage) {
+        setSymbolImage(symbolImage);
+        return this;
+    }
+
+    public TeamEntity withJerseyImage(String jerseyImage) {
+        setJerseyImage(jerseyImage);
+        return this;
     }
 }

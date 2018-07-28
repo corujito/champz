@@ -7,11 +7,16 @@ public class Player extends BaseDomain {
 
     private String fullName;
     private String popularName;
+    private String nickName;
+    private String rg;
+    private String cpf;
     private Date birth;
-    private User user;
     private Location birthLocation;
     private String photoImage;
-    private List<Passage> passages;
+
+    private User user;
+    private List<PlayerTeamPassage> passages;
+    private List<PlayerInscription> inscriptions;
 
     public String getFullName() {
         return fullName;
@@ -61,12 +66,44 @@ public class Player extends BaseDomain {
         this.photoImage = photoImage;
     }
 
-    public List<Passage> getPassages() {
+    public List<PlayerTeamPassage> getPassages() {
         return passages;
     }
 
-    public void setPassages(List<Passage> passages) {
+    public void setPassages(List<PlayerTeamPassage> passages) {
         this.passages = passages;
+    }
+
+    public String getNickName() {
+        return nickName;
+    }
+
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public List<PlayerInscription> getInscriptions() {
+        return inscriptions;
+    }
+
+    public void setInscriptions(List<PlayerInscription> inscriptions) {
+        this.inscriptions = inscriptions;
     }
 
     public Player withId(String id) {
@@ -81,6 +118,21 @@ public class Player extends BaseDomain {
 
     public Player withPopularName(String popularName) {
         setPopularName(popularName);
+        return this;
+    }
+
+    public Player withNickName(String nickName) {
+        setNickName(nickName);
+        return this;
+    }
+
+    public Player withRg(String rg) {
+        setRg(rg);
+        return this;
+    }
+
+    public Player withCpf(String cpf) {
+        setCpf(cpf);
         return this;
     }
 
@@ -104,8 +156,13 @@ public class Player extends BaseDomain {
         return this;
     }
 
-    public Player withPassages(List<Passage> passages) {
+    public Player withPassages(List<PlayerTeamPassage> passages) {
         setPassages(passages);
+        return this;
+    }
+
+    public Player withInscriptions(List<PlayerInscription> inscriptions) {
+        setInscriptions(inscriptions);
         return this;
     }
 }

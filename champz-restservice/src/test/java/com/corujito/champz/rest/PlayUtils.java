@@ -2,10 +2,9 @@ package com.corujito.champz.rest;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
-import com.corujito.champz.rest.model.Attendance;
-import com.corujito.champz.rest.model.Match;
 import com.corujito.champz.rest.model.Play;
 import com.corujito.champz.rest.model.PlayType;
+import com.corujito.champz.rest.model.PlayerMatchAttendance;
 import com.corujito.champz.rest.repository.entity.PlayEntity;
 
 public class PlayUtils {
@@ -15,22 +14,14 @@ public class PlayUtils {
     }
 
     public static PlayEntity createPlayEntity(String id) {
-        PlayEntity entity = new PlayEntity();
-        entity.setId(id);
-        entity.setComment("comment");
-        entity.setMatchId("matchId");
-        entity.setMinute(12);
-        entity.setPeriod(2);
-        entity.setPlayerId("playerId");
-        entity.setSecondaryPlayerId("secondaryPlayerId");
-        entity.setType(PlayType.GOAL);
-        return entity;
+        return new PlayEntity().withId(id).withComment("comment").withMatchId("matchId").withMinute(12).withPeriod(2)
+                .withPlayerId("playerId").withSecondaryPlayerId("secondaryPlayerId").withType(PlayType.GOAL);
     }
 
     public static Play createPlay(String id) {
-        return new Play().withId(id).withComment("comment").withMatch(new Match().withId("matchId"))
-                .withMinute(12).withPeriod(2).withPlayer(new Attendance().withId("playerId"))
-                .withSecondaryPlayer(new Attendance().withId("secondaryPlayerId")).withType(PlayType.GOAL);
+        return new Play().withId(id).withComment("comment").withMatch(MatchUtils.createMatch("matchId"))
+                .withMinute(12).withPeriod(2).withPlayer(new PlayerMatchAttendance().withId("playerId"))
+                .withSecondaryPlayer(new PlayerMatchAttendance().withId("secondaryPlayerId")).withType(PlayType.GOAL);
     }
 
     public static void assertObjects(PlayEntity entity, Play play) {

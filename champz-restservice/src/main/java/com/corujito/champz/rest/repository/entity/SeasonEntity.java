@@ -32,4 +32,24 @@ public class SeasonEntity extends BaseEntity {
     public void setChampionshipId(String championshipId) {
         this.championshipId = championshipId;
     }
+
+    public SeasonEntity withId(String id) {
+        setId(id);
+        return this;
+    }
+
+    public SeasonEntity withTitle(String title) {
+        setTitle(title);
+        return this;
+    }
+
+    public SeasonEntity withRegulation(String regulation) {
+        setRegulation(regulation);
+        return this;
+    }
+
+    public SeasonEntity withChampionshipId(String championshipId) {
+        setChampionshipId(championshipId);
+        return this;
+    }
 }

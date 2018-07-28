@@ -4,6 +4,8 @@ public class User extends BaseDomain {
 
     private String name;
     private String email;
+    private String rg;
+    private String cpf;
 
     public String getName() {
         return name;
@@ -21,6 +23,22 @@ public class User extends BaseDomain {
         this.email = email;
     }
 
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
     public User withId(String id) {
         setId(id);
         return this;
@@ -33,6 +51,16 @@ public class User extends BaseDomain {
 
     public User withEmail(String email) {
         setEmail(email);
+        return this;
+    }
+
+    public User withRg(String rg) {
+        setRg(rg);
+        return this;
+    }
+
+    public User withCpf(String cpf) {
+        setCpf(cpf);
         return this;
     }
 }

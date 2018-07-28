@@ -5,9 +5,6 @@ import java.util.List;
 
 public class Match extends BaseDomain {
 
-    private Season season;
-    private Team homeTeam;
-    private Team awayTeam;
     private int homeScore;
     private int awayScore;
     private int homeExtraTimeScore;
@@ -17,10 +14,18 @@ public class Match extends BaseDomain {
     private int round;
     private Date originalDate;
     private Date matchDate;
+    private String locale;
+    private String title;
+    private String subTitle;
     private MatchStatus status;
+
+    private Season season;
     private Phase phase;
-    private List<Attendance> homePlayers;
-    private List<Attendance> awayPlayers;
+    private Group group;
+    private Team homeTeam;// participation?
+    private Team awayTeam;
+    private List<PlayerMatchAttendance> homePlayers;
+    private List<PlayerMatchAttendance> awayPlayers;
     private List<Play> plays;
 
     public Season getSeason() {
@@ -135,19 +140,19 @@ public class Match extends BaseDomain {
         this.phase = phase;
     }
 
-    public List<Attendance> getHomePlayers() {
+    public List<PlayerMatchAttendance> getHomePlayers() {
         return homePlayers;
     }
 
-    public void setHomePlayers(List<Attendance> homePlayers) {
+    public void setHomePlayers(List<PlayerMatchAttendance> homePlayers) {
         this.homePlayers = homePlayers;
     }
 
-    public List<Attendance> getAwayPlayers() {
+    public List<PlayerMatchAttendance> getAwayPlayers() {
         return awayPlayers;
     }
 
-    public void setAwayPlayers(List<Attendance> awayPlayers) {
+    public void setAwayPlayers(List<PlayerMatchAttendance> awayPlayers) {
         this.awayPlayers = awayPlayers;
     }
 
@@ -159,8 +164,55 @@ public class Match extends BaseDomain {
         this.plays = plays;
     }
 
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getSubTitle() {
+        return subTitle;
+    }
+
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
     public Match withId(String id) {
         setId(id);
+        return this;
+    }
+
+    public Match withLocale(String locale) {
+        setLocale(locale);
+        return this;
+    }
+
+    public Match withTitle(String title) {
+        setTitle(title);
+        return this;
+    }
+
+    public Match withSubTitle(String subTitle) {
+        setSubTitle(subTitle);
         return this;
     }
 
@@ -234,12 +286,17 @@ public class Match extends BaseDomain {
         return this;
     }
 
-    public Match withHomePlayers(List<Attendance> homePlayers) {
+    public Match withGroup(Group group) {
+        setGroup(group);
+        return this;
+    }
+
+    public Match withHomePlayers(List<PlayerMatchAttendance> homePlayers) {
         setHomePlayers(homePlayers);
         return this;
     }
 
-    public Match withAwayPlayers(List<Attendance> awayPlayers) {
+    public Match withAwayPlayers(List<PlayerMatchAttendance> awayPlayers) {
         setAwayPlayers(awayPlayers);
         return this;
     }

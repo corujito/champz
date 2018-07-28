@@ -7,7 +7,9 @@ public class Season extends BaseDomain {
     private String title;
     private String regulation;
     private Championship championship;
-    private List<Participant> teams;
+    private List<TeamSeasonParticipant> teams;
+    private List<PlayerInscription> playerInscriptions;
+    private List<Phase> phases;
 
     public String getTitle() {
         return title;
@@ -33,16 +35,42 @@ public class Season extends BaseDomain {
         this.championship = championship;
     }
 
-    public List<Participant> getTeams() {
+    public List<TeamSeasonParticipant> getTeams() {
         return teams;
     }
 
-    public void setTeams(List<Participant> teams) {
+    public void setTeams(List<TeamSeasonParticipant> teams) {
         this.teams = teams;
+    }
+
+    public List<PlayerInscription> getPlayerInscriptions() {
+        return playerInscriptions;
+    }
+
+    public void setPlayerInscriptions(List<PlayerInscription> playerInscriptions) {
+        this.playerInscriptions = playerInscriptions;
+    }
+
+    public List<Phase> getPhases() {
+        return phases;
+    }
+
+    public void setPhases(List<Phase> phases) {
+        this.phases = phases;
     }
 
     public Season withId(String id) {
         setId(id);
+        return this;
+    }
+
+    public Season withPhases(List<Phase> phases) {
+        setPhases(phases);
+        return this;
+    }
+
+    public Season withPlayerInscriptions(List<PlayerInscription> playerInscriptions) {
+        setPlayerInscriptions(playerInscriptions);
         return this;
     }
 
@@ -61,7 +89,7 @@ public class Season extends BaseDomain {
         return this;
     }
 
-    public Season withTeams(List<Participant> teams) {
+    public Season withTeams(List<TeamSeasonParticipant> teams) {
         setTeams(teams);
         return this;
     }

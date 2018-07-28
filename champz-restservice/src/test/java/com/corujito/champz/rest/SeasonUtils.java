@@ -2,7 +2,6 @@ package com.corujito.champz.rest;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
-import com.corujito.champz.rest.model.Championship;
 import com.corujito.champz.rest.model.Season;
 import com.corujito.champz.rest.repository.entity.SeasonEntity;
 
@@ -13,17 +12,13 @@ public class SeasonUtils {
     }
 
     public static SeasonEntity createSeasonEntity(String id) {
-        SeasonEntity entity = new SeasonEntity();
-        entity.setId(id);
-        entity.setTitle("title");
-        entity.setRegulation("regulation");
-        entity.setChampionshipId("1");
-        return entity;
+        return new SeasonEntity().withId(id).withTitle("title").withRegulation("regulation")
+                .withChampionshipId("champId");
     }
 
     public static Season createSeason(String id) {
         return new Season().withId(id).withTitle("title").withRegulation("regulation")
-                .withChampionship(new Championship().withId("champId"));
+                .withChampionship(ChampionshipUtils.createChampionship("champId"));
     }
 
     public static void assertObjects(SeasonEntity entity, Season season) {

@@ -17,9 +17,9 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.corujito.champz.rest.AttendanceUtils;
-import com.corujito.champz.rest.model.Attendance;
+import com.corujito.champz.rest.model.PlayerMatchAttendance;
 import com.corujito.champz.rest.repository.IAttendanceRepository;
-import com.corujito.champz.rest.repository.entity.AttendanceEntity;
+import com.corujito.champz.rest.repository.entity.PlayerMatchAttendanceEntity;
 
 @RunWith(MockitoJUnitRunner.class)
 public class IAttendanceServiceTest {
@@ -33,38 +33,38 @@ public class IAttendanceServiceTest {
 
     @Test
     public void testGetAttendance() throws Exception {
-        Optional<AttendanceEntity> x = Optional.of(AttendanceUtils.createAttendanceEntity("1"));
+        Optional<PlayerMatchAttendanceEntity> x = Optional.of(AttendanceUtils.createAttendanceEntity("1"));
         when(repository.findById("1")).thenReturn(x);
 
-        Attendance attendance = attendanceService.getAttendance("1");
+        PlayerMatchAttendance attendance = attendanceService.getAttendance("1");
         assertThat(attendance, notNullValue());
     }
 
     @Test
     public void testAddAttendance() {
-        AttendanceEntity c = AttendanceUtils.createAttendanceEntity("1");
+        PlayerMatchAttendanceEntity c = AttendanceUtils.createAttendanceEntity("1");
         when(repository.save(Mockito.any())).thenReturn(c);
 
-        Attendance attendance = attendanceService.addAttendance(new Attendance());
+        PlayerMatchAttendance attendance = attendanceService.addAttendance(new PlayerMatchAttendance());
         assertThat(attendance, notNullValue());
     }
 
     @Test
     public void testUpdateAttendance() {
-        AttendanceEntity c = AttendanceUtils.createAttendanceEntity("1");
+        PlayerMatchAttendanceEntity c = AttendanceUtils.createAttendanceEntity("1");
         when(repository.save(Mockito.any())).thenReturn(c);
 
-        Attendance attendance = attendanceService.updateAttendance(new Attendance());
+        PlayerMatchAttendance attendance = attendanceService.updateAttendance(new PlayerMatchAttendance());
         assertThat(attendance, notNullValue());
     }
 
     @Test
     public void testGetAllAttendances() {
-        List<AttendanceEntity> entities = Arrays.asList(AttendanceUtils.createAttendanceEntity("1"),
+        List<PlayerMatchAttendanceEntity> entities = Arrays.asList(AttendanceUtils.createAttendanceEntity("1"),
                 AttendanceUtils.createAttendanceEntity("2"));
         when(repository.findAll()).thenReturn(entities);
 
-        List<Attendance> attendances = attendanceService.getAllAttendances();
+        List<PlayerMatchAttendance> attendances = attendanceService.getAllAttendances();
         assertEquals(attendances.size(), entities.size());
     }
 

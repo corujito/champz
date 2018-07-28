@@ -1,18 +1,16 @@
 package com.corujito.champz.rest.model;
 
-import java.util.List;
-
 public class Team extends BaseDomain {
 
-    private User user;
     private String name;
-    private String nickname;
     private String popularName;
-    private TeamType type;
-    private Location teamLocation;
+    private String nickname;
     private String symbolImage;
     private String jerseyImage;
-    private List<Passage> passages;
+    private Location teamLocation;
+    private TeamType type;
+
+    private User user;
 
     public User getUser() {
         return user;
@@ -78,14 +76,6 @@ public class Team extends BaseDomain {
         this.jerseyImage = jerseyImage;
     }
 
-    public List<Passage> getPassages() {
-        return passages;
-    }
-
-    public void setPassages(List<Passage> passages) {
-        this.passages = passages;
-    }
-
     public Team withId(String id) {
         setId(id);
         return this;
@@ -128,11 +118,6 @@ public class Team extends BaseDomain {
 
     public Team withJerseyImage(String jerseyImage) {
         setJerseyImage(jerseyImage);
-        return this;
-    }
-
-    public Team withPaassages(List<Passage> passages) {
-        setPassages(passages);
         return this;
     }
 }

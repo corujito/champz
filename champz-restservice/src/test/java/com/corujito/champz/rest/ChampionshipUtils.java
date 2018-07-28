@@ -4,7 +4,6 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import com.corujito.champz.rest.model.Championship;
 import com.corujito.champz.rest.repository.entity.ChampionshipEntity;
-import com.corujito.champz.rest.repository.entity.UserEntity;
 
 public class ChampionshipUtils {
 
@@ -13,16 +12,7 @@ public class ChampionshipUtils {
     }
 
     public static ChampionshipEntity createChampionshipEntity(String id) {
-        ChampionshipEntity entity = new ChampionshipEntity();
-        entity.setId(id);
-        entity.setName("name");
-        entity.setDescription("description");
-        UserEntity user = new UserEntity();
-        user.setId("1");
-        user.setEmail("email");
-        user.setName("name");
-        entity.setUserId("1");
-        return entity;
+        return new ChampionshipEntity().withId(id).withName("name").withDescription("description").withUserId("1");
     }
 
     public static Championship createChampionship(String id) {

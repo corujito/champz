@@ -16,7 +16,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.corujito.champz.rest.AttendanceUtils;
-import com.corujito.champz.rest.model.Attendance;
+import com.corujito.champz.rest.model.PlayerMatchAttendance;
 import com.corujito.champz.rest.service.IAttendanceService;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -36,35 +36,35 @@ public class AttendanceResourceTest {
     public void testGetAttendance() throws Exception {
         when(attendanceService.getAttendance("1")).thenReturn(AttendanceUtils.createAttendance("1"));
 
-        Attendance attendance = attendanceResource.getAttendance("1");
+        PlayerMatchAttendance attendance = attendanceResource.getAttendance("1");
         assertThat(attendance, notNullValue());
     }
 
     @Test
     public void testAddAttendance() {
-        Attendance c = AttendanceUtils.createAttendance("1");
+        PlayerMatchAttendance c = AttendanceUtils.createAttendance("1");
         when(attendanceService.addAttendance(c)).thenReturn(c);
 
-        Attendance attendance = attendanceResource.addAttendance(c);
+        PlayerMatchAttendance attendance = attendanceResource.addAttendance(c);
         assertThat(attendance, notNullValue());
     }
 
     @Test
     public void testUpdateAttendance() {
-        Attendance c = AttendanceUtils.createAttendance("1");
+        PlayerMatchAttendance c = AttendanceUtils.createAttendance("1");
         when(attendanceService.updateAttendance(c)).thenReturn(c);
 
-        Attendance attendance = attendanceResource.updateAttendance(c.getId(), c);
+        PlayerMatchAttendance attendance = attendanceResource.updateAttendance(c.getId(), c);
         assertThat(attendance, notNullValue());
     }
 
     @Test
     public void testGetAllAttendances() {
-        List<Attendance> list =
+        List<PlayerMatchAttendance> list =
                 Arrays.asList(AttendanceUtils.createAttendance("1"), AttendanceUtils.createAttendance("2"));
         when(attendanceService.getAllAttendances()).thenReturn(list);
 
-        List<Attendance> attendances = attendanceResource.getAllAttendances();
+        List<PlayerMatchAttendance> attendances = attendanceResource.getAllAttendances();
         assertEquals(attendances.size(), list.size());
     }
 

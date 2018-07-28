@@ -10,23 +10,10 @@ import com.corujito.champz.rest.repository.entity.MatchEntity;
 public class MatchUtils {
 
     public static MatchEntity createMatchEntity() {
-        MatchEntity entity = new MatchEntity();
-        entity.setAwayExtraTimeScore(1);
-        entity.setAwayPenaltyScore(2);
-        entity.setAwayScore(3);
-        entity.setAwayTeamId("1");
-        entity.setHomeExtraTimeScore(5);
-        entity.setHomePenaltyScore(7);
-        entity.setHomeScore(1);
-        entity.setHomeTeamId("2");
-        entity.setId("1");
-        entity.setMatchDate(new Date());
-        entity.setOriginalDate(new Date());
-        entity.setPhaseId("1");
-        entity.setRound(8);
-        entity.setSeasonId("3");
-        entity.setStatus(MatchStatus.CANCELED);
-        return entity;
+        return new MatchEntity().withAwayExtraTimeScore(1).withAwayPenaltyScore(2).withAwayScore(3).withAwayTeamId("1")
+                .withHomeExtraTimeScore(5).withHomePenaltyScore(7).withHomeScore(1)
+                .withHomeTeamId("2").withId("1").withMatchDate(new Date()).withOriginalDate(new Date()).withPhaseId("1")
+                .withRound(8).withSeasonId("3").withStatus(MatchStatus.FINISHED);
     }
 
     public static Match createMatch(String id) {
@@ -35,7 +22,7 @@ public class MatchUtils {
                 .withHomeExtraTimeScore(5).withHomePenaltyScore(7).withHomeScore(1)
                 .withHomeTeam(TeamUtils.createTeam("homeTeamId"))
                 .withMatchDate(new Date()).withOriginalDate(new Date()).withPhase(PhaseUtils.createPhase("phaseId"))
-                .withRound(8).withSeason(SeasonUtils.createSeason("seasonId")).withStatus(MatchStatus.CANCELED);
+                .withRound(8).withSeason(SeasonUtils.createSeason("seasonId")).withStatus(MatchStatus.FINISHED);
     }
 
     public static void assertObjects(MatchEntity entity, Match match) {

@@ -1,17 +1,17 @@
 package com.corujito.champz.rest.service;
 
 import java.util.List;
-import com.corujito.champz.rest.model.Attendance;
+import com.corujito.champz.rest.model.PlayerMatchAttendance;
 
 public interface IAttendanceService {
 
-    Attendance getAttendance(String id);
+    PlayerMatchAttendance getAttendance(String id);
 
-    List<Attendance> getAllAttendances();
+    List<PlayerMatchAttendance> getAllAttendances();
 
-    Attendance addAttendance(Attendance attendance);
+    PlayerMatchAttendance addAttendance(PlayerMatchAttendance attendance);
 
-    Attendance updateAttendance(Attendance attendance);
+    PlayerMatchAttendance updateAttendance(PlayerMatchAttendance attendance);
 
     void deleteAttendance(String id);
 }

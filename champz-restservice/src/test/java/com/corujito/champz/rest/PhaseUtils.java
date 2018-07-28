@@ -3,6 +3,7 @@ package com.corujito.champz.rest;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 import com.corujito.champz.rest.model.Phase;
+import com.corujito.champz.rest.model.PhaseType;
 import com.corujito.champz.rest.repository.entity.PhaseEntity;
 
 public class PhaseUtils {
@@ -12,9 +13,8 @@ public class PhaseUtils {
     }
 
     public static PhaseEntity createPhaseEntity(String id) {
-        PhaseEntity entity = new PhaseEntity();
-        entity.setId(id);
-        return entity;
+        return new PhaseEntity().withId(id).withCurrentRound(1).withDownZone(2).withMain(true).withName("name")
+                .withRepetitions(3).withSeasonId("seasonId").withUpZone(9).withType(PhaseType.GROUPS_EXTERNAL_MATCHES);
     }
 
     public static Phase createPhase(String id) {
@@ -30,6 +30,7 @@ public class PhaseUtils {
         assertThat(phase.getRepetitions(), equalTo(entity.getRepetitions()));
         assertThat(phase.getSeason().getId(), equalTo(entity.getSeasonId()));
         assertThat(phase.getUpZone(), equalTo(entity.getUpZone()));
+        assertThat(phase.getType(), equalTo(entity.getType()));
     }
 
     public static void assertObjects(Phase c1, Phase c2) {
@@ -40,5 +41,6 @@ public class PhaseUtils {
         assertThat(c2.getRepetitions(), equalTo(c1.getRepetitions()));
         assertThat(c2.getSeason().getId(), equalTo(c1.getSeason().getId()));
         assertThat(c2.getUpZone(), equalTo(c1.getUpZone()));
+        assertThat(c2.getType(), equalTo(c1.getType()));
     }
 }

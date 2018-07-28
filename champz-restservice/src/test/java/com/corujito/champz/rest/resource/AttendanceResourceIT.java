@@ -19,9 +19,9 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.corujito.champz.rest.Application;
 import com.corujito.champz.rest.AttendanceUtils;
-import com.corujito.champz.rest.model.Attendance;
+import com.corujito.champz.rest.model.PlayerMatchAttendance;
 import com.corujito.champz.rest.repository.config.MongoConfigIT;
-import com.corujito.champz.rest.repository.entity.AttendanceEntity;
+import com.corujito.champz.rest.repository.entity.PlayerMatchAttendanceEntity;
 
 /*
  * The embedded server is started up on a random port by virtue of the webEnvironment =
@@ -51,20 +51,20 @@ public class AttendanceResourceIT {
         template.withBasicAuth("user", "password");
         template.getRestTemplate().getInterceptors().add(new BasicAuthorizationInterceptor("user", "password"));
         this.base = new URL("http://localhost:" + port + "/api/attendances");
-        mongoTemplate.dropCollection(AttendanceEntity.class);
+        mongoTemplate.dropCollection(PlayerMatchAttendanceEntity.class);
     }
 
     @After
     public void after() {
-        mongoTemplate.dropCollection(AttendanceEntity.class);
+        mongoTemplate.dropCollection(PlayerMatchAttendanceEntity.class);
     }
 
     @Test
     public void getAttendance() throws Exception {
-        AttendanceEntity entity = AttendanceUtils.createAttendanceEntity();
+        PlayerMatchAttendanceEntity entity = AttendanceUtils.createAttendanceEntity();
         mongoTemplate.save(entity);
 
-        Attendance attendance = template.getForObject(base.toString() + "/" + entity.getId(), Attendance.class);
+        PlayerMatchAttendance attendance = template.getForObject(base.toString() + "/" + entity.getId(), PlayerMatchAttendance.class);
         AttendanceUtils.assertObjects(entity, attendance);
     }
 
@@ -73,45 +73,45 @@ public class AttendanceResourceIT {
         mongoTemplate.save(AttendanceUtils.createAttendanceEntity());
         mongoTemplate.save(AttendanceUtils.createAttendanceEntity());
 
-        Attendance[] attendances = template.getForObject(base.toString(), Attendance[].class);
+        PlayerMatchAttendance[] attendances = template.getForObject(base.toString(), PlayerMatchAttendance[].class);
         assertEquals(2, attendances.length);
     }
 
     @Test
     public void testAddAttendance() {
-        Attendance c = AttendanceUtils.createAttendance("2");
-        Attendance attendance = template.postForObject(base.toString(), c, Attendance.class);
+        PlayerMatchAttendance c = AttendanceUtils.createAttendance("2");
+        PlayerMatchAttendance attendance = template.postForObject(base.toString(), c, PlayerMatchAttendance.class);
         AttendanceUtils.assertObjects(c, attendance);
 
-        AttendanceEntity entity = mongoTemplate.findById(attendance.getId(), AttendanceEntity.class);
+        PlayerMatchAttendanceEntity entity = mongoTemplate.findById(attendance.getId(), PlayerMatchAttendanceEntity.class);
         AttendanceUtils.assertObjects(entity, attendance);
     }
 
     @Test
     public void testUpdateAttendance() {
-        AttendanceEntity entity = AttendanceUtils.createAttendanceEntity();
+        PlayerMatchAttendanceEntity entity = AttendanceUtils.createAttendanceEntity();
         entity.setPosition("atacante");
         mongoTemplate.save(entity);
 
-        Attendance newAttendance = AttendanceUtils.createAttendance(entity.getId());
+        PlayerMatchAttendance newAttendance = AttendanceUtils.createAttendance(entity.getId());
         newAttendance.setPosition("goleiro");
-        HttpEntity<Attendance> c = new HttpEntity<>(newAttendance);
-        ResponseEntity<Attendance> response =
-                template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, Attendance.class);
+        HttpEntity<PlayerMatchAttendance> c = new HttpEntity<>(newAttendance);
+        ResponseEntity<PlayerMatchAttendance> response =
+                template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, PlayerMatchAttendance.class);
         AttendanceUtils.assertObjects(newAttendance, response.getBody());
     }
 
     @Test
     public void deleteAttendance() throws Exception {
-        AttendanceEntity entity = AttendanceUtils.createAttendanceEntity();
+        PlayerMatchAttendanceEntity entity = AttendanceUtils.createAttendanceEntity();
         mongoTemplate.save(entity);
 
-        Attendance[] attendances = template.getForObject(base.toString(), Attendance[].class);
+        PlayerMatchAttendance[] attendances = template.getForObject(base.toString(), PlayerMatchAttendance[].class);
         assertEquals(1, attendances.length);
 
         template.delete(base.toString() + "/" + entity.getId());
 
-        attendances = template.getForObject(base.toString(), Attendance[].class);
+        attendances = template.getForObject(base.toString(), PlayerMatchAttendance[].class);
         assertEquals(0, attendances.length);
     }
 }

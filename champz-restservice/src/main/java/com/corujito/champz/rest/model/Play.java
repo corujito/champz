@@ -2,13 +2,15 @@ package com.corujito.champz.rest.model;
 
 public class Play extends BaseDomain {
 
-    private Match match;
-    private Attendance player;
-    private Attendance secondaryPlayer;
     private int minute;
     private int period;
     private PlayType type;
+    private String title;
     private String comment;
+
+    private Match match;
+    private PlayerMatchAttendance player;
+    private PlayerMatchAttendance secondaryPlayer;
 
     public Match getMatch() {
         return match;
@@ -18,19 +20,19 @@ public class Play extends BaseDomain {
         this.match = match;
     }
 
-    public Attendance getPlayer() {
+    public PlayerMatchAttendance getPlayer() {
         return player;
     }
 
-    public void setPlayer(Attendance player) {
+    public void setPlayer(PlayerMatchAttendance player) {
         this.player = player;
     }
 
-    public Attendance getSecondaryPlayer() {
+    public PlayerMatchAttendance getSecondaryPlayer() {
         return secondaryPlayer;
     }
 
-    public void setSecondaryPlayer(Attendance secondaryPlayer) {
+    public void setSecondaryPlayer(PlayerMatchAttendance secondaryPlayer) {
         this.secondaryPlayer = secondaryPlayer;
     }
 
@@ -66,6 +68,14 @@ public class Play extends BaseDomain {
         this.comment = comment;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Play withId(String id) {
         setId(id);
         return this;
@@ -76,12 +86,12 @@ public class Play extends BaseDomain {
         return this;
     }
 
-    public Play withPlayer(Attendance player) {
+    public Play withPlayer(PlayerMatchAttendance player) {
         setPlayer(player);
         return this;
     }
 
-    public Play withSecondaryPlayer(Attendance secondaryPlayer) {
+    public Play withSecondaryPlayer(PlayerMatchAttendance secondaryPlayer) {
         setSecondaryPlayer(secondaryPlayer);
         return this;
     }
@@ -103,6 +113,11 @@ public class Play extends BaseDomain {
 
     public Play withComment(String comment) {
         setComment(comment);
+        return this;
+    }
+
+    public Play withTitle(String title) {
+        setTitle(title);
         return this;
     }
 }
