@@ -2,9 +2,16 @@ package com.corujito.champz.rest.model;
 
 import java.util.Date;
 import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
-public class Match extends BaseDomain {
+public class Match {
 
+    @NotNull(groups = {Existing.class, PlayerMatchAttendance.New.class, PlayerMatchAttendance.Existing.class,
+            Play.New.class, Play.Existing.class})
+    @Null(groups = New.class)
+    private String id;
     private int homeScore;
     private int awayScore;
     private int homeExtraTimeScore;
@@ -19,14 +26,35 @@ public class Match extends BaseDomain {
     private String subTitle;
     private MatchStatus status;
 
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Season season;
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Phase phase;
+    @Valid
     private Group group;
+    @Valid
     private Team homeTeam;// participation?
+    @Valid
     private Team awayTeam;
     private List<PlayerMatchAttendance> homePlayers;
     private List<PlayerMatchAttendance> awayPlayers;
     private List<Play> plays;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Season getSeason() {
         return season;

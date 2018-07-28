@@ -4,6 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,13 +38,14 @@ public class SeasonResource {
     }
 
     @PostMapping
-    public Season addSeason(@RequestBody Season season) {
+    public Season addSeason(@RequestBody @Validated({Season.New.class}) Season season) {
         LOGGER.debug("Season.addSeason");
         return seasonService.addSeason(season);
     }
 
     @PutMapping(path = "/{id}")
-    public Season updateSeason(@PathVariable String id, @RequestBody Season season) {
+    public Season updateSeason(@PathVariable String id,
+            @RequestBody @Validated({Season.Existing.class}) Season season) {
         LOGGER.debug("Season.updateSeason {}", id);
         return seasonService.updateSeason(season);
     }

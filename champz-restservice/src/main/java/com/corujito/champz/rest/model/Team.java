@@ -1,7 +1,19 @@
 package com.corujito.champz.rest.model;
 
-public class Team extends BaseDomain {
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
+public class Team {
+
+    @NotNull(groups = {Existing.class, TeamSeasonParticipant.New.class, TeamSeasonParticipant.Existing.class,
+            PlayerTeamPassage.New.class, PlayerTeamPassage.Existing.class, PlayerMatchAttendance.New.class,
+            PlayerMatchAttendance.Existing.class, PlayerInscription.New.class, PlayerInscription.Existing.class,
+            Match.New.class, Match.Existing.class, GroupTeamPresence.New.class, GroupTeamPresence.Existing.class})
+    @Null(groups = New.class)
+    private String id;
+    @NotNull
+    @NotBlank
     private String name;
     private String popularName;
     private String nickname;
@@ -10,6 +22,21 @@ public class Team extends BaseDomain {
     private Location teamLocation;
     private TeamType type;
 
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @NotNull
     private User user;
 
     public User getUser() {

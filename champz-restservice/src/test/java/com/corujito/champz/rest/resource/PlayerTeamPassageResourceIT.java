@@ -1,6 +1,7 @@
 package com.corujito.champz.rest.resource;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.net.URL;
 import java.util.Date;
 import org.junit.After;
@@ -81,8 +82,9 @@ public class PlayerTeamPassageResourceIT {
 
     @Test
     public void testAddPassage() {
-        PlayerTeamPassage c = PlayerTeamPassageUtils.createPlayerTeamPassage("playerId");
+        PlayerTeamPassage c = PlayerTeamPassageUtils.createPlayerTeamPassage();
         PlayerTeamPassage passage = template.postForObject(base.toString(), c, PlayerTeamPassage.class);
+        assertNotNull(passage.getId());
         PlayerTeamPassageUtils.assertObjects(c, passage);
 
         PlayerTeamPassageEntity entity = mongoTemplate.findById(passage.getId(), PlayerTeamPassageEntity.class);

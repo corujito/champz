@@ -4,6 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,13 +38,13 @@ public class GroupResource {
     }
 
     @PostMapping
-    public Group addGroup(@RequestBody Group group) {
+    public Group addGroup(@RequestBody @Validated({Group.New.class}) Group group) {
         LOGGER.debug("Group.addGroup");
         return groupService.addGroup(group);
     }
 
     @PutMapping(path = "/{id}")
-    public Group updateGroup(@PathVariable String id, @RequestBody Group group) {
+    public Group updateGroup(@PathVariable String id, @RequestBody @Validated({Group.Existing.class}) Group group) {
         LOGGER.debug("Group.updateGroup {}", id);
         return groupService.updateGroup(group);
     }

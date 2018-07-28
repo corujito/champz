@@ -1,14 +1,37 @@
 package com.corujito.champz.rest.model;
 
 import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
-public class Group extends BaseDomain {
+public class Group {
 
+    @NotNull(groups = {Existing.class, Match.New.class, Match.Existing.class, GroupTeamPresence.New.class,
+            GroupTeamPresence.Existing.class})
+    @Null(groups = New.class)
+    private String id;
     private int order;
     private String name;
 
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Phase phase;
     private List<GroupTeamPresence> teams;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public int getOrder() {
         return order;

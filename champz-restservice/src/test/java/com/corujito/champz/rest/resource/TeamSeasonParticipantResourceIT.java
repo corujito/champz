@@ -1,6 +1,7 @@
 package com.corujito.champz.rest.resource;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -81,8 +82,9 @@ public class TeamSeasonParticipantResourceIT {
 
     @Test
     public void testAddTeamSeasonParticipant() {
-        TeamSeasonParticipant c = TeamSeasonParticipantUtils.createTeamSeasonParticipant("2");
+        TeamSeasonParticipant c = TeamSeasonParticipantUtils.createTeamSeasonParticipant();
         TeamSeasonParticipant participant = template.postForObject(base.toString(), c, TeamSeasonParticipant.class);
+        assertNotNull(participant.getId());
         TeamSeasonParticipantUtils.assertObjects(c, participant);
 
         TeamSeasonParticipantEntity entity =

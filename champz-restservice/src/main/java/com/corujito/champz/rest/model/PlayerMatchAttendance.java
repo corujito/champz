@@ -1,16 +1,43 @@
 package com.corujito.champz.rest.model;
 
-public class PlayerMatchAttendance extends BaseDomain {
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
+public class PlayerMatchAttendance {
+
+    @NotNull(groups = {Existing.class})
+    @Null(groups = New.class)
+    private String id;
     private boolean startedMatch;
     private String macroPosition;
     private String position;
     private int score;
     private AttendanceType type;
 
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Player player;
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Match match;
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Team team;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Player getPlayer() {
         return player;

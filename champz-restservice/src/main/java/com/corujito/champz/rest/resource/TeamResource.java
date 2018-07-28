@@ -4,6 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,13 +38,13 @@ public class TeamResource {
     }
 
     @PostMapping
-    public Team addTeam(@RequestBody Team team) {
+    public Team addTeam(@RequestBody @Validated({Team.New.class}) Team team) {
         LOGGER.debug("Team.addTeam");
         return teamService.addTeam(team);
     }
 
     @PutMapping(path = "/{id}")
-    public Team updateTeam(@PathVariable String id, @RequestBody Team team) {
+    public Team updateTeam(@PathVariable String id, @RequestBody @Validated({Team.Existing.class}) Team team) {
         LOGGER.debug("Team.updateTeam {}", id);
         return teamService.updateTeam(team);
     }

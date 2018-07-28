@@ -1,10 +1,35 @@
 package com.corujito.champz.rest.model;
 
-public class GroupTeamPresence extends BaseDomain {
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
+public class GroupTeamPresence {
+
+    @NotNull(groups = {Existing.class})
+    @Null(groups = New.class)
+    private String id;
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Group group;
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Team team;
     private int initialPoints;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Group getGroup() {
         return group;

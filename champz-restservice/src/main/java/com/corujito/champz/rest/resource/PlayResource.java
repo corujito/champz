@@ -4,6 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,13 +38,13 @@ public class PlayResource {
     }
 
     @PostMapping
-    public Play addPlay(@RequestBody Play play) {
+    public Play addPlay(@RequestBody @Validated({Play.New.class}) Play play) {
         LOGGER.debug("Play.addPlay");
         return playService.addPlay(play);
     }
 
     @PutMapping(path = "/{id}")
-    public Play updatePlay(@PathVariable String id, @RequestBody Play play) {
+    public Play updatePlay(@PathVariable String id, @RequestBody @Validated({Play.Existing.class}) Play play) {
         LOGGER.debug("Play.updatePlay {}", id);
         return playService.updatePlay(play);
     }

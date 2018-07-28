@@ -1,9 +1,18 @@
 package com.corujito.champz.rest.model;
 
 import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
-public class Championship extends BaseDomain {
+public class Championship {
 
+    @NotNull(groups = {Existing.class, Season.New.class, Season.Existing.class})
+    @Null(groups = New.class)
+    private String id;
+    @NotNull
+    @NotBlank
     private String name;
     private String popularName;
     private String description;
@@ -13,8 +22,24 @@ public class Championship extends BaseDomain {
     private String webSite;
     private ChampionshipType type;
 
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private User user;
     private List<Season> seasons;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

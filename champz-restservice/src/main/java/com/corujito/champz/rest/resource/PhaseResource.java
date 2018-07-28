@@ -4,6 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,13 +38,13 @@ public class PhaseResource {
     }
 
     @PostMapping
-    public Phase addPhase(@RequestBody Phase phase) {
+    public Phase addPhase(@RequestBody @Validated({Phase.New.class}) Phase phase) {
         LOGGER.debug("Phase.addPhase");
         return phaseService.addPhase(phase);
     }
 
     @PutMapping(path = "/{id}")
-    public Phase updatePhase(@PathVariable String id, @RequestBody Phase phase) {
+    public Phase updatePhase(@PathVariable String id, @RequestBody @Validated({Phase.Existing.class}) Phase phase) {
         LOGGER.debug("Phase.updatePhase {}", id);
         return phaseService.updatePhase(phase);
     }

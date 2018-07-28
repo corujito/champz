@@ -1,15 +1,43 @@
 package com.corujito.champz.rest.model;
 
 import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
-public class Season extends BaseDomain {
+public class Season {
 
+    @NotNull(groups = {Existing.class, TeamSeasonParticipant.New.class, TeamSeasonParticipant.Existing.class,
+            Match.New.class, Match.Existing.class, Phase.New.class, Phase.Existing.class, PlayerInscription.New.class,
+            PlayerInscription.Existing.class})
+    @Null(groups = New.class)
+    private String id;
+    @NotNull
+    @NotBlank
     private String title;
     private String regulation;
+
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Championship championship;
     private List<TeamSeasonParticipant> teams;
     private List<PlayerInscription> playerInscriptions;
     private List<Phase> phases;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

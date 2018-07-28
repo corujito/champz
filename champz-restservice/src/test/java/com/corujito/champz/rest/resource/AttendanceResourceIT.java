@@ -1,6 +1,7 @@
 package com.corujito.champz.rest.resource;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -64,7 +65,8 @@ public class AttendanceResourceIT {
         PlayerMatchAttendanceEntity entity = AttendanceUtils.createAttendanceEntity();
         mongoTemplate.save(entity);
 
-        PlayerMatchAttendance attendance = template.getForObject(base.toString() + "/" + entity.getId(), PlayerMatchAttendance.class);
+        PlayerMatchAttendance attendance =
+                template.getForObject(base.toString() + "/" + entity.getId(), PlayerMatchAttendance.class);
         AttendanceUtils.assertObjects(entity, attendance);
     }
 
@@ -79,11 +81,13 @@ public class AttendanceResourceIT {
 
     @Test
     public void testAddAttendance() {
-        PlayerMatchAttendance c = AttendanceUtils.createAttendance("2");
+        PlayerMatchAttendance c = AttendanceUtils.createAttendance();
         PlayerMatchAttendance attendance = template.postForObject(base.toString(), c, PlayerMatchAttendance.class);
+        assertNotNull(attendance.getId());
         AttendanceUtils.assertObjects(c, attendance);
 
-        PlayerMatchAttendanceEntity entity = mongoTemplate.findById(attendance.getId(), PlayerMatchAttendanceEntity.class);
+        PlayerMatchAttendanceEntity entity =
+                mongoTemplate.findById(attendance.getId(), PlayerMatchAttendanceEntity.class);
         AttendanceUtils.assertObjects(entity, attendance);
     }
 
@@ -97,7 +101,8 @@ public class AttendanceResourceIT {
         newAttendance.setPosition("goleiro");
         HttpEntity<PlayerMatchAttendance> c = new HttpEntity<>(newAttendance);
         ResponseEntity<PlayerMatchAttendance> response =
-                template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, PlayerMatchAttendance.class);
+                template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c,
+                        PlayerMatchAttendance.class);
         AttendanceUtils.assertObjects(newAttendance, response.getBody());
     }
 

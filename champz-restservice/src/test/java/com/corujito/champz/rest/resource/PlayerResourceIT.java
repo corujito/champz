@@ -1,6 +1,7 @@
 package com.corujito.champz.rest.resource;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -79,8 +80,9 @@ public class PlayerResourceIT {
 
     @Test
     public void testAddPlayer() {
-        Player c = PlayerUtils.createPlayer("2");
+        Player c = PlayerUtils.createPlayer();
         Player player = template.postForObject(base.toString(), c, Player.class);
+        assertNotNull(player.getId());
         PlayerUtils.assertObjects(c, player);
 
         PlayerEntity entity = mongoTemplate.findById(player.getId(), PlayerEntity.class);

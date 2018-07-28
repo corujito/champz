@@ -1,6 +1,7 @@
 package com.corujito.champz.rest.resource;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -79,8 +80,9 @@ public class PhaseResourceIT {
 
     @Test
     public void testAddPhase() {
-        Phase c = PhaseUtils.createPhase("2");
+        Phase c = PhaseUtils.createPhase();
         Phase phase = template.postForObject(base.toString(), c, Phase.class);
+        assertNotNull(phase.getId());
         PhaseUtils.assertObjects(c, phase);
 
         PhaseEntity entity = mongoTemplate.findById(phase.getId(), PhaseEntity.class);

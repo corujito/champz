@@ -1,16 +1,42 @@
 package com.corujito.champz.rest.model;
 
-public class Play extends BaseDomain {
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
+public class Play {
+
+    @NotNull(groups = {Existing.class})
+    @Null(groups = New.class)
+    private String id;
     private int minute;
     private int period;
     private PlayType type;
     private String title;
+    @NotNull
+    @NotBlank
     private String comment;
 
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Match match;
     private PlayerMatchAttendance player;
     private PlayerMatchAttendance secondaryPlayer;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public Match getMatch() {
         return match;

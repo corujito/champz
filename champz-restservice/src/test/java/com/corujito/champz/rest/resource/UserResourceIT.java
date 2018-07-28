@@ -1,6 +1,7 @@
 package com.corujito.champz.rest.resource;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -79,8 +80,9 @@ public class UserResourceIT {
 
     @Test
     public void testAddUser() {
-        User c = UserUtils.createUser("2");
+        User c = UserUtils.createUser();
         User user = template.postForObject(base.toString(), c, User.class);
+        assertNotNull(user.getId());
         UserUtils.assertObjects(c, user);
 
         UserEntity entity = mongoTemplate.findById(user.getId(), UserEntity.class);

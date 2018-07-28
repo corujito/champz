@@ -2,9 +2,21 @@ package com.corujito.champz.rest.model;
 
 import java.util.Date;
 import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
-public class Player extends BaseDomain {
+public class Player {
 
+    @NotNull(groups = {Existing.class, PlayerTeamPassage.New.class, PlayerTeamPassage.Existing.class,
+            PlayerMatchAttendance.New.class, PlayerMatchAttendance.Existing.class, PlayerInscription.New.class,
+            PlayerInscription.Existing.class})
+    @Null(groups = New.class)
+    private String id;
+
+    @NotNull(groups = {Existing.class, New.class})
+    @NotBlank
     private String fullName;
     private String popularName;
     private String nickName;
@@ -14,9 +26,25 @@ public class Player extends BaseDomain {
     private Location birthLocation;
     private String photoImage;
 
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private User user;
     private List<PlayerTeamPassage> passages;
     private List<PlayerInscription> inscriptions;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getFullName() {
         return fullName;

@@ -18,6 +18,10 @@ public class PlayUtils {
                 .withPlayerId("playerId").withSecondaryPlayerId("secondaryPlayerId").withType(PlayType.GOAL);
     }
 
+    public static Play createPlay() {
+        return createPlay(null);
+    }
+
     public static Play createPlay(String id) {
         return new Play().withId(id).withComment("comment").withMatch(MatchUtils.createMatch("matchId"))
                 .withMinute(12).withPeriod(2).withPlayer(new PlayerMatchAttendance().withId("playerId"))
@@ -36,7 +40,7 @@ public class PlayUtils {
     }
 
     public static void assertObjects(Play c1, Play c2) {
-        assertThat(c2.getId(), equalTo(c1.getId()));
+        // assertThat(c2.getId(), equalTo(c1.getId()));
         assertThat(c2.getComment(), equalTo(c1.getComment()));
         assertThat(c2.getMatch().getId(), equalTo(c1.getMatch().getId()));
         assertThat(c2.getMinute(), equalTo(c1.getMinute()));

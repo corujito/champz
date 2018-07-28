@@ -4,6 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,14 +38,16 @@ public class TeamSeasonParticipantResource {
     }
 
     @PostMapping
-    public TeamSeasonParticipant addTeamSeasonParticipant(@RequestBody TeamSeasonParticipant teamSeasonParticipant) {
+    public TeamSeasonParticipant addTeamSeasonParticipant(
+            @RequestBody @Validated({TeamSeasonParticipant.New.class}) TeamSeasonParticipant teamSeasonParticipant) {
         LOGGER.debug("TeamSeasonParticipant.addTeamSeasonParticipant");
         return teamSeasonParticipantService.addTeamSeasonParticipant(teamSeasonParticipant);
     }
 
     @PutMapping(path = "/{id}")
     public TeamSeasonParticipant updateTeamSeasonParticipant(@PathVariable String id,
-            @RequestBody TeamSeasonParticipant teamSeasonParticipant) {
+            @RequestBody @Validated({
+                    TeamSeasonParticipant.Existing.class}) TeamSeasonParticipant teamSeasonParticipant) {
         LOGGER.debug("TeamSeasonParticipant.updateTeamSeasonParticipant {}", id);
         return teamSeasonParticipantService.updateTeamSeasonParticipant(teamSeasonParticipant);
     }

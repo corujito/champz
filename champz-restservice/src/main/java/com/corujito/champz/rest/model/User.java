@@ -1,11 +1,41 @@
 package com.corujito.champz.rest.model;
 
-public class User extends BaseDomain {
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
+public class User {
+
+    @NotNull(groups = {User.Existing.class, Player.New.class, Player.Existing.class, Championship.New.class,
+            Championship.Existing.class})
+    @Null(groups = User.New.class)
+    private String id;
+
+    @NotNull(groups = {User.Existing.class, User.New.class})
     private String name;
+
+    @NotNull(groups = {User.Existing.class, User.New.class})
+    @NotBlank
+    @Email
     private String email;
+
     private String rg;
     private String cpf;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

@@ -1,9 +1,15 @@
 package com.corujito.champz.rest.model;
 
 import java.util.List;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
 
-public class Phase extends BaseDomain {
+public class Phase {
 
+    @NotNull(groups = {Existing.class, Match.New.class, Match.Existing.class, Group.New.class, Group.Existing.class})
+    @Null(groups = New.class)
+    private String id;
     private int order;
     private String name;
     private int upZone;
@@ -13,8 +19,24 @@ public class Phase extends BaseDomain {
     private int repetitions;
     private PhaseType type;
 
+    @NotNull(groups = {Existing.class, New.class})
+    @Valid
     private Season season;
     private List<Group> groups;
+
+    public interface Existing {
+    }
+
+    public interface New {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

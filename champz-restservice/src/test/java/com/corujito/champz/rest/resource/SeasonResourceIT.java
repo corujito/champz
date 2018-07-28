@@ -1,6 +1,7 @@
 package com.corujito.champz.rest.resource;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -79,8 +80,9 @@ public class SeasonResourceIT {
 
     @Test
     public void testAddSeason() {
-        Season c = SeasonUtils.createSeason("2");
+        Season c = SeasonUtils.createSeason();
         Season season = template.postForObject(base.toString(), c, Season.class);
+        assertNotNull(season.getId());
         SeasonUtils.assertObjects(c, season);
 
         SeasonEntity entity = mongoTemplate.findById(season.getId(), SeasonEntity.class);

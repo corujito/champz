@@ -1,6 +1,7 @@
 package com.corujito.champz.rest.resource;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -81,8 +82,9 @@ public class PlayerInscriptionResourceIT {
 
     @Test
     public void testAddPlayerInscription() {
-        PlayerInscription c = PlayerInscriptionUtils.createPlayerInscription("2");
+        PlayerInscription c = PlayerInscriptionUtils.createPlayerInscription();
         PlayerInscription playerInscription = template.postForObject(base.toString(), c, PlayerInscription.class);
+        assertNotNull(playerInscription.getId());
         PlayerInscriptionUtils.assertObjects(c, playerInscription);
 
         PlayerInscriptionEntity entity =

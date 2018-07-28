@@ -4,6 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,13 +38,13 @@ public class UserResource {
     }
 
     @PostMapping
-    public User addUser(@RequestBody User user) {
+    public User addUser(@RequestBody @Validated({User.New.class}) User user) {
         LOGGER.debug("User.addUser");
         return userService.addUser(user);
     }
 
     @PutMapping(path = "/{id}")
-    public User updateUser(@PathVariable String id, @RequestBody User user) {
+    public User updateUser(@PathVariable String id, @RequestBody @Validated({User.Existing.class}) User user) {
         LOGGER.debug("User.updateUser {}", id);
         return userService.updateUser(user);
     }

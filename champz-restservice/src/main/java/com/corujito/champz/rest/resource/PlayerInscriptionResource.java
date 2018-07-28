@@ -4,6 +4,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,14 +38,15 @@ public class PlayerInscriptionResource {
     }
 
     @PostMapping
-    public PlayerInscription addPlayerInscription(@RequestBody PlayerInscription playerInscription) {
+    public PlayerInscription addPlayerInscription(
+            @RequestBody @Validated({PlayerInscription.New.class}) PlayerInscription playerInscription) {
         LOGGER.debug("PlayerInscription.addPlayerInscription");
         return playerInscriptionService.addPlayerInscription(playerInscription);
     }
 
     @PutMapping(path = "/{id}")
     public PlayerInscription updatePlayerInscription(@PathVariable String id,
-            @RequestBody PlayerInscription playerInscription) {
+            @RequestBody @Validated({PlayerInscription.Existing.class}) PlayerInscription playerInscription) {
         LOGGER.debug("PlayerInscription.updatePlayerInscription {}", id);
         return playerInscriptionService.updatePlayerInscription(playerInscription);
     }

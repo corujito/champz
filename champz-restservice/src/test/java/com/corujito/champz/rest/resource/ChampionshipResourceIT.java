@@ -1,6 +1,7 @@
 package com.corujito.champz.rest.resource;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import java.net.URL;
 import org.junit.After;
 import org.junit.Before;
@@ -79,8 +80,9 @@ public class ChampionshipResourceIT {
 
     @Test
     public void testAddChampionship() {
-        Championship c = ChampionshipUtils.createChampionship("2");
+        Championship c = ChampionshipUtils.createChampionship();
         Championship championship = template.postForObject(base.toString(), c, Championship.class);
+        assertNotNull(championship.getId());
         ChampionshipUtils.assertObjects(c, championship);
 
         ChampionshipEntity entity = mongoTemplate.findById(championship.getId(), ChampionshipEntity.class);
