@@ -7,8 +7,7 @@ import javax.validation.constraints.Null;
 
 public class Group {
 
-    @NotNull(groups = {Existing.class, Match.New.class, Match.Existing.class, GroupTeamPresence.New.class,
-            GroupTeamPresence.Existing.class})
+    @NotNull(groups = {Existing.class, Match.New.class, Match.Existing.class})
     @Null(groups = New.class)
     private String id;
     private int order;
@@ -17,7 +16,7 @@ public class Group {
     @NotNull(groups = {Existing.class, New.class})
     @Valid
     private Phase phase;
-    private List<GroupTeamPresence> teams;
+    private List<GroupTeamPresence> presences;
 
     public interface Existing {
     }
@@ -57,12 +56,12 @@ public class Group {
         this.phase = phase;
     }
 
-    public List<GroupTeamPresence> getTeams() {
-        return teams;
+    public List<GroupTeamPresence> getPresences() {
+        return presences;
     }
 
-    public void setTeams(List<GroupTeamPresence> teams) {
-        this.teams = teams;
+    public void setPresences(List<GroupTeamPresence> presences) {
+        this.presences = presences;
     }
 
     public Group withId(String id) {
@@ -76,7 +75,7 @@ public class Group {
     }
 
     public Group withOrder(int order) {
-        withOrder(order);
+        setOrder(order);
         return this;
     }
 
@@ -85,8 +84,8 @@ public class Group {
         return this;
     }
 
-    public Group withTeams(List<GroupTeamPresence> participants) {
-        setTeams(participants);
+    public Group withPresences(List<GroupTeamPresence> presences) {
+        setPresences(presences);
         return this;
     }
 }

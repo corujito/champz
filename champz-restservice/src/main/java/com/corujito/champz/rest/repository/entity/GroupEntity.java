@@ -55,7 +55,7 @@ public class GroupEntity extends BaseEntity {
     }
 
     public GroupEntity withOrder(int order) {
-        withOrder(order);
+        setOrder(order);
         return this;
     }
 

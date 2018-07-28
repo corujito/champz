@@ -11,9 +11,6 @@ public class GroupTeamPresence {
     private String id;
     @NotNull(groups = {Existing.class, New.class})
     @Valid
-    private Group group;
-    @NotNull(groups = {Existing.class, New.class})
-    @Valid
     private Team team;
     private int initialPoints;
 
@@ -29,14 +26,6 @@ public class GroupTeamPresence {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
     }
 
     public Team getTeam() {
@@ -57,11 +46,6 @@ public class GroupTeamPresence {
 
     public GroupTeamPresence withId(String id) {
         setId(id);
-        return this;
-    }
-
-    public GroupTeamPresence withGroup(Group group) {
-        setGroup(group);
         return this;
     }
 
