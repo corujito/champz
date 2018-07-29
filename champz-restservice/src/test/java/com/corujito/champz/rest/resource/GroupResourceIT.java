@@ -20,6 +20,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.corujito.champz.rest.Application;
 import com.corujito.champz.rest.GroupUtils;
+import com.corujito.champz.rest.PhaseUtils;
 import com.corujito.champz.rest.model.Group;
 import com.corujito.champz.rest.repository.config.MongoConfigIT;
 import com.corujito.champz.rest.repository.entity.GroupEntity;
@@ -95,8 +96,8 @@ public class GroupResourceIT {
         entity.setName("campeonato brasileiro");
         mongoTemplate.save(entity);
 
-        Group newGroup = GroupUtils.createGroup(entity.getId());
-        newGroup.setName("campeonato paulista");
+        Group newGroup = GroupUtils.createGroup(entity.getId()).withName("campeonato paulista").withOrder(4)
+                .withPhase(PhaseUtils.createPhase("phaseId3"));
         HttpEntity<Group> c = new HttpEntity<>(newGroup);
         ResponseEntity<Group> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, Group.class);

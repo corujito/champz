@@ -20,7 +20,9 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.corujito.champz.rest.Application;
 import com.corujito.champz.rest.PlayerInscriptionUtils;
-import com.corujito.champz.rest.model.Player;
+import com.corujito.champz.rest.PlayerUtils;
+import com.corujito.champz.rest.SeasonUtils;
+import com.corujito.champz.rest.TeamUtils;
 import com.corujito.champz.rest.model.PlayerInscription;
 import com.corujito.champz.rest.repository.config.MongoConfigIT;
 import com.corujito.champz.rest.repository.entity.PlayerInscriptionEntity;
@@ -98,8 +100,9 @@ public class PlayerInscriptionResourceIT {
         entity.setPlayerId("playerId");
         mongoTemplate.save(entity);
 
-        PlayerInscription newPlayerInscription = PlayerInscriptionUtils.createPlayerInscription(entity.getId());
-        newPlayerInscription.setPlayer(new Player().withId("playerId2"));
+        PlayerInscription newPlayerInscription = PlayerInscriptionUtils.createPlayerInscription(entity.getId())
+                .withPlayer(PlayerUtils.createPlayer("playerId2")).withSeason(SeasonUtils.createSeason("seasonId2"))
+                .withTeam(TeamUtils.createTeam("teamId2"));
         HttpEntity<PlayerInscription> c = new HttpEntity<>(newPlayerInscription);
         ResponseEntity<PlayerInscription> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, PlayerInscription.class);

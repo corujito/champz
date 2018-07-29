@@ -95,8 +95,8 @@ public class SeasonResourceIT {
         entity.setTitle("campeonato brasileiro 98");
         mongoTemplate.save(entity);
 
-        Season newSeason = SeasonUtils.createSeason(entity.getId());
-        newSeason.setTitle("campeonato brasileiro 2018");
+        Season newSeason = SeasonUtils.createSeason(entity.getId())
+                .withTitle("campeonato brasileiro 2018").withRegulation("outro reg");
         HttpEntity<Season> c = new HttpEntity<>(newSeason);
         ResponseEntity<Season> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, Season.class);

@@ -3,6 +3,7 @@ package com.corujito.champz.rest.resource;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import java.net.URL;
+import java.util.Date;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,6 +21,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.corujito.champz.rest.Application;
 import com.corujito.champz.rest.PlayerUtils;
+import com.corujito.champz.rest.UserUtils;
 import com.corujito.champz.rest.model.Player;
 import com.corujito.champz.rest.repository.config.MongoConfigIT;
 import com.corujito.champz.rest.repository.entity.PlayerEntity;
@@ -95,8 +97,9 @@ public class PlayerResourceIT {
         entity.setFullName("neymar");
         mongoTemplate.save(entity);
 
-        Player newPlayer = PlayerUtils.createPlayer(entity.getId());
-        newPlayer.setFullName("neymar jr");
+        Player newPlayer = PlayerUtils.createPlayer(entity.getId()).withFullName("neymar jr").withBirth(new Date())
+                .withCpf("outro cpf").withNickName("nick").withPhotoImage("photo").withPopularName("popo")
+                .withRg("outro rg").withUser(UserUtils.createUser("userId3"));
         HttpEntity<Player> c = new HttpEntity<>(newPlayer);
         ResponseEntity<Player> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, Player.class);

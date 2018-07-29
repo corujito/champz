@@ -20,7 +20,9 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.corujito.champz.rest.Application;
 import com.corujito.champz.rest.PhaseUtils;
+import com.corujito.champz.rest.SeasonUtils;
 import com.corujito.champz.rest.model.Phase;
+import com.corujito.champz.rest.model.PhaseType;
 import com.corujito.champz.rest.repository.config.MongoConfigIT;
 import com.corujito.champz.rest.repository.entity.PhaseEntity;
 
@@ -95,8 +97,9 @@ public class PhaseResourceIT {
         entity.setName("campeonato brasileiro");
         mongoTemplate.save(entity);
 
-        Phase newPhase = PhaseUtils.createPhase(entity.getId());
-        newPhase.setName("campeonato paulista");
+        Phase newPhase = PhaseUtils.createPhase(entity.getId()).withName("campeonato paulista").withCurrentRound(23)
+                .withDownZone(34).withMain(false).withOrder(3).withRepetitions(0)
+                .withSeason(SeasonUtils.createSeason("seasonId3")).withType(PhaseType.PLAYOFF).withUpZone(2);
         HttpEntity<Phase> c = new HttpEntity<>(newPhase);
         ResponseEntity<Phase> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, Phase.class);

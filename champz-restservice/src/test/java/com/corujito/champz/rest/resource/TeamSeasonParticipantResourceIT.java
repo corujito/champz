@@ -94,8 +94,8 @@ public class TeamSeasonParticipantResourceIT {
 
     @Test
     public void testUpdateTeamSeasonParticipant() {
-        TeamSeasonParticipantEntity entity = TeamSeasonParticipantUtils.createTeamSeasonParticipantEntity();
-        entity.setSeasonId("seasonI");
+        TeamSeasonParticipantEntity entity = TeamSeasonParticipantUtils.createTeamSeasonParticipantEntity()
+                .withSeasonId("seasonI").withTeamId("teamI");
         mongoTemplate.save(entity);
 
         TeamSeasonParticipant newParticipant = TeamSeasonParticipantUtils.createTeamSeasonParticipant(entity.getId());

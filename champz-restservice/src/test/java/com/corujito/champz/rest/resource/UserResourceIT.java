@@ -95,8 +95,9 @@ public class UserResourceIT {
         entity.setName("campeonato brasileiro");
         mongoTemplate.save(entity);
 
-        User newUser = UserUtils.createUser(entity.getId());
-        newUser.setName("campeonato paulista");
+        User newUser = UserUtils.createUser(entity.getId())
+                .withName("campeonato paulista").withEmail("outro email").withName("outro nome").withCpf("outro cpf")
+                .withRg("outro rg");
         HttpEntity<User> c = new HttpEntity<>(newUser);
         ResponseEntity<User> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, User.class);

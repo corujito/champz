@@ -20,7 +20,11 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.corujito.champz.rest.Application;
 import com.corujito.champz.rest.AttendanceUtils;
+import com.corujito.champz.rest.MatchUtils;
+import com.corujito.champz.rest.PlayerUtils;
+import com.corujito.champz.rest.TeamUtils;
 import com.corujito.champz.rest.model.PlayerMatchAttendance;
+import com.corujito.champz.rest.model.TeamType;
 import com.corujito.champz.rest.repository.config.MongoConfigIT;
 import com.corujito.champz.rest.repository.entity.PlayerMatchAttendanceEntity;
 
@@ -97,8 +101,10 @@ public class AttendanceResourceIT {
         entity.setPosition("atacante");
         mongoTemplate.save(entity);
 
-        PlayerMatchAttendance newAttendance = AttendanceUtils.createAttendance(entity.getId());
-        newAttendance.setPosition("goleiro");
+        PlayerMatchAttendance newAttendance = AttendanceUtils.createAttendance(entity.getId()).withPosition("goleiro")
+                .withMacroPosition("macro").withMatch(MatchUtils.createMatch("matchId2"))
+                .withPlayer(PlayerUtils.createPlayer("playerId2")).withScore(3).withStartedMatch(false)
+                .withTeam(TeamUtils.createTeam("teamId2").withType(TeamType.NATIONAL));
         HttpEntity<PlayerMatchAttendance> c = new HttpEntity<>(newAttendance);
         ResponseEntity<PlayerMatchAttendance> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c,

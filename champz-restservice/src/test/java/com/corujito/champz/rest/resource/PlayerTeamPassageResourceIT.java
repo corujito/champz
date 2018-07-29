@@ -97,8 +97,8 @@ public class PlayerTeamPassageResourceIT {
         entity.setBegin(new Date());
         mongoTemplate.save(entity);
 
-        PlayerTeamPassage newPassage = PlayerTeamPassageUtils.createPlayerTeamPassage(entity.getId());
-        newPassage.setBegin(new Date());
+        PlayerTeamPassage newPassage = PlayerTeamPassageUtils.createPlayerTeamPassage(entity.getId())
+                .withBegin(new Date()).withEnd(new Date());
         HttpEntity<PlayerTeamPassage> c = new HttpEntity<>(newPassage);
         ResponseEntity<PlayerTeamPassage> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, PlayerTeamPassage.class);

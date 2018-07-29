@@ -20,7 +20,9 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import com.corujito.champz.rest.Application;
 import com.corujito.champz.rest.ChampionshipUtils;
+import com.corujito.champz.rest.UserUtils;
 import com.corujito.champz.rest.model.Championship;
+import com.corujito.champz.rest.model.ChampionshipType;
 import com.corujito.champz.rest.repository.config.MongoConfigIT;
 import com.corujito.champz.rest.repository.entity.ChampionshipEntity;
 
@@ -95,8 +97,11 @@ public class ChampionshipResourceIT {
         entity.setName("campeonato brasileiro");
         mongoTemplate.save(entity);
 
-        Championship newChampionship = ChampionshipUtils.createChampionship(entity.getId());
-        newChampionship.setName("campeonato paulista");
+        Championship newChampionship =
+                ChampionshipUtils.createChampionship(entity.getId()).withName("campeonato paulista")
+                        .withDescription("desc").withFounded("foun").withImageUrl("imag").withOrganization("org")
+                        .withPopularName("pop").withType(ChampionshipType.REGIONAL_TYPE)
+                        .withUser(UserUtils.createUser("userId3")).withWebSite("web");
         HttpEntity<Championship> c = new HttpEntity<>(newChampionship);
         ResponseEntity<Championship> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, Championship.class);

@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.corujito.champz.rest.Application;
 import com.corujito.champz.rest.PlayUtils;
 import com.corujito.champz.rest.model.Play;
+import com.corujito.champz.rest.model.PlayType;
 import com.corujito.champz.rest.repository.config.MongoConfigIT;
 import com.corujito.champz.rest.repository.entity.PlayEntity;
 
@@ -95,8 +96,8 @@ public class PlayResourceIT {
         entity.setComment("expulso");
         mongoTemplate.save(entity);
 
-        Play newPlay = PlayUtils.createPlay(entity.getId());
-        newPlay.setComment("golaço");
+        Play newPlay = PlayUtils.createPlay(entity.getId()).withComment("golaço").withMinute(123).withPeriod(32)
+                .withTitle("outro title").withType(PlayType.IMPORTANT);
         HttpEntity<Play> c = new HttpEntity<>(newPlay);
         ResponseEntity<Play> response =
                 template.exchange(base.toString() + "/" + entity.getId(), HttpMethod.PUT, c, Play.class);
