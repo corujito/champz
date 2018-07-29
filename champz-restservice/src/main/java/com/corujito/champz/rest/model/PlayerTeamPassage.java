@@ -4,6 +4,7 @@ import java.util.Date;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class PlayerTeamPassage {
 
@@ -89,5 +90,16 @@ public class PlayerTeamPassage {
     public PlayerTeamPassage withEnd(Date end) {
         setEnd(end);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("begin", this.begin)
+                .append("end", this.end)
+                .append("player", this.player)
+                .append("team", this.team)
+                .toString();
     }
 }

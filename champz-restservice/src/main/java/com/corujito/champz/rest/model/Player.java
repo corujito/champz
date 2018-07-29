@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Player {
 
@@ -192,5 +193,24 @@ public class Player {
     public Player withInscriptions(List<PlayerInscription> inscriptions) {
         setInscriptions(inscriptions);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("fullName", this.fullName)
+                .append("popularName", this.popularName)
+                .append("nickName", this.nickName)
+                .append("birth", this.birth)
+                .append("birthLocation", this.birthLocation)
+                .append("cpf", this.cpf)
+                .append("rg", this.rg)
+                .append("inscriptions", this.inscriptions)
+                .append("passages", this.passages)
+                .append("photoImage", this.photoImage)
+                .append("photoImage", this.photoImage)
+                .append("user", this.user)
+                .toString();
     }
 }

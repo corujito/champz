@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Match {
 
@@ -332,5 +333,33 @@ public class Match {
     public Match withPlays(List<Play> plays) {
         setPlays(plays);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("awayExtraTimeScore", this.awayExtraTimeScore)
+                .append("awayPenaltyScore", this.awayPenaltyScore)
+                .append("awayScore", this.awayScore)
+                .append("homeExtraTimeScore", this.homeExtraTimeScore)
+                .append("homePenaltyScore", this.homePenaltyScore)
+                .append("homeScore", this.homeScore)
+                .append("round", this.round)
+                .append("awayPlayers", this.awayPlayers)
+                .append("awayTeam", this.awayTeam)
+                .append("group", this.group)
+                .append("homePlayers", this.homePlayers)
+                .append("homeTeam", this.homeTeam)
+                .append("locale", this.locale)
+                .append("matchDate", this.matchDate)
+                .append("originalDate", this.originalDate)
+                .append("phase", this.phase)
+                .append("plays", this.plays)
+                .append("season", this.season)
+                .append("status", this.status)
+                .append("subTitle", this.subTitle)
+                .append("title", this.title)
+                .toString();
     }
 }

@@ -3,6 +3,7 @@ package com.corujito.champz.rest.model;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class PlayerMatchAttendance {
 
@@ -146,5 +147,20 @@ public class PlayerMatchAttendance {
     public PlayerMatchAttendance withType(AttendanceType type) {
         setType(type);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("player", this.player)
+                .append("score", this.score)
+                .append("startedMatch", this.startedMatch)
+                .append("macroPosition", this.macroPosition)
+                .append("match", this.match)
+                .append("position", this.position)
+                .append("team", this.team)
+                .append("type", this.type)
+                .toString();
     }
 }

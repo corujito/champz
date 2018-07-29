@@ -3,6 +3,9 @@ package com.corujito.champz.rest.model;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Team {
 
@@ -146,5 +149,61 @@ public class Team {
     public Team withJerseyImage(String jerseyImage) {
         setJerseyImage(jerseyImage);
         return this;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        if (obj.getClass() != getClass()) {
+            return false;
+        }
+        Team rhs = (Team) obj;
+        return new EqualsBuilder()
+                .appendSuper(super.equals(obj))
+                .append(id, rhs.id)
+                .append(jerseyImage, rhs.jerseyImage)
+                .append(name, rhs.name)
+                .append(nickname, rhs.nickname)
+                .append(popularName, rhs.popularName)
+                .append(symbolImage, rhs.symbolImage)
+                .append(teamLocation, rhs.teamLocation)
+                .append(type, rhs.type)
+                .append(user, rhs.user)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(id)
+                .append(jerseyImage)
+                .append(name)
+                .append(nickname)
+                .append(popularName)
+                .append(symbolImage)
+                .append(teamLocation)
+                .append(type)
+                .append(user)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("jerseyImage", this.jerseyImage)
+                .append("name", this.name)
+                .append("nickname", this.nickname)
+                .append("popularName", this.popularName)
+                .append("symbolImage", this.symbolImage)
+                .append("teamLocation", this.teamLocation)
+                .append("type", this.type)
+                .append("user", this.user)
+                .toString();
     }
 }

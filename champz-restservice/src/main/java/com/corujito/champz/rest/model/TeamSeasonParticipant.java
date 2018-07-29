@@ -3,6 +3,7 @@ package com.corujito.champz.rest.model;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class TeamSeasonParticipant {
 
@@ -59,5 +60,14 @@ public class TeamSeasonParticipant {
     public TeamSeasonParticipant withTeam(Team team) {
         setTeam(team);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("season", this.season)
+                .append("team", this.team)
+                .toString();
     }
 }

@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Championship {
 
@@ -174,5 +175,22 @@ public class Championship {
     public Championship withSeasons(List<Season> seasons) {
         setSeasons(seasons);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("name", this.name)
+                .append("popularName", this.popularName)
+                .append("description", this.description)
+                .append("founded", this.founded)
+                .append("imageUrl", this.imageUrl)
+                .append("type", this.type)
+                .append("organization", this.organization)
+                .append("webSite", this.webSite)
+                .append("seasons", this.seasons)
+                .append("user", this.user)
+                .toString();
     }
 }

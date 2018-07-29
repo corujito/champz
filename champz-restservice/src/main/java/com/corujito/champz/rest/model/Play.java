@@ -4,6 +4,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Play {
 
@@ -145,5 +146,20 @@ public class Play {
     public Play withTitle(String title) {
         setTitle(title);
         return this;
+    }
+    
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("minute", this.minute)
+                .append("period", this.period)
+                .append("comment", this.comment)
+                .append("match", this.match)
+                .append("player", this.player)
+                .append("secondaryPlayer", this.secondaryPlayer)
+                .append("title", this.title)
+                .append("type", this.type)
+                .toString();
     }
 }

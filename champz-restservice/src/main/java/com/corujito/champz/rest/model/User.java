@@ -4,6 +4,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class User {
 
@@ -92,5 +95,49 @@ public class User {
     public User withCpf(String cpf) {
         setCpf(cpf);
         return this;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (obj == this) {
+            return true;
+        }
+        if (obj.getClass() != getClass()) {
+            return false;
+        }
+        User rhs = (User) obj;
+        return new EqualsBuilder()
+                .appendSuper(super.equals(obj))
+                .append(id, rhs.id)
+                .append(name, rhs.name)
+                .append(email, rhs.email)
+                .append(cpf, rhs.cpf)
+                .append(rg, rhs.rg)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder()
+                .append(id)
+                .append(name)
+                .append(email)
+                .append(cpf)
+                .append(rg)
+                .toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("name", this.name)
+                .append("email", this.email)
+                .append("cpf", this.cpf)
+                .append("rg", this.rg)
+                .toString();
     }
 }

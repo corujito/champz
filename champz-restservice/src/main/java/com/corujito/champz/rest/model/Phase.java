@@ -4,6 +4,7 @@ import java.util.List;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class Phase {
 
@@ -171,5 +172,18 @@ public class Phase {
     public Phase withType(PhaseType type) {
         setType(type);
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("ID", this.id)
+                .append("currentRound", this.currentRound)
+                .append("downZone", this.downZone)
+                .append("isMain", this.isMain)
+                .append("order", this.order)
+                .append("repetitions", this.repetitions)
+                .append("upZone", this.upZone)
+                .toString();
     }
 }
