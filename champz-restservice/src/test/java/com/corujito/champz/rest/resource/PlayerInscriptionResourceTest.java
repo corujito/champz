@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,11 +32,12 @@ public class PlayerInscriptionResourceTest {
 
     @Test
     public void testGetPlayerInscription() throws Exception {
+        PlayerInscription c = PlayerInscriptionUtils.createPlayerInscription("1");
         when(playerInscriptionService.getPlayerInscription("1"))
-                .thenReturn(PlayerInscriptionUtils.createPlayerInscription("1"));
+                .thenReturn(c);
 
         PlayerInscription playerInscription = playerInscriptionResource.getPlayerInscription("1");
-        assertThat(playerInscription, notNullValue());
+        PlayerInscriptionUtils.assertObjects(playerInscription, c);
     }
 
     @Test
@@ -47,7 +46,7 @@ public class PlayerInscriptionResourceTest {
         when(playerInscriptionService.addPlayerInscription(c)).thenReturn(c);
 
         PlayerInscription playerInscription = playerInscriptionResource.addPlayerInscription(c);
-        assertThat(playerInscription, notNullValue());
+        PlayerInscriptionUtils.assertObjects(playerInscription, c);
     }
 
     @Test
@@ -56,7 +55,7 @@ public class PlayerInscriptionResourceTest {
         when(playerInscriptionService.updatePlayerInscription(c)).thenReturn(c);
 
         PlayerInscription playerInscription = playerInscriptionResource.updatePlayerInscription(c.getId(), c);
-        assertThat(playerInscription, notNullValue());
+        PlayerInscriptionUtils.assertObjects(playerInscription, c);
     }
 
     @Test

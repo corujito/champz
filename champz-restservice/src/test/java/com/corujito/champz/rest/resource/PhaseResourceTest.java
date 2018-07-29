@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,10 +32,11 @@ public class PhaseResourceTest {
 
     @Test
     public void testGetPhase() throws Exception {
-        when(phaseService.getPhase("1")).thenReturn(PhaseUtils.createPhase("1"));
+        Phase c = PhaseUtils.createPhase("1");
+        when(phaseService.getPhase("1")).thenReturn(c);
 
         Phase phase = phaseResource.getPhase("1");
-        assertThat(phase, notNullValue());
+        PhaseUtils.assertObjects(phase, c);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class PhaseResourceTest {
         when(phaseService.addPhase(c)).thenReturn(c);
 
         Phase phase = phaseResource.addPhase(c);
-        assertThat(phase, notNullValue());
+        PhaseUtils.assertObjects(phase, c);
     }
 
     @Test
@@ -55,7 +54,7 @@ public class PhaseResourceTest {
         when(phaseService.updatePhase(c)).thenReturn(c);
 
         Phase phase = phaseResource.updatePhase(c.getId(), c);
-        assertThat(phase, notNullValue());
+        PhaseUtils.assertObjects(phase, c);
     }
 
     @Test

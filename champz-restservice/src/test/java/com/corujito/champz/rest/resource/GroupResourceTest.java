@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,10 +32,11 @@ public class GroupResourceTest {
 
     @Test
     public void testGetGroup() throws Exception {
-        when(groupService.getGroup("1")).thenReturn(GroupUtils.createGroup("1"));
+        Group c = GroupUtils.createGroup("1");
+        when(groupService.getGroup("1")).thenReturn(c);
 
         Group group = groupResource.getGroup("1");
-        assertThat(group, notNullValue());
+        GroupUtils.assertObjects(group, c);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class GroupResourceTest {
         when(groupService.addGroup(c)).thenReturn(c);
 
         Group group = groupResource.addGroup(c);
-        assertThat(group, notNullValue());
+        GroupUtils.assertObjects(group, c);
     }
 
     @Test
@@ -55,7 +54,7 @@ public class GroupResourceTest {
         when(groupService.updateGroup(c)).thenReturn(c);
 
         Group group = groupResource.updateGroup(c.getId(), c);
-        assertThat(group, notNullValue());
+        GroupUtils.assertObjects(group, c);
     }
 
     @Test

@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.service;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -37,7 +35,7 @@ public class IGroupServiceTest {
         when(repository.findById("1")).thenReturn(x);
 
         Group group = groupService.getGroup("1");
-        assertThat(group, notNullValue());
+        GroupUtils.assertObjects(x.get(), group);
     }
 
     @Test
@@ -46,7 +44,7 @@ public class IGroupServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Group group = groupService.addGroup(new Group());
-        assertThat(group, notNullValue());
+        GroupUtils.assertObjects(c, group);
     }
 
     @Test
@@ -55,7 +53,7 @@ public class IGroupServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Group group = groupService.updateGroup(new Group());
-        assertThat(group, notNullValue());
+        GroupUtils.assertObjects(c, group);
     }
 
     @Test

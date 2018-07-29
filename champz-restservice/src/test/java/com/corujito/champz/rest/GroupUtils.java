@@ -37,6 +37,8 @@ public class GroupUtils {
         assertThat(group.getName(), equalTo(entity.getName()));
         assertThat(group.getOrder(), equalTo(entity.getOrder()));
         assertThat(group.getPhase().getId(), equalTo(entity.getPhaseId()));
+        assertThat(group.getPresences().size(), equalTo(entity.getPresences().size()));
+
     }
 
     public static void assertObjects(Group c1, Group c2) {

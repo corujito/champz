@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.service;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -38,7 +36,7 @@ public class ITeamSeasonParticipantServiceTest {
         when(repository.findById("1")).thenReturn(x);
 
         TeamSeasonParticipant participant = teamSeasonParticipantService.getTeamSeasonParticipant("1");
-        assertThat(participant, notNullValue());
+        TeamSeasonParticipantUtils.assertObjects(x.get(), participant);
     }
 
     @Test
@@ -48,7 +46,7 @@ public class ITeamSeasonParticipantServiceTest {
 
         TeamSeasonParticipant participant =
                 teamSeasonParticipantService.addTeamSeasonParticipant(new TeamSeasonParticipant());
-        assertThat(participant, notNullValue());
+        TeamSeasonParticipantUtils.assertObjects(c, participant);
     }
 
     @Test
@@ -58,7 +56,7 @@ public class ITeamSeasonParticipantServiceTest {
 
         TeamSeasonParticipant participant =
                 teamSeasonParticipantService.updateTeamSeasonParticipant(new TeamSeasonParticipant());
-        assertThat(participant, notNullValue());
+        TeamSeasonParticipantUtils.assertObjects(c, participant);
     }
 
     @Test

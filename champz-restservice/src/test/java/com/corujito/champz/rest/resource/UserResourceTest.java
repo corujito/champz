@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,10 +32,11 @@ public class UserResourceTest {
 
     @Test
     public void testGetUser() throws Exception {
-        when(userService.getUser("1")).thenReturn(UserUtils.createUser("1"));
+        User c = UserUtils.createUser("1");
+        when(userService.getUser("1")).thenReturn(c);
 
         User user = userResource.getUser("1");
-        assertThat(user, notNullValue());
+        UserUtils.assertObjects(user, c);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class UserResourceTest {
         when(userService.addUser(c)).thenReturn(c);
 
         User user = userResource.addUser(c);
-        assertThat(user, notNullValue());
+        UserUtils.assertObjects(user, c);
     }
 
     @Test
@@ -55,7 +54,7 @@ public class UserResourceTest {
         when(userService.updateUser(c)).thenReturn(c);
 
         User user = userResource.updateUser(c.getId(), c);
-        assertThat(user, notNullValue());
+        UserUtils.assertObjects(user, c);
     }
 
     @Test

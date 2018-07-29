@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,10 +32,11 @@ public class SeasonResourceTest {
 
     @Test
     public void testGetSeason() throws Exception {
-        when(seasonService.getSeason("1")).thenReturn(SeasonUtils.createSeason("1"));
+        Season c = SeasonUtils.createSeason("1");
+        when(seasonService.getSeason("1")).thenReturn(c);
 
         Season season = seasonResource.getSeason("1");
-        assertThat(season, notNullValue());
+        SeasonUtils.assertObjects(season, c);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class SeasonResourceTest {
         when(seasonService.addSeason(c)).thenReturn(c);
 
         Season season = seasonResource.addSeason(c);
-        assertThat(season, notNullValue());
+        SeasonUtils.assertObjects(season, c);
     }
 
     @Test
@@ -55,7 +54,7 @@ public class SeasonResourceTest {
         when(seasonService.updateSeason(c)).thenReturn(c);
 
         Season season = seasonResource.updateSeason(c.getId(), c);
-        assertThat(season, notNullValue());
+        SeasonUtils.assertObjects(season, c);
     }
 
     @Test

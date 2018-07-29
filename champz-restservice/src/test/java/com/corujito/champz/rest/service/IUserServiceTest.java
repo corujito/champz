@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.service;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -37,7 +35,7 @@ public class IUserServiceTest {
         when(repository.findById("1")).thenReturn(x);
 
         User user = userService.getUser("1");
-        assertThat(user, notNullValue());
+        UserUtils.assertObjects(x.get(), user);
     }
 
     @Test
@@ -46,7 +44,7 @@ public class IUserServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         User user = userService.addUser(new User());
-        assertThat(user, notNullValue());
+        UserUtils.assertObjects(c, user);
     }
 
     @Test
@@ -55,7 +53,7 @@ public class IUserServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         User user = userService.updateUser(new User());
-        assertThat(user, notNullValue());
+        UserUtils.assertObjects(c, user);
     }
 
     @Test

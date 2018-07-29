@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.service;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -37,7 +35,7 @@ public class IChampionshipServiceTest {
         when(repository.findById("1")).thenReturn(x);
 
         Championship championship = championshipService.getChampionship("1");
-        assertThat(championship, notNullValue());
+        ChampionshipUtils.assertObjects(x.get(), championship);
     }
 
     @Test
@@ -46,7 +44,7 @@ public class IChampionshipServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Championship championship = championshipService.addChampionship(new Championship());
-        assertThat(championship, notNullValue());
+        ChampionshipUtils.assertObjects(c, championship);
     }
 
     @Test
@@ -55,7 +53,7 @@ public class IChampionshipServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Championship championship = championshipService.updateChampionship(new Championship());
-        assertThat(championship, notNullValue());
+        ChampionshipUtils.assertObjects(c, championship);
     }
 
     @Test

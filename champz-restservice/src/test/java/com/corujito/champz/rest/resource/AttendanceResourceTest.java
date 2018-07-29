@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,10 +32,11 @@ public class AttendanceResourceTest {
 
     @Test
     public void testGetAttendance() throws Exception {
-        when(attendanceService.getAttendance("1")).thenReturn(AttendanceUtils.createAttendance("1"));
+        PlayerMatchAttendance c = AttendanceUtils.createAttendance("1");
+        when(attendanceService.getAttendance("1")).thenReturn(c);
 
         PlayerMatchAttendance attendance = attendanceResource.getAttendance("1");
-        assertThat(attendance, notNullValue());
+        AttendanceUtils.assertObjects(attendance, c);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class AttendanceResourceTest {
         when(attendanceService.addAttendance(c)).thenReturn(c);
 
         PlayerMatchAttendance attendance = attendanceResource.addAttendance(c);
-        assertThat(attendance, notNullValue());
+        AttendanceUtils.assertObjects(attendance, c);
     }
 
     @Test
@@ -55,7 +54,7 @@ public class AttendanceResourceTest {
         when(attendanceService.updateAttendance(c)).thenReturn(c);
 
         PlayerMatchAttendance attendance = attendanceResource.updateAttendance(c.getId(), c);
-        assertThat(attendance, notNullValue());
+        AttendanceUtils.assertObjects(attendance, c);
     }
 
     @Test

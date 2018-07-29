@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.service;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -37,7 +35,7 @@ public class IPhaseServiceTest {
         when(repository.findById("1")).thenReturn(x);
 
         Phase phase = phaseService.getPhase("1");
-        assertThat(phase, notNullValue());
+        PhaseUtils.assertObjects(x.get(), phase);
     }
 
     @Test
@@ -46,7 +44,7 @@ public class IPhaseServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Phase phase = phaseService.addPhase(new Phase());
-        assertThat(phase, notNullValue());
+        PhaseUtils.assertObjects(c, phase);
     }
 
     @Test
@@ -55,7 +53,7 @@ public class IPhaseServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Phase phase = phaseService.updatePhase(new Phase());
-        assertThat(phase, notNullValue());
+        PhaseUtils.assertObjects(c, phase);
     }
 
     @Test

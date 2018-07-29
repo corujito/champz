@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.service;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -37,7 +35,7 @@ public class IPlayerInscriptionServiceTest {
         when(repository.findById("1")).thenReturn(x);
 
         PlayerInscription playerInscription = playerInscriptionService.getPlayerInscription("1");
-        assertThat(playerInscription, notNullValue());
+        PlayerInscriptionUtils.assertObjects(x.get(), playerInscription);
     }
 
     @Test
@@ -46,7 +44,7 @@ public class IPlayerInscriptionServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         PlayerInscription playerInscription = playerInscriptionService.addPlayerInscription(new PlayerInscription());
-        assertThat(playerInscription, notNullValue());
+        PlayerInscriptionUtils.assertObjects(c, playerInscription);
     }
 
     @Test
@@ -55,13 +53,14 @@ public class IPlayerInscriptionServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         PlayerInscription playerInscription = playerInscriptionService.updatePlayerInscription(new PlayerInscription());
-        assertThat(playerInscription, notNullValue());
+        PlayerInscriptionUtils.assertObjects(c, playerInscription);
     }
 
     @Test
     public void testGetAllPlayerInscriptions() {
-        List<PlayerInscriptionEntity> entities = Arrays.asList(PlayerInscriptionUtils.createPlayerInscriptionEntity("1"),
-                PlayerInscriptionUtils.createPlayerInscriptionEntity("2"));
+        List<PlayerInscriptionEntity> entities =
+                Arrays.asList(PlayerInscriptionUtils.createPlayerInscriptionEntity("1"),
+                        PlayerInscriptionUtils.createPlayerInscriptionEntity("2"));
         when(repository.findAll()).thenReturn(entities);
 
         List<PlayerInscription> playerInscriptions = playerInscriptionService.getAllPlayerInscriptions();

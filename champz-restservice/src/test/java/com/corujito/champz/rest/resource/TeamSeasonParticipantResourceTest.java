@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,11 +32,12 @@ public class TeamSeasonParticipantResourceTest {
 
     @Test
     public void testGetTeamSeasonParticipant() throws Exception {
+        TeamSeasonParticipant c = TeamSeasonParticipantUtils.createTeamSeasonParticipant("1");
         when(participantService.getTeamSeasonParticipant("1"))
-                .thenReturn(TeamSeasonParticipantUtils.createTeamSeasonParticipant("1"));
+                .thenReturn(c);
 
         TeamSeasonParticipant participant = participantResource.getTeamSeasonParticipant("1");
-        assertThat(participant, notNullValue());
+        TeamSeasonParticipantUtils.assertObjects(participant, c);
     }
 
     @Test
@@ -47,7 +46,7 @@ public class TeamSeasonParticipantResourceTest {
         when(participantService.addTeamSeasonParticipant(c)).thenReturn(c);
 
         TeamSeasonParticipant participant = participantResource.addTeamSeasonParticipant(c);
-        assertThat(participant, notNullValue());
+        TeamSeasonParticipantUtils.assertObjects(participant, c);
     }
 
     @Test
@@ -56,7 +55,7 @@ public class TeamSeasonParticipantResourceTest {
         when(participantService.updateTeamSeasonParticipant(c)).thenReturn(c);
 
         TeamSeasonParticipant participant = participantResource.updateTeamSeasonParticipant(c.getId(), c);
-        assertThat(participant, notNullValue());
+        TeamSeasonParticipantUtils.assertObjects(participant, c);
     }
 
     @Test

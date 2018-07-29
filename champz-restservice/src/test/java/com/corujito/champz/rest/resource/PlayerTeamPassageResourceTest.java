@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,10 +32,11 @@ public class PlayerTeamPassageResourceTest {
 
     @Test
     public void testGetPlayerTeamPassage() throws Exception {
-        when(passageService.getPlayerTeamPassage("1")).thenReturn(PlayerTeamPassageUtils.createPlayerTeamPassage("1"));
+        PlayerTeamPassage c = PlayerTeamPassageUtils.createPlayerTeamPassage("1");
+        when(passageService.getPlayerTeamPassage("1")).thenReturn(c);
 
         PlayerTeamPassage passage = passageResource.getPlayerTeamPassage("1");
-        assertThat(passage, notNullValue());
+        PlayerTeamPassageUtils.assertObjects(passage, c);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class PlayerTeamPassageResourceTest {
         when(passageService.addPlayerTeamPassage(c)).thenReturn(c);
 
         PlayerTeamPassage passage = passageResource.addPlayerTeamPassage(c);
-        assertThat(passage, notNullValue());
+        PlayerTeamPassageUtils.assertObjects(passage, c);
     }
 
     @Test
@@ -55,7 +54,7 @@ public class PlayerTeamPassageResourceTest {
         when(passageService.updatePlayerTeamPassage(c)).thenReturn(c);
 
         PlayerTeamPassage passage = passageResource.updatePlayerTeamPassage(c.getId(), c);
-        assertThat(passage, notNullValue());
+        PlayerTeamPassageUtils.assertObjects(passage, c);
     }
 
     @Test

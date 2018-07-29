@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,10 +32,11 @@ public class ChampionshipResourceTest {
 
     @Test
     public void testGetChampionship() throws Exception {
-        when(championshipService.getChampionship("1")).thenReturn(ChampionshipUtils.createChampionship("1"));
+        Championship c = ChampionshipUtils.createChampionship("1");
+        when(championshipService.getChampionship("1")).thenReturn(c);
 
         Championship championship = championshipResource.getChampionship("1");
-        assertThat(championship, notNullValue());
+        ChampionshipUtils.assertObjects(championship, c);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class ChampionshipResourceTest {
         when(championshipService.addChampionship(c)).thenReturn(c);
 
         Championship championship = championshipResource.addChampionship(c);
-        assertThat(championship, notNullValue());
+        ChampionshipUtils.assertObjects(championship, c);
     }
 
     @Test
@@ -55,7 +54,7 @@ public class ChampionshipResourceTest {
         when(championshipService.updateChampionship(c)).thenReturn(c);
 
         Championship championship = championshipResource.updateChampionship(c.getId(), c);
-        assertThat(championship, notNullValue());
+        ChampionshipUtils.assertObjects(championship, c);
     }
 
     @Test

@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.service;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -37,7 +35,7 @@ public class IPlayerServiceTest {
         when(repository.findById("1")).thenReturn(x);
 
         Player player = playerService.getPlayer("1");
-        assertThat(player, notNullValue());
+        PlayerUtils.assertObjects(x.get(), player);
     }
 
     @Test
@@ -46,7 +44,7 @@ public class IPlayerServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Player player = playerService.addPlayer(new Player());
-        assertThat(player, notNullValue());
+        PlayerUtils.assertObjects(c, player);
     }
 
     @Test
@@ -55,7 +53,7 @@ public class IPlayerServiceTest {
         when(repository.save(Mockito.any())).thenReturn(c);
 
         Player player = playerService.updatePlayer(new Player());
-        assertThat(player, notNullValue());
+        PlayerUtils.assertObjects(c, player);
     }
 
     @Test

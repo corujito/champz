@@ -1,8 +1,6 @@
 package com.corujito.champz.rest.resource;
 
-import static org.hamcrest.Matchers.notNullValue;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -34,10 +32,11 @@ public class PlayerResourceTest {
 
     @Test
     public void testGetPlayer() throws Exception {
-        when(playerService.getPlayer("1")).thenReturn(PlayerUtils.createPlayer("1"));
+        Player c = PlayerUtils.createPlayer("1");
+        when(playerService.getPlayer("1")).thenReturn(c);
 
         Player player = playerResource.getPlayer("1");
-        assertThat(player, notNullValue());
+        PlayerUtils.assertObjects(player, c);
     }
 
     @Test
@@ -46,7 +45,7 @@ public class PlayerResourceTest {
         when(playerService.addPlayer(c)).thenReturn(c);
 
         Player player = playerResource.addPlayer(c);
-        assertThat(player, notNullValue());
+        PlayerUtils.assertObjects(player, c);
     }
 
     @Test
@@ -55,7 +54,7 @@ public class PlayerResourceTest {
         when(playerService.updatePlayer(c)).thenReturn(c);
 
         Player player = playerResource.updatePlayer(c.getId(), c);
-        assertThat(player, notNullValue());
+        PlayerUtils.assertObjects(player, c);
     }
 
     @Test
