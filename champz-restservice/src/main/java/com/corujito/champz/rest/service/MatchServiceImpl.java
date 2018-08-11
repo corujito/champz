@@ -25,9 +25,19 @@ public class MatchServiceImpl implements IMatchService {
     }
 
     @Override
-    public List<Match> getAllMatchs() {
+    public List<Match> getAllMatches() {
         List<Match> matchs = new ArrayList<>();
         List<MatchEntity> entities = repository.findAll();
+        for (MatchEntity entity : entities) {
+            matchs.add(modelMapper.map(entity, Match.class));
+        }
+        return matchs;
+    }
+
+    @Override
+    public List<Match> getMatchesBySeasonId(String seasonId) {
+        List<Match> matchs = new ArrayList<>();
+        List<MatchEntity> entities = repository.findBySeasonId(seasonId);
         for (MatchEntity entity : entities) {
             matchs.add(modelMapper.map(entity, Match.class));
         }

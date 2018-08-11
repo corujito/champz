@@ -9,6 +9,8 @@ public interface ITeamSeasonParticipantService {
 
     List<TeamSeasonParticipant> getAllTeamSeasonParticipant();
 
+    List<TeamSeasonParticipant> getTeamSeasonParticipantsBySeasonId(String seasonId);
+
     TeamSeasonParticipant addTeamSeasonParticipant(TeamSeasonParticipant teamSeasonParticipant);
 
     TeamSeasonParticipant updateTeamSeasonParticipant(TeamSeasonParticipant teamSeasonParticipant);

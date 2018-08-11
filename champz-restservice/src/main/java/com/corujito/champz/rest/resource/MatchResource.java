@@ -34,7 +34,7 @@ public class MatchResource {
     @GetMapping
     public List<Match> getAllMatchs() {
         LOGGER.debug("Match.getAllMatchs");
-        return matchService.getAllMatchs();
+        return matchService.getAllMatches();
     }
 
     @PostMapping

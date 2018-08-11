@@ -67,6 +67,17 @@ public class IGroupServiceTest {
     }
 
     @Test
+    public void testGetGroupsByPhaseId() {
+        String phaseId = "phaseId";
+        List<GroupEntity> entities = Arrays.asList(GroupUtils.createGroupEntity("1").withPhaseId(phaseId),
+                GroupUtils.createGroupEntity("2").withPhaseId(phaseId));
+        when(repository.findByPhaseId(phaseId)).thenReturn(entities);
+
+        List<Group> groups = groupService.getGroupsByPhaseId(phaseId);
+        assertEquals(groups.size(), entities.size());
+    }
+
+    @Test
     public void testDelete() {
         groupService.deleteGroup("1");
         verify(repository, times(1)).deleteById("1");

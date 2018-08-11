@@ -10,9 +10,13 @@ import com.corujito.champz.rest.repository.entity.MatchEntity;
 public class MatchUtils {
 
     public static MatchEntity createMatchEntity() {
+        return createMatchEntity(null);
+    }
+
+    public static MatchEntity createMatchEntity(String id) {
         return new MatchEntity().withAwayExtraTimeScore(1).withAwayPenaltyScore(2).withAwayScore(3).withAwayTeamId("1")
                 .withHomeExtraTimeScore(5).withHomePenaltyScore(7).withHomeScore(1)
-                .withHomeTeamId("2").withId("1").withMatchDate(new Date()).withOriginalDate(new Date()).withPhaseId("1")
+                .withHomeTeamId("2").withId(id).withMatchDate(new Date()).withOriginalDate(new Date()).withPhaseId("1")
                 .withRound(8).withSeasonId("3").withStatus(MatchStatus.FINISHED);
     }
 

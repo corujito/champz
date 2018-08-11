@@ -9,6 +9,8 @@ public interface IPhaseService {
 
     List<Phase> getAllPhases();
 
+    List<Phase> getPhasesBySeasonId(String seasonId);
+
     Phase addPhase(Phase phase);
 
     Phase updatePhase(Phase phase);

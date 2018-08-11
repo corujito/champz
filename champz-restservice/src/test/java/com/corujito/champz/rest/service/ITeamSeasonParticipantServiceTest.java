@@ -71,6 +71,19 @@ public class ITeamSeasonParticipantServiceTest {
     }
 
     @Test
+    public void testGetTeamSeasonParticipantsBySeasonId() {
+        String seasonId = "seasonId";
+        List<TeamSeasonParticipantEntity> entities =
+                Arrays.asList(TeamSeasonParticipantUtils.createTeamSeasonParticipantEntity("1").withSeasonId(seasonId),
+                        TeamSeasonParticipantUtils.createTeamSeasonParticipantEntity("2").withSeasonId(seasonId));
+        when(repository.findBySeasonId(seasonId)).thenReturn(entities);
+
+        List<TeamSeasonParticipant> participants =
+                teamSeasonParticipantService.getTeamSeasonParticipantsBySeasonId(seasonId);
+        assertEquals(participants.size(), entities.size());
+    }
+
+    @Test
     public void testDelete() {
         teamSeasonParticipantService.deleteTeamSeasonParticipant("1");
         verify(repository, times(1)).deleteById("1");

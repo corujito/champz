@@ -67,6 +67,17 @@ public class IPhaseServiceTest {
     }
 
     @Test
+    public void testGetPhasesBySeasonId() {
+        String seasonId = "seasonId";
+        List<PhaseEntity> entities = Arrays.asList(PhaseUtils.createPhaseEntity("1").withSeasonId(seasonId),
+                PhaseUtils.createPhaseEntity("2").withSeasonId(seasonId));
+        when(repository.findBySeasonId(seasonId)).thenReturn(entities);
+
+        List<Phase> phases = phaseService.getPhasesBySeasonId(seasonId);
+        assertEquals(phases.size(), entities.size());
+    }
+
+    @Test
     public void testDelete() {
         phaseService.deletePhase("1");
         verify(repository, times(1)).deleteById("1");

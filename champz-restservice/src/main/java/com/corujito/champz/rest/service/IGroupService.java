@@ -9,6 +9,8 @@ public interface IGroupService {
 
     List<Group> getAllGroups();
 
+    List<Group> getGroupsByPhaseId(String phaseId);
+
     Group addGroup(Group group);
 
     Group updateGroup(Group group);

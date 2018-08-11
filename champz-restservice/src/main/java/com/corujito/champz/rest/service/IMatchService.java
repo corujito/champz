@@ -7,7 +7,9 @@ public interface IMatchService {
 
     Match getMatch(String id);
 
-    List<Match> getAllMatchs();
+    List<Match> getAllMatches();
+
+    List<Match> getMatchesBySeasonId(String seasonId);
 
     Match addMatch(Match match);
 
