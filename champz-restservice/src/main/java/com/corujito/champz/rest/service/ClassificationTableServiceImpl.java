@@ -49,22 +49,22 @@ public class ClassificationTableServiceImpl implements IClassificationTableServi
                     awayRow.setLosts(awayRow.getLosts() + 1);
                     homeRow.setPoints(homeRow.getPoints() + WIN_POINTS);
                     awayRow.setPoints(awayRow.getPoints() + LOSE_POINTS);
-                    homeRow.getMatchesHistory().add(2);
-                    awayRow.getMatchesHistory().add(0);
+                    homeRow.getMatchesHistory().add(WIN_POINTS);
+                    awayRow.getMatchesHistory().add(LOSE_POINTS);
                 } else if (match.getHomeScore() < match.getAwayScore()) {
                     awayRow.setWins(awayRow.getWins() + 1);
                     homeRow.setLosts(homeRow.getLosts() + 1);
                     awayRow.setPoints(awayRow.getPoints() + WIN_POINTS);
                     homeRow.setPoints(homeRow.getPoints() + LOSE_POINTS);
-                    awayRow.getMatchesHistory().add(2);
-                    homeRow.getMatchesHistory().add(0);
+                    awayRow.getMatchesHistory().add(WIN_POINTS);
+                    homeRow.getMatchesHistory().add(LOSE_POINTS);
                 } else {
                     homeRow.setWins(homeRow.getWins() + 1);
                     awayRow.setLosts(awayRow.getLosts() + 1);
                     homeRow.setPoints(homeRow.getPoints() + DRAW_POINTS);
                     awayRow.setPoints(awayRow.getPoints() + DRAW_POINTS);
-                    homeRow.getMatchesHistory().add(1);
-                    awayRow.getMatchesHistory().add(1);
+                    homeRow.getMatchesHistory().add(DRAW_POINTS);
+                    awayRow.getMatchesHistory().add(DRAW_POINTS);
                 }
             }
         }
@@ -77,7 +77,7 @@ public class ClassificationTableServiceImpl implements IClassificationTableServi
             row.setBalanceGoals(row.getProGoals() - row.getAgainstGoals());
             row.setPoints(row.getPoints() + row.getPenaltyPoints());
             if (row.getNumberMatches() > 0) {
-                row.setPercent(row.getPoints() / row.getNumberMatches() * WIN_POINTS);
+                row.setPercent((row.getPoints() * 100) / (row.getNumberMatches() * WIN_POINTS));
             }
         }
 
