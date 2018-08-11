@@ -19,6 +19,9 @@ public class Group {
     private Phase phase;
     private List<GroupTeamPresence> presences;
 
+    private ClassificationTable classificationTable;
+    private List<Match> matches;
+
     public interface Existing {
     }
 
@@ -65,6 +68,22 @@ public class Group {
         this.presences = presences;
     }
 
+    public ClassificationTable getClassificationTable() {
+        return classificationTable;
+    }
+
+    public void setClassificationTable(ClassificationTable classificationTable) {
+        this.classificationTable = classificationTable;
+    }
+
+    public List<Match> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
+
     public Group withId(String id) {
         setId(id);
         return this;
@@ -87,6 +106,16 @@ public class Group {
 
     public Group withPresences(List<GroupTeamPresence> presences) {
         setPresences(presences);
+        return this;
+    }
+
+    public Group withClassificationTable(ClassificationTable classificationTable) {
+        setClassificationTable(classificationTable);
+        return this;
+    }
+
+    public Group withMatches(List<Match> matches) {
+        setMatches(matches);
         return this;
     }
 

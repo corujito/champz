@@ -22,7 +22,7 @@ public class Season {
     @NotNull(groups = {Existing.class, New.class})
     @Valid
     private Championship championship;
-    private List<TeamSeasonParticipant> teams;
+    private List<TeamSeasonParticipant> participants;
     private List<PlayerInscription> playerInscriptions;
     private List<Phase> phases;
 
@@ -64,12 +64,12 @@ public class Season {
         this.championship = championship;
     }
 
-    public List<TeamSeasonParticipant> getTeams() {
-        return teams;
+    public List<TeamSeasonParticipant> getParticipants() {
+        return participants;
     }
 
-    public void setTeams(List<TeamSeasonParticipant> teams) {
-        this.teams = teams;
+    public void setParticipants(List<TeamSeasonParticipant> participants) {
+        this.participants = participants;
     }
 
     public List<PlayerInscription> getPlayerInscriptions() {
@@ -118,8 +118,8 @@ public class Season {
         return this;
     }
 
-    public Season withTeams(List<TeamSeasonParticipant> teams) {
-        setTeams(teams);
+    public Season withParticipants(List<TeamSeasonParticipant> participants) {
+        setParticipants(participants);
         return this;
     }
 
@@ -132,7 +132,7 @@ public class Season {
                 .append("championship", this.championship)
                 .append("phases", this.phases)
                 .append("playerInscriptions", this.playerInscriptions)
-                .append("teams", this.teams)
+                .append("participants", this.participants)
                 .toString();
     }
 }
