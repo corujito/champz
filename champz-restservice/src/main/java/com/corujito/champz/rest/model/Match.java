@@ -25,7 +25,7 @@ public class Match {
     private String locale;
     private String title;
     private String subTitle;
-    private MatchStatus status;
+    private MatchStatus matchStatus;
 
     @NotNull(groups = {Existing.class, New.class})
     @Valid
@@ -153,12 +153,12 @@ public class Match {
         this.matchDate = matchDate;
     }
 
-    public MatchStatus getStatus() {
-        return status;
+    public MatchStatus getMatchStatus() {
+        return matchStatus;
     }
 
-    public void setStatus(MatchStatus status) {
-        this.status = status;
+    public void setMatchStatus(MatchStatus matchStatus) {
+        this.matchStatus = matchStatus;
     }
 
     public Phase getPhase() {
@@ -305,8 +305,8 @@ public class Match {
         return this;
     }
 
-    public Match withStatus(MatchStatus status) {
-        setStatus(status);
+    public Match withMatchStatus(MatchStatus matchStatus) {
+        setMatchStatus(matchStatus);
         return this;
     }
 
@@ -357,7 +357,7 @@ public class Match {
                 .append("phase", this.phase)
                 .append("plays", this.plays)
                 .append("season", this.season)
-                .append("status", this.status)
+                .append("status", this.matchStatus)
                 .append("subTitle", this.subTitle)
                 .append("title", this.title)
                 .toString();

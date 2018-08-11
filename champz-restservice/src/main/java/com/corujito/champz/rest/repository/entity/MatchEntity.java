@@ -19,7 +19,7 @@ public class MatchEntity extends BaseEntity {
     private String locale;
     private String title;
     private String subTitle;
-    private MatchStatus status;
+    private MatchStatus matchStatus;
 
     private String seasonId;
     private String phaseId;
@@ -123,12 +123,12 @@ public class MatchEntity extends BaseEntity {
         this.matchDate = matchDate;
     }
 
-    public MatchStatus getStatus() {
-        return status;
+    public MatchStatus getMatchStatus() {
+        return matchStatus;
     }
 
-    public void setStatus(MatchStatus status) {
-        this.status = status;
+    public void setMatchStatus(MatchStatus status) {
+        this.matchStatus = status;
     }
 
     public String getPhaseId() {
@@ -256,8 +256,8 @@ public class MatchEntity extends BaseEntity {
         return this;
     }
 
-    public MatchEntity withStatus(MatchStatus status) {
-        setStatus(status);
+    public MatchEntity withMatchStatus(MatchStatus matchStatus) {
+        setMatchStatus(matchStatus);
         return this;
     }
 

@@ -20,17 +20,17 @@ public class IClassificationTableServiceTest {
         Team time3 = new Team().withId("3").withName("São Paulo");
         Team time4 = new Team().withId("4").withName("Santos");
 
-        Match jogo1 = new Match().withHomeTeam(time1).withAwayTeam(time2).withStatus(MatchStatus.FINISHED)
+        Match jogo1 = new Match().withHomeTeam(time1).withAwayTeam(time2).withMatchStatus(MatchStatus.FINISHED)
                 .withRound(1).withHomeScore(1).withAwayScore(0);
-        Match jogo2 = new Match().withHomeTeam(time3).withAwayTeam(time4).withStatus(MatchStatus.FINISHED)
+        Match jogo2 = new Match().withHomeTeam(time3).withAwayTeam(time4).withMatchStatus(MatchStatus.FINISHED)
                 .withRound(1).withHomeScore(2).withAwayScore(0);
-        Match jogo3 = new Match().withHomeTeam(time1).withAwayTeam(time3).withStatus(MatchStatus.FINISHED)
+        Match jogo3 = new Match().withHomeTeam(time1).withAwayTeam(time3).withMatchStatus(MatchStatus.FINISHED)
                 .withRound(2).withHomeScore(1).withAwayScore(0);
-        Match jogo4 = new Match().withHomeTeam(time2).withAwayTeam(time4).withStatus(MatchStatus.FINISHED)
+        Match jogo4 = new Match().withHomeTeam(time2).withAwayTeam(time4).withMatchStatus(MatchStatus.FINISHED)
                 .withRound(2).withHomeScore(1).withAwayScore(1);
-        Match jogo5 = new Match().withHomeTeam(time1).withAwayTeam(time4).withStatus(MatchStatus.SCHEDULED)
+        Match jogo5 = new Match().withHomeTeam(time1).withAwayTeam(time4).withMatchStatus(MatchStatus.SCHEDULED)
                 .withRound(3).withHomeScore(1).withAwayScore(0);
-        Match jogo6 = new Match().withHomeTeam(time2).withAwayTeam(time3).withStatus(MatchStatus.SCHEDULED)
+        Match jogo6 = new Match().withHomeTeam(time2).withAwayTeam(time3).withMatchStatus(MatchStatus.SCHEDULED)
                 .withRound(3).withHomeScore(1).withAwayScore(0);
 
         List<Team> teams = Arrays.asList(time1, time2, time3, time4);

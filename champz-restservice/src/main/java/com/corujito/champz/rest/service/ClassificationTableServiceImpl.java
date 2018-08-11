@@ -30,7 +30,7 @@ public class ClassificationTableServiceImpl implements IClassificationTableServi
         }
 
         for (Match match : matches) {
-            if (MatchStatus.FINISHED.equals(match.getStatus())) {
+            if (MatchStatus.FINISHED.equals(match.getMatchStatus())) {
                 Team homeTeam = match.getHomeTeam();
                 Team awayTeam = match.getAwayTeam();
 

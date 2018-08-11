@@ -17,7 +17,7 @@ import com.corujito.champz.rest.model.Match;
 import com.corujito.champz.rest.service.IMatchService;
 
 @RestController
-@RequestMapping("/api/matchs")
+@RequestMapping("/api/matches")
 public class MatchResource {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MatchResource.class);
