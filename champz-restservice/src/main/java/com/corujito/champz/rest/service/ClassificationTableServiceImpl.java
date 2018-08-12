@@ -59,8 +59,8 @@ public class ClassificationTableServiceImpl implements IClassificationTableServi
                     awayRow.getMatchesHistory().add(WIN_POINTS);
                     homeRow.getMatchesHistory().add(LOSE_POINTS);
                 } else {
-                    homeRow.setWins(homeRow.getWins() + 1);
-                    awayRow.setLosts(awayRow.getLosts() + 1);
+                    homeRow.setDraws(homeRow.getDraws() + 1);
+                    awayRow.setDraws(awayRow.getDraws() + 1);
                     homeRow.setPoints(homeRow.getPoints() + DRAW_POINTS);
                     awayRow.setPoints(awayRow.getPoints() + DRAW_POINTS);
                     homeRow.getMatchesHistory().add(DRAW_POINTS);
@@ -70,15 +70,17 @@ public class ClassificationTableServiceImpl implements IClassificationTableServi
         }
 
         List<ClassificationRow> rows = new ArrayList<>(rowsMap.values());
-        Collections.sort(rows, new ClassificationRowComparator());
-        int position = 1;
         for (ClassificationRow row : rows) {
-            row.setPosition(position++);
             row.setBalanceGoals(row.getProGoals() - row.getAgainstGoals());
             row.setPoints(row.getPoints() + row.getPenaltyPoints());
             if (row.getNumberMatches() > 0) {
                 row.setPercent((row.getPoints() * 100) / (row.getNumberMatches() * WIN_POINTS));
             }
+        }
+        Collections.sort(rows, new ClassificationRowComparator());
+        int position = 1;
+        for (ClassificationRow row : rows) {
+            row.setPosition(position++);
         }
 
         return new ClassificationTable().withRows(rows);
