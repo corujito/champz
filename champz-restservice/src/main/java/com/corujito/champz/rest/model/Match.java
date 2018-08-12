@@ -25,6 +25,8 @@ public class Match {
     private String locale;
     private String title;
     private String subTitle;
+    private String homeTeamLabel;
+    private String awayTeamLabel;
     private MatchStatus matchStatus;
 
     @NotNull(groups = {Existing.class, New.class})
@@ -225,6 +227,22 @@ public class Match {
         this.group = group;
     }
 
+    public String getHomeTeamLabel() {
+        return homeTeamLabel;
+    }
+
+    public void setHomeTeamLabel(String homeTeamLabel) {
+        this.homeTeamLabel = homeTeamLabel;
+    }
+
+    public String getAwayTeamLabel() {
+        return awayTeamLabel;
+    }
+
+    public void setAwayTeamLabel(String awayTeamLabel) {
+        this.awayTeamLabel = awayTeamLabel;
+    }
+
     public Match withId(String id) {
         setId(id);
         return this;
@@ -335,6 +353,16 @@ public class Match {
         return this;
     }
 
+    public Match withHomeTeamLabel(String homeTeamLabel) {
+        setHomeTeamLabel(homeTeamLabel);
+        return this;
+    }
+
+    public Match withAwayTeamLabel(String awayTeamLabel) {
+        setAwayTeamLabel(awayTeamLabel);
+        return this;
+    }
+
     @Override
     public String toString() {
         return new ToStringBuilder(this)
@@ -348,9 +376,11 @@ public class Match {
                 .append("round", this.round)
                 .append("awayPlayers", this.awayPlayers)
                 .append("awayTeam", this.awayTeam)
+                .append("awayTeamLabel", this.awayTeamLabel)
                 .append("group", this.group)
                 .append("homePlayers", this.homePlayers)
                 .append("homeTeam", this.homeTeam)
+                .append("homeTeamLabel", this.homeTeamLabel)
                 .append("locale", this.locale)
                 .append("matchDate", this.matchDate)
                 .append("originalDate", this.originalDate)
