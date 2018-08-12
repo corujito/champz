@@ -129,6 +129,6 @@ class ClassificationRowComparator implements Comparator<ClassificationRow> {
                 }
             }
         }
-        return r1.getTeam().getName().compareTo(r2.getTeam().getName());
+        return r1.getTeam().getPopularName().compareTo(r2.getTeam().getPopularName());
     }
 }

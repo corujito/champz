@@ -20,6 +20,7 @@ public class Team {
     private String name;
     private String popularName;
     private String nickname;
+    private String abbreviation;
     private String symbolImage;
     private String jerseyImage;
     private Location teamLocation;
@@ -106,6 +107,14 @@ public class Team {
         this.jerseyImage = jerseyImage;
     }
 
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+
+    public void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
+
     public Team withId(String id) {
         setId(id);
         return this;
@@ -151,6 +160,11 @@ public class Team {
         return this;
     }
 
+    public Team withAbbreviation(String abbreviation) {
+        setAbbreviation(abbreviation);
+        return this;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -170,6 +184,7 @@ public class Team {
                 .append(name, rhs.name)
                 .append(nickname, rhs.nickname)
                 .append(popularName, rhs.popularName)
+                .append(abbreviation, rhs.abbreviation)
                 .append(symbolImage, rhs.symbolImage)
                 .append(teamLocation, rhs.teamLocation)
                 .append(type, rhs.type)
@@ -184,6 +199,7 @@ public class Team {
                 .append(jerseyImage)
                 .append(name)
                 .append(nickname)
+                .append(abbreviation)
                 .append(popularName)
                 .append(symbolImage)
                 .append(teamLocation)
@@ -199,6 +215,7 @@ public class Team {
                 .append("jerseyImage", this.jerseyImage)
                 .append("name", this.name)
                 .append("nickname", this.nickname)
+                .append("abbreviation", this.abbreviation)
                 .append("popularName", this.popularName)
                 .append("symbolImage", this.symbolImage)
                 .append("teamLocation", this.teamLocation)

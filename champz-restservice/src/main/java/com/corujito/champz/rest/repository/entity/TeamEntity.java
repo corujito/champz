@@ -10,6 +10,7 @@ public class TeamEntity extends BaseEntity {
     private String name;
     private String popularName;
     private String nickname;
+    private String abbreviation;
     private String symbolImage;
     private String jerseyImage;
     private Location teamLocation;
@@ -81,6 +82,14 @@ public class TeamEntity extends BaseEntity {
         this.jerseyImage = jerseyImage;
     }
 
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+
+    public void setAbbreviation(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
+
     public TeamEntity withId(String id) {
         setId(id);
         return this;
@@ -123,6 +132,11 @@ public class TeamEntity extends BaseEntity {
 
     public TeamEntity withJerseyImage(String jerseyImage) {
         setJerseyImage(jerseyImage);
+        return this;
+    }
+
+    public TeamEntity withAbbreviation(String abbreviation) {
+        setAbbreviation(abbreviation);
         return this;
     }
 }

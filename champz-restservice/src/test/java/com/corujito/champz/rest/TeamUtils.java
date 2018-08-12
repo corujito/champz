@@ -15,7 +15,7 @@ public class TeamUtils {
     public static TeamEntity createTeamEntity(String id) {
         return new TeamEntity().withId(id).withName("name").withUserId("1").withJerseyImage("jerseyImage")
                 .withNickname("nickname")
-                .withPopularName("popularName").withSymbolImage("symbolImage")
+                .withPopularName("popularName").withSymbolImage("symbolImage").withAbbreviation("abr")
                 .withType(TeamType.CLUB);
     }
 
@@ -26,6 +26,7 @@ public class TeamUtils {
     public static Team createTeam(String id) {
         return new Team().withId(id).withName("name").withUser(UserUtils.createUser("userId"))
                 .withJerseyImage("jerseyImage").withNickname("nickname").withPopularName("popularName")
+                .withAbbreviation("abr")
                 .withSymbolImage("symbolImage")
                 .withType(TeamType.CLUB);
     }
@@ -34,6 +35,7 @@ public class TeamUtils {
         assertThat(team.getId(), equalTo(entity.getId()));
         assertThat(team.getName(), equalTo(entity.getName()));
         assertThat(team.getNickname(), equalTo(entity.getNickname()));
+        assertThat(team.getAbbreviation(), equalTo(entity.getAbbreviation()));
         assertThat(team.getPopularName(), equalTo(entity.getPopularName()));
         assertThat(team.getJerseyImage(), equalTo(entity.getJerseyImage()));
         assertThat(team.getSymbolImage(), equalTo(entity.getSymbolImage()));
@@ -46,6 +48,7 @@ public class TeamUtils {
         // assertThat(c2.getId(), equalTo(c1.getId()));
         assertThat(c2.getName(), equalTo(c1.getName()));
         assertThat(c2.getNickname(), equalTo(c1.getNickname()));
+        assertThat(c2.getAbbreviation(), equalTo(c1.getAbbreviation()));
         assertThat(c2.getPopularName(), equalTo(c1.getPopularName()));
         assertThat(c2.getJerseyImage(), equalTo(c1.getJerseyImage()));
         assertThat(c2.getSymbolImage(), equalTo(c1.getSymbolImage()));
