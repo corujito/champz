@@ -85,7 +85,12 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
                             user.withName(fields[1].trim());
                         } else if (linha.startsWith("Email:")) {
                             user.withEmail(fields[1].trim());
-                            user = userService.addUser(user);
+                            User retrieved = userService.getUserByEmail(user.getEmail());
+                            if (retrieved == null) {
+                                user = userService.addUser(user);
+                            } else {
+                                user = userService.updateUser(user.withId(retrieved.getId()));
+                            }
                         }
                     } else if (tipo.equals(CAMPEONATO)) {
                         championship.withUser(user);
@@ -93,8 +98,21 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
                             championship.withName(fields[1].trim());
                         } else if (linha.startsWith("Ano:")) {
                             season.withTitle(fields[1].trim());
-                            championship = championshipService.addChampionship(championship);
-                            season = seasonService.addSeason(season.withChampionship(championship));
+                            Championship c = championshipService.getChampionshipByUserIdAndName(user.getId(),
+                                    championship.getName());
+                            if (c == null) {
+                                championship = championshipService.addChampionship(championship);
+                            } else {
+                                championship = championshipService.updateChampionship(championship.withId(c.getId()));
+                            }
+                            Season s = seasonService.getSeasonByChampionshipIdAndTitle(championship.getId(),
+                                    season.getTitle());
+                            if (s == null) {
+                                season = seasonService.addSeason(season.withChampionship(championship));
+                            } else {
+                                season = seasonService
+                                        .updateSeason(season.withChampionship(championship).withId(s.getId()));
+                            }
                         }
                     } else if (tipo.equals(TIMES)) {
                         if (linha.startsWith("nome") && linha.contains("imagem do logo")) {
@@ -105,13 +123,25 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
                         if (fields.length > 1) {
                             team.withSymbolImage(fields[1].trim());
                         }
-                        team = teamService.addTeam(team);
+                        Team t = teamService.getTeamByUserIdAndPopularName(user.getId(), team.getPopularName());
+                        if (t == null) {
+                            team = teamService.addTeam(team);
+                        } else {
+                            team = teamService.updateTeam(team.withId(t.getId()));
+                        }
                         teamMap.put(team.getPopularName(), team);
 
                         TeamSeasonParticipant teamSeasonParticipant =
                                 new TeamSeasonParticipant().withSeason(season).withTeam(team);
-                        teamSeasonParticipant =
-                                teamSeasonParticipantService.addTeamSeasonParticipant(teamSeasonParticipant);
+                        TeamSeasonParticipant tsp = teamSeasonParticipantService
+                                .getTeamSeasonParticipantBySeasonIdAndTeamId(season.getId(), team.getId());
+                        if (tsp == null) {
+                            teamSeasonParticipant =
+                                    teamSeasonParticipantService.addTeamSeasonParticipant(teamSeasonParticipant);
+                        } else {
+                            teamSeasonParticipant = teamSeasonParticipantService
+                                    .updateTeamSeasonParticipant(teamSeasonParticipant.withId(tsp.getId()));
+                        }
                     } else if (tipo.equals(JOGOS)) {
                         if (linha.startsWith("jogo_nro")) {
                             continue;
@@ -127,7 +157,12 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
                             phase = phaseMap.get(phaseName);
                         } else {
                             phase = new Phase().withName(phaseName).withSeason(season);
-                            phase = phaseService.addPhase(phase);
+                            Phase p = phaseService.getPhaseBySeasonIdAndName(season.getId(), phaseName);
+                            if (p == null) {
+                                phase = phaseService.addPhase(phase);
+                            } else {
+                                phase = phaseService.updatePhase(phase.withId(p.getId()));
+                            }
                             phaseMap.put(phaseName, phase);
                         }
 
@@ -158,16 +193,39 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
                                 groupMap.put(phaseName + groupName, group);
                             }
                         } else {
-                            List<GroupTeamPresence> presences = new ArrayList<>();
-                            if (team1 != null) {
-                                presences.add(new GroupTeamPresence().withTeam(team1));
+                            group = new Group().withName(groupName).withPhase(phase);
+                            Group g = groupService.getGroupByPhaseIdAndName(phase.getId(), group.getName());
+                            if (g == null) {
+                                List<GroupTeamPresence> presences = new ArrayList<>();
+                                if (team1 != null) {
+                                    presences.add(new GroupTeamPresence().withTeam(team1));
+                                }
+                                if (team2 != null) {
+                                    presences.add(new GroupTeamPresence().withTeam(team2));
+                                }
+                                group = groupService.addGroup(group.withPresences(presences));
+                                groupMap.put(phaseName + groupName, group);
+                            } else {
+                                List<GroupTeamPresence> ps = g.getPresences();
+                                if (team1 != null) {
+                                    long count = ps.stream().filter(p -> p.getTeam().getId().equals(team1.getId()))
+                                            .count();
+                                    if (count == 0) {
+                                        ps.add(new GroupTeamPresence().withTeam(team1));
+                                        update = true;
+                                    }
+                                }
+                                if (team2 != null) {
+                                    long count = ps.stream().filter(p -> p.getTeam().getId().equals(team2.getId()))
+                                            .count();
+                                    if (count == 0) {
+                                        ps.add(new GroupTeamPresence().withTeam(team2));
+                                        update = true;
+                                    }
+                                }
+                                group = groupService.updateGroup(group.withPresences(ps).withId(g.getId()));
+                                groupMap.put(phaseName + groupName, group);
                             }
-                            if (team2 != null) {
-                                presences.add(new GroupTeamPresence().withTeam(team2));
-                            }
-                            group = new Group().withName(groupName).withPhase(phase).withPresences(presences);
-                            group = groupService.addGroup(group);
-                            groupMap.put(phaseName + groupName, group);
                         }
 
                         int round = Integer.parseInt(fields[8].trim());
@@ -191,13 +249,25 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
                                 .withLocale(locale).withOriginalDate(originalDate).withMatchDate(originalDate);
                         if (team1 != null) {
                             match.withHomeTeam(team1);
+                        } else {
                             match.withHomeTeamLabel(homeTeamLabel);
                         }
                         if (team2 != null) {
                             match.withAwayTeam(team2);
+                        } else {
                             match.withAwayTeamLabel(awayTeamLabel);
                         }
-                        match = matchService.addMatch(match);
+
+                        String team1Id = team1 != null ? team1.getId() : null;
+                        String team2Id = team2 != null ? team2.getId() : null;
+                        Match m = matchService.getMatchBySeasonIdAndPhaseIdAndGroupIdAndHomeTeamIdAndAwayTeamIdAndRound(
+                                season.getId(), phase.getId(), group.getId(), team1Id, team2Id,
+                                match.getRound());
+                        if (m == null) {
+                            match = matchService.addMatch(match);
+                        } else {
+                            match = matchService.updateMatch(match.withId(m.getId()));
+                        }
                     }
                 } catch (Exception e) {
                     LOGGER.warn("CSV format error for line: " + linha);

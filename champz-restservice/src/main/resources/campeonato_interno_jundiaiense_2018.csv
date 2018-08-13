@@ -1,0 +1,220 @@
+Nome do Campeonato:	Campeonato Interno Clube Jundiaiense									
+Ano:	2018									
+JOGOS										
+jogo_nro	data	hora	local	time_mandante	gol_mandante	gol_visitante	time_visitante	rodada	fase	grupo
+1	10/03/2018	14:00	Campo B	Sabadão	3	4	Fenerbate	1	Primeira Fase	Série Bronze
+2	10/03/2018	14:00	Campo D	Íbis Barcelona	7	0	Lokomotiv	1	Primeira Fase	Série Bronze
+3	10/03/2018	15:30	Campo B	Santa Cruz	2	1	Brasil	1	Primeira Fase	Série Bronze
+4	10/03/2018	15:30	Campo D	Clássicos	3	0	Rock na Teia	1	Primeira Fase	Série Bronze
+5	17/03/2018	14:00	Campo B	Íbis Barcelona	2	1	Brasil	2	Primeira Fase	Série Bronze
+6	17/03/2018	14:00	Campo D	Lokomotiv	1	4	Sabadão	2	Primeira Fase	Série Bronze
+7	17/03/2018	15:30	Campo B	Clássicos	3	3	Galoucos e Danone	2	Primeira Fase	Série Bronze
+8	17/03/2018	15:30	Campo D	Fenerbate	1	3	Santa Cruz	2	Primeira Fase	Série Bronze
+9	24/03/2018	11:00	Campo B	Galaxie 70	1	3	Barcelona	1	Primeira Fase	Série Diamante
+10	24/03/2018	11:00	Campo C	Tio Dirdo	2	2	Náutico	1	Primeira Fase	Série Diamante
+11	24/03/2018	11:00	Campo D	Bayern	1	2	Real	1	Primeira Fase	Série Diamante
+12	24/03/2018	13:45	Campo E	All Blacks	2	0	Tio Dirdo II	1	Primeira Fase	Sério Ouro
+13	24/03/2018	15:15	Campo B	Parathinaikos	2	0	River Plate	1	Primeira Fase	Sério Ouro
+14	24/03/2018	16:45	Campo B	Sinistro	3	0	Dudinka	1	Primeira Fase	Sério Ouro
+15	24/03/2018	13:45	Campo D	Mitos	2	1	Tsunami	1	Primeira Fase	Sério Prata
+16	24/03/2018	15:15	Campo D	Celeste	1	3	Corinthians	1	Primeira Fase	Sério Prata
+17	24/03/2018	15:15	Campo E	Colo-Colo	2	2	Aurora Cochabamba	1	Primeira Fase	Sério Prata
+18	24/03/2018	13:45	Campo B	Lokomotiv	3	1	Galoucos e Danone	3	Primeira Fase	Série Bronze
+19	24/03/2018	13:45	Campo C	Clássicos	1	4	Santa Cruz	3	Primeira Fase	Série Bronze
+20	24/03/2018	15:15	Campo C	Rock na Teia	1	3	Brasil	3	Primeira Fase	Série Bronze
+21	24/03/2018	16:45	Campo C	Íbis Barcelona	2	2	Fenerbate	3	Primeira Fase	Série Bronze
+22	07/04/2018	11:00	Campo B	Galaxie 70	1	4	Tio Dirdo	2	Primeira Fase	Série Diamante
+23	07/04/2018	11:00	Campo C	Bayern	2	2	Alianza	2	Primeira Fase	Série Diamante
+24	07/04/2018	11:00	Campo D	Barcelona	1	2	Náutico	2	Primeira Fase	Série Diamante
+25	07/04/2018	13:45	Campo D	River Plate	4	1	Dudinka	2	Primeira Fase	Sério Ouro
+26	07/04/2018	15:15	Campo B	Parathinaikos	4	3	Sinistro	2	Primeira Fase	Sério Ouro
+27	07/04/2018	16:45	Campo B	All Blacks	5	1	Tio Dirdo I	2	Primeira Fase	Sério Ouro
+28	07/04/2018	13:45	Campo B	Colo-Colo	0	0	Everest	2	Primeira Fase	Sério Prata
+29	07/04/2018	13:45	Campo C	Tsunami	3	1	Corinthians	2	Primeira Fase	Sério Prata
+30	07/04/2018	13:45	Campo E	Mitos	1	2	Celeste	2	Primeira Fase	Sério Prata
+31	07/04/2018	15:15	Campo C	Clássicos	2	1	Fenerbate	4	Primeira Fase	Série Bronze
+32	07/04/2018	15:15	Campo D	Rock na Teia	1	7	Lokomotiv	4	Primeira Fase	Série Bronze
+33	07/04/2018	15:15	Campo E	Brasil	1	1	Sabadão	4	Primeira Fase	Série Bronze
+34	07/04/2018	16:45	Campo C	Santa Cruz	3	2	Galoucos e Danone	4	Primeira Fase	Série Bronze
+35	14/04/2018	11:00	Campo B	Real	0	2	Alianza	3	Primeira Fase	Série Diamante
+36	14/04/2018	11:00	Campo C	Barcelona	1	2	Tio Dirdo	3	Primeira Fase	Série Diamante
+37	14/04/2018	11:00	Campo D	Galaxie 70	1	5	Náutico	3	Primeira Fase	Série Diamante
+38	14/04/2018	13:45	Campo B	All Blacks	6	1	Dudinka	3	Primeira Fase	Sério Ouro
+39	14/04/2018	13:45	Campo E	River Plate	1	0	Sinistro	3	Primeira Fase	Sério Ouro
+40	14/04/2018	15:15	Campo D	Tio Dirdo I	1	0	Tio Dirdo II	3	Primeira Fase	Sério Ouro
+41	14/04/2018	15:15	Campo B	Mitos	1	0	Aurora Cochabamba	3	Primeira Fase	Sério Prata
+42	14/04/2018	16:45	Campo B	Corinthians	3	0	Colo-Colo	3	Primeira Fase	Sério Prata
+43	14/04/2018	16:45	Campo C	Tsunami	3	1	Everest	3	Primeira Fase	Sério Prata
+44	14/04/2018	13:45	Campo C	Lokomotiv	1	1	Santa Cruz	5	Primeira Fase	Série Bronze
+45	14/04/2018	13:45	Campo D	Brasil	1	2	Fenerbate	5	Primeira Fase	Série Bronze
+46	14/04/2018	15:15	Campo C	Rock na Teia	2	1	Galoucos e Danone	5	Primeira Fase	Série Bronze
+47	14/04/2018	15:15	Campo E	Sabadão	0	2	Íbis Barcelona	5	Primeira Fase	Série Bronze
+48	21/04/2018	11:00	Campo B	Tio Dirdo	2	3	Alianza	4	Primeira Fase	Série Diamante
+49	21/04/2018	11:00	Campo C	Barcelona	0	2	Real	4	Primeira Fase	Série Diamante
+50	21/04/2018	11:00	Campo D	Galaxie 70	1	2	Bayern	4	Primeira Fase	Série Diamante
+51	21/04/2018	13:45	Campo E	Parathinaikos	2	2	Tio Dirdo I	4	Primeira Fase	Sério Ouro
+52	21/04/2018	15:15	Campo B	Tio Dirdo II	1	1	Dudinka	4	Primeira Fase	Sério Ouro
+53	21/04/2018	15:15	Campo D	All Blacks	3	0	Sinistro	4	Primeira Fase	Sério Ouro
+54	21/04/2018	13:45	Campo B	Tsunami	5	2	Aurora Cochabamba	4	Primeira Fase	Sério Prata
+55	21/04/2018	13:45	Campo D	Mitos	3	3	Colo-Colo	4	Primeira Fase	Sério Prata
+56	21/04/2018	15:15	Campo E	Celeste	2	0	Everest	4	Primeira Fase	Sério Prata
+57	21/04/2018	13:45	Campo C	Galoucos e Danone	1	11	Íbis Barcelona	6	Primeira Fase	Série Bronze
+58	21/04/2018	15:15	Campo C	Sabadão	2	1	Clássicos	6	Primeira Fase	Série Bronze
+59	21/04/2018	16:45	Campo B	Rock na Teia	0	1	Fenerbate	6	Primeira Fase	Série Bronze
+60	21/04/2018	16:45	Campo C	Brasil	4	4	Lokomotiv	6	Primeira Fase	Série Bronze
+61	05/05/2018	11:00	Campo B	Náutico	1	5	Bayern	5	Primeira Fase	Série Diamante
+62	05/05/2018	11:00	Campo C	Galaxie 70	0	3	Real	5	Primeira Fase	Série Diamante
+63	05/05/2018	11:00	Campo D	Barcelona	1	6	Alianza	5	Primeira Fase	Série Diamante
+64	05/05/2018	13:45	Campo E	Sinistro	0	0	Tio Dirdo I	5	Primeira Fase	Sério Ouro
+65	05/05/2018	15:15	Campo D	All Blacks	2	2	Parathinaikos	5	Primeira Fase	Sério Ouro
+66	05/05/2018	15:15	Campo E	Tio Dirdo II	0	1	River Plate	5	Primeira Fase	Sério Ouro
+67	05/05/2018	13:45	Campo B	Celeste	2	1	Tsunami	5	Primeira Fase	Sério Prata
+68	05/05/2018	13:45	Campo D	Aurora Cochabamba	3	1	Everest	5	Primeira Fase	Sério Prata
+69	05/05/2018	15:15	Campo B	Corinthians	3	2	Mitos	5	Primeira Fase	Sério Prata
+70	05/05/2018	13:45	Campo C	Brasil	6	1	Clássicos	7	Primeira Fase	Série Bronze
+71	05/05/2018	15:15	Campo C	Fenerbate	3	1	Galoucos e Danone	7	Primeira Fase	Série Bronze
+72	05/05/2018	16:45	Campo B	Íbis Barcelona	0	6	Santa Cruz	7	Primeira Fase	Série Bronze
+73	05/05/2018	16:45	Campo C	Sabadão	2	1	Rock na Teia	7	Primeira Fase	Série Bronze
+74	12/05/2018	11:00	Campo B	Náutico	2	3	Real	6	Primeira Fase	Série Diamante
+75	12/05/2018	11:00	Campo C	Tio Dirdo	2	4	Bayern	6	Primeira Fase	Série Diamante
+76	12/05/2018	11:00	Campo D	Galaxie 70	1	4	Alianza	6	Primeira Fase	Série Diamante
+77	12/05/2018	13:45	Campo D	All Blacks	1	1	River Plate	6	Primeira Fase	Sério Ouro
+78	12/05/2018	15:15	Campo B	Tio Dirdo II	1	3	Parathinaikos	6	Primeira Fase	Sério Ouro
+79	12/05/2018	15:15	Campo E	Dudinka	1	6	Tio Dirdo I	6	Primeira Fase	Sério Ouro
+80	12/05/2018	13:45	Campo B	Celeste	2	2	Colo-Colo	6	Primeira Fase	Sério Prata
+81	12/05/2018	15:15	Campo C	Corinthians	3	1	Aurora Cochabamba	6	Primeira Fase	Sério Prata
+82	12/05/2018	16:45	Campo B	Mitos	4	0	Everest	6	Primeira Fase	Sério Prata
+83	12/05/2018	13:45	Campo C	Clássicos	1	4	Íbis Barcelona	8	Primeira Fase	Série Bronze
+84	12/05/2018	13:45	Campo E	Santa Cruz	3	1	Rock na Teia	8	Primeira Fase	Série Bronze
+85	12/05/2018	15:15	Campo D	Galoucos e Danone	3	8	Sabadão	8	Primeira Fase	Série Bronze
+86	12/05/2018	16:45	Campo C	Fenerbate	1	3	Lokomotiv	8	Primeira Fase	Série Bronze
+87	09/06/2018	11:00	Campo B	Barcelona	0	1	Bayern	7	Primeira Fase	Série Diamante
+88	09/06/2018	11:00	Campo C	Náutico	2	8	Alianza	7	Primeira Fase	Série Diamante
+89	09/06/2018	11:00	Campo D	Tio Dirdo	3	1	Real	7	Primeira Fase	Série Diamante
+90	09/06/2018	13:45	Campo D	Tio Dirdo II	2	2	Sinistro	7	Primeira Fase	Sério Ouro
+91	09/06/2018	15:15	Campo D	Parathinaikos	6	1	Dudinka	7	Primeira Fase	Sério Ouro
+92	09/06/2018	16:45	Campo B	River Plate	1	1	Tio Dirdo I	7	Primeira Fase	Sério Ouro
+93	09/06/2018	15:15	Campo C	Tsunami	5	1	Colo-Colo	7	Primeira Fase	Sério Prata
+94	09/06/2018	15:15	Campo E	Corinthians	5	1	Everest	7	Primeira Fase	Sério Prata
+95	09/06/2018	16:45	Campo C	Celeste	3	5	Aurora Cochabamba	7	Primeira Fase	Sério Prata
+96	09/06/2018	13:45	Campo B	Clássicos	0	6	Lokomotiv	9	Primeira Fase	Série Bronze
+97	09/06/2018	13:45	Campo C	Íbis Barcelona	3	0	Rock na Teia	9	Primeira Fase	Série Bronze
+98	09/06/2018	13:45	Campo E	Brasil	8	1	Galoucos e Danone	9	Primeira Fase	Série Bronze
+99	09/06/2018	15:15	Campo B	Santa Cruz	3	2	Sabadão	9	Primeira Fase	Série Bronze
+100	21/07/2018	11:00	Campo B	Náutico	3	3	Tio Dirdo	8	Primeira Fase	Série Diamante
+101	21/07/2018	11:00	Campo C	Real	2	4	Bayern	8	Primeira Fase	Série Diamante
+102	21/07/2018	11:00	Campo D	Barcelona	0	1	Galaxie 70	8	Primeira Fase	Série Diamante
+103	21/07/2018	13:45	Campo D	Galoucos e Danone	2	1	Santa Cruz	10	Primeira Fase	Série Bronze
+104	21/07/2018	13:45	Campo E	Fenerbate	1	2	Clássicos	10	Primeira Fase	Série Bronze
+105	21/07/2018	15:15	Campo D	Sabadão	2	3	Brasil	10	Primeira Fase	Série Bronze
+106	21/07/2018	16:45	Campo C	Lokomotiv	4	4	Rock na Teia	10	Primeira Fase	Série Bronze
+107	21/07/2018	13:45	Campo B	Tio Dirdo II	0	2	Tio Dirdo I	8	Primeira Fase	Sério Ouro
+108	21/07/2018	15:15	Campo B	Dudinka	2	4	All Blacks	8	Primeira Fase	Sério Ouro
+109	21/07/2018	16:45	Campo B	Sinistro	1	2	River Plate	8	Primeira Fase	Sério Ouro
+110	21/07/2018	13:45	Campo C	Aurora Cochabamba	5	1	Colo-Colo	8	Primeira Fase	Sério Prata
+111	21/07/2018	15:15	Campo C	Tsunami	5	2	Mitos	8	Primeira Fase	Sério Prata
+112	21/07/2018	15:15	Campo E	Corinthians	1	0	Celeste	8	Primeira Fase	Sério Prata
+113	28/07/2018	11:00	Campo B	Alianza	1	2	Bayern	9	Primeira Fase	Série Diamante
+114	28/07/2018	11:00	Campo C	Náutico	2	0	Barcelona	9	Primeira Fase	Série Diamante
+115	28/07/2018	11:00	Campo D	Tio Dirdo	5	1	Galaxie 70	9	Primeira Fase	Série Diamante
+116	28/07/2018	15:15	Campo C	Fenerbate	2	2	Íbis Barcelona	11	Primeira Fase	Série Bronze
+117	28/07/2018	15:15	Campo D	Santa Cruz	7	2	Clássicos	11	Primeira Fase	Série Bronze
+118	28/07/2018	15:15	Campo E	Galoucos e Danone	2	1	Lokomotiv	11	Primeira Fase	Série Bronze
+119	28/07/2018	16:45	Campo C	Brasil	5	1	Rock na Teia	11	Primeira Fase	Série Bronze
+120	28/07/2018	13:45	Campo B	Tsunami	0	0	Corinthians	9	Primeira Fase	Sério Prata
+121	28/07/2018	13:45	Campo C	Celeste	3	1	Mitos	9	Primeira Fase	Sério Prata
+122	28/07/2018	13:45	Campo E	Everest	3	0	Colo-Colo	9	Primeira Fase	Sério Prata
+123	28/07/2018	13:45	Campo D	Dudinka	0	2	Tio Dirdo II	9	Primeira Fase	Sério Ouro
+124	28/07/2018	15:15	Campo B	Sinistro	1	1	All Blacks	9	Primeira Fase	Sério Ouro
+125	28/07/2018	16:45	Campo B	Tio Dirdo I	3	1	Parathinaikos	9	Primeira Fase	Sério Ouro
+126	11/08/2018	11:00	Campo B	Real			Barcelona	10	Primeira Fase	Série Diamante
+127	11/08/2018	11:00	Campo C	Bayern			Galaxie 70	10	Primeira Fase	Série Diamante
+128	11/08/2018	11:00	Campo D	Alianza			Tio Dirdo	10	Primeira Fase	Série Diamante
+129	11/08/2018	13:45	Campo C	Galoucos e Danone			Clássicos	12	Primeira Fase	Série Bronze
+130	11/08/2018	15:15	Campo C	Santa Cruz			Fenerbate	12	Primeira Fase	Série Bronze
+131	11/08/2018	15:15	Campo E	Brasil			Íbis Barcelona	12	Primeira Fase	Série Bronze
+132	11/08/2018	16:45	Campo C	Sabadão			Lokomotiv	12	Primeira Fase	Série Bronze
+133	11/08/2018	13:45	Campo B	Dudinka			River Plate	10	Primeira Fase	Sério Ouro
+134	11/08/2018	13:45	Campo D	Sinistro			Parathinaikos	10	Primeira Fase	Sério Ouro
+135	11/08/2018	15:15	Campo B	Tio Dirdo I			All Blacks	10	Primeira Fase	Sério Ouro
+136	11/08/2018	13:45	Campo E	Aurora Cochabamba			Tsunami	10	Primeira Fase	Sério Prata
+137	11/08/2018	15:15	Campo D	Everest			Celeste	10	Primeira Fase	Sério Prata
+138	11/08/2018	16:45	Campo B	Colo-Colo			Mitos	10	Primeira Fase	Sério Prata
+139	18/08/2018	11:00	Campo B	Real			Galaxie 70	11	Primeira Fase	Série Diamante
+140	18/08/2018	11:00	Campo C	Alianza			Barcelona	11	Primeira Fase	Série Diamante
+141	18/08/2018	11:00	Campo D	Bayern			Náutico	11	Primeira Fase	Série Diamante
+142	18/08/2018	13:45	Campo C	Santa Cruz			Lokomotiv	13	Primeira Fase	Série Bronze
+143	18/08/2018	15:15	Campo C	Galoucos e Danone			Rock na Teia	13	Primeira Fase	Série Bronze
+144	18/08/2018	16:45	Campo B	Íbis Barcelona			Sabadão	13	Primeira Fase	Série Bronze
+145	18/08/2018	16:45	Campo C	Fenerbate			Brasil	13	Primeira Fase	Série Bronze
+146	18/08/2018	13:45	Campo E	Colo-Colo			Celeste	11	Primeira Fase	Sério Prata
+147	18/08/2018	15:15	Campo D	Aurora Cochabamba			Corinthians	11	Primeira Fase	Sério Prata
+148	18/08/2018	15:15	Campo E	Everest			Mitos	11	Primeira Fase	Sério Prata
+149	18/08/2018	13:45	Campo B	All Blacks			Parathinaikos	11	Primeira Fase	Sério Ouro
+150	18/08/2018	13:45	Campo D	Tio Dirdo I			Sinistro	11	Primeira Fase	Sério Ouro
+151	18/08/2018	15:15	Campo B	River Plate			Tio Dirdo II	11	Primeira Fase	Sério Ouro
+152	25/08/2018	11:00	Campo B	Bayern			Tio Dirdo	12	Primeira Fase	Série Diamante
+153	25/08/2018	11:00	Campo C	Alianza			Galaxie 70	12	Primeira Fase	Série Diamante
+154	25/08/2018	11:00	Campo D	Real			Náutico	12	Primeira Fase	Série Diamante
+155	25/08/2018	13:45	Campo D	Fenerbate			Rock na Teia	14	Primeira Fase	Série Bronze
+156	25/08/2018	15:15	Campo C	Clássicos			Sabadão	14	Primeira Fase	Série Bronze
+157	25/08/2018	16:45	Campo B	Lokomotiv			Brasil	14	Primeira Fase	Série Bronze
+158	25/08/2018	16:45	Campo C	Íbis Barcelona			Galoucos e Danone	14	Primeira Fase	Série Bronze
+159	25/08/2018	13:45	Campo C	Everest			Aurora Cochabamba	12	Primeira Fase	Sério Prata
+160	25/08/2018	13:45	Campo E	Mitos			Corinthians	12	Primeira Fase	Sério Prata
+161	25/08/2018	15:15	Campo D	Tsunami			Celeste	12	Primeira Fase	Sério Prata
+162	25/08/2018	13:45	Campo B	River Plate			Tio Dirdo I	12	Primeira Fase	Sério Ouro
+163	25/08/2018	15:15	Campo B	Sinistro			Tio Dirdo II	12	Primeira Fase	Sério Ouro
+164	25/08/2018	15:15	Campo E	Dudinka			Parathinaikos	12	Primeira Fase	Sério Ouro
+165	01/09/2018	11:00	Campo B	Alianza			Náutico	13	Primeira Fase	Série Diamante
+166	01/09/2018	11:00	Campo C	Real			Tio Dirdo	13	Primeira Fase	Série Diamante
+167	01/09/2018	11:00	Campo D	Bayern			Barcelona	13	Primeira Fase	Série Diamante
+168	01/09/2018	13:45	Campo B	Galoucos e Danone			Fenerbate	15	Primeira Fase	Série Bronze
+169	01/09/2018	13:45	Campo E	Santa Cruz			Íbis Barcelona	15	Primeira Fase	Série Bronze
+170	01/09/2018	15:15	Campo C	Clássicos			Brasil	15	Primeira Fase	Série Bronze
+171	01/09/2018	16:45	Campo C	Rock na Teia			Sabadão	15	Primeira Fase	Série Bronze
+172	01/09/2018	13:45	Campo C	Everest			Corinthians	13	Primeira Fase	Sério Prata
+173	01/09/2018	15:15	Campo D	Colo-Colo			Tsunami	13	Primeira Fase	Sério Prata
+174	01/09/2018	16:45	Campo B	Aurora Cochabamba			Celeste	13	Primeira Fase	Sério Prata
+175	01/09/2018	13:45	Campo D	River Plate			All Blacks	13	Primeira Fase	Sério Ouro
+176	01/09/2018	15:15	Campo B	Parathinaikos			Tio Dirdo II	13	Primeira Fase	Sério Ouro
+177	01/09/2018	15:15	Campo E	Tio Dirdo I			Dudinka	13	Primeira Fase	Sério Ouro
+178	15/09/2018	14:00	Campo B	Rock na Teia			Santa Cruz	16	Primeira Fase	Série Bronze
+179	15/09/2018	14:00	Campo D	Lokomotiv			Fenerbate	16	Primeira Fase	Série Bronze
+180	15/09/2018	15:30	Campo B	Íbis Barcelona			Clássicos	16	Primeira Fase	Série Bronze
+181	15/09/2018	15:30	Campo D	Sabadão			Galoucos e Danone	16	Primeira Fase	Série Bronze
+182	22/09/2018	11:00	Campo B	Tio Dirdo			Barcelona	14	Primeira Fase	Série Diamante
+183	22/09/2018	11:00	Campo C	Náutico			Galaxie 70	14	Primeira Fase	Série Diamante
+184	22/09/2018	11:00	Campo D	Alianza			Real	14	Primeira Fase	Série Diamante
+185	22/09/2018	13:45	Campo D	Aurora Cochabamba			Mitos	14	Primeira Fase	Sério Prata
+186	22/09/2018	16:45	Campo B	Everest			Tsunami	14	Primeira Fase	Sério Prata
+187	22/09/2018	16:45	Campo C	Colo-Colo			Corinthians	14	Primeira Fase	Sério Prata
+188	22/09/2018	13:45	Campo B	Dudinka			Sinistro	14	Primeira Fase	Sério Ouro
+189	22/09/2018	13:45	Campo E	River Plate			Parathinaikos	14	Primeira Fase	Sério Ouro
+190	22/09/2018	15:15	Campo E	Tio Dirdo II			All Blacks	14	Primeira Fase	Sério Ouro
+191	22/09/2018	13:45	Campo C	Brasil			Santa Cruz	17	Primeira Fase	Série Bronze
+192	22/09/2018	15:15	Campo B	Rock na Teia			Clássicos	17	Primeira Fase	Série Bronze
+193	22/09/2018	15:15	Campo C	Lokomotiv			Íbis Barcelona	17	Primeira Fase	Série Bronze
+194	22/09/2018	15:15	Campo D	Fenerbate			Sabadão	17	Primeira Fase	Série Bronze
+195	29/09/2018	11:00	Campo B	3º colocado			6º colocado	1	Quartas	Série Diamante
+196	29/09/2018	11:00	Campo D	4º colocado			5º colocado	1	Quartas	Série Diamante
+197	29/09/2018	14:00	Campo C	Galoucos e Danone			Brasil	18	Primeira Fase	Série Bronze
+198	29/09/2018	14:00	Campo E	Rock na Teia			Íbis Barcelona	18	Primeira Fase	Série Bronze
+199	29/09/2018	15:30	Campo C	Sabadão			Santa Cruz	18	Primeira Fase	Série Bronze
+200	29/09/2018	15:30	Campo E	Lokomotiv			Clássicos	18	Primeira Fase	Série Bronze
+201	29/09/2018	14:00	Campo D	4º colocado			5º colocado	1	Quartas	Sério Prata
+202	29/09/2018	15:30	Campo D	3º colocado			6º colocado	1	Quartas	Sério Prata
+203	29/09/2018	14:00	Campo B	4º colocado			5º colocado	1	Quartas	Sério Ouro
+204	29/09/2018	15:30	Campo B	3º colocado			6º colocado	1	Quartas	Sério Ouro
+205	06/10/2018	11:00	Campo B	1º colocado			vencedor 4º e 5º	1	Semi	Série Diamante
+206	06/10/2018	11:00	Campo D	2º colocado			vencedor 3º e 6º	1	Semi	Série Diamante
+207	06/10/2018	14:00	Campo D	2º colocado			vencedor 3º e 6º	1	Semi	Sério Prata
+208	06/10/2018	15:30	Campo D	1º colocado			vencedor 4º e 5º	1	Semi	Sério Prata
+209	06/10/2018	14:00	Campo B	2º colocado			vencedor 3º e 6º	1	Semi	Sério Ouro
+210	06/10/2018	15:30	Campo B	1º colocado			vencedor 4º e 5º	1	Semi	Sério Ouro
+211	06/10/2018	14:00	Campo E	2º colocado			vencedor 3º e 6º	1	Semi	Série Bronze
+212	06/10/2018	15:30	Campo E	1º colocado			vencedor 4º e 5º	1	Semi	Série Bronze
+213	20/10/2018	14:00	Campo B	vencedor semi1			vencedor semi2	1	Final	Série Bronze
+214	20/10/2018	15:30	Campo B	vencedor semi1			vencedor semi2	1	Final	Série Diamante
+215	27/10/2018	14:00	Campo B	vencedor semi1			vencedor semi2	1	Final	Sério Prata
+216	27/10/2018	15:30	Campo B	vencedor semi1			vencedor semi2	1	Final	Sério Ouro
