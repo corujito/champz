@@ -39,6 +39,16 @@ public class IUserServiceTest {
     }
 
     @Test
+    public void testGetUserByEmail() throws Exception {
+        Optional<UserEntity> x = Optional.of(UserUtils.createUserEntity("1"));
+        String email = "email";
+        when(repository.findByEmail(email)).thenReturn(x);
+
+        User user = userService.getUserByEmail(email);
+        UserUtils.assertObjects(x.get(), user);
+    }
+
+    @Test
     public void testAddUser() {
         UserEntity c = UserUtils.createUserEntity("1");
         when(repository.save(Mockito.any())).thenReturn(c);

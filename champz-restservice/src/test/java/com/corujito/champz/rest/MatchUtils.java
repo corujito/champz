@@ -39,10 +39,12 @@ public class MatchUtils {
         assertThat(match.getAwayPenaltyScore(), equalTo(entity.getAwayPenaltyScore()));
         assertThat(match.getAwayScore(), equalTo(entity.getAwayScore()));
         assertThat(match.getAwayTeam().getId(), equalTo(entity.getAwayTeamId()));
+        assertThat(match.getAwayTeamLabel(), equalTo(entity.getAwayTeamLabel()));
         assertThat(match.getHomeExtraTimeScore(), equalTo(entity.getHomeExtraTimeScore()));
         assertThat(match.getHomePenaltyScore(), equalTo(entity.getHomePenaltyScore()));
         assertThat(match.getHomeScore(), equalTo(entity.getHomeScore()));
         assertThat(match.getHomeTeam().getId(), equalTo(entity.getHomeTeamId()));
+        assertThat(match.getHomeTeamLabel(), equalTo(entity.getHomeTeamLabel()));
         assertThat(match.getMatchDate(), equalTo(entity.getMatchDate()));
         assertThat(match.getOriginalDate(), equalTo(entity.getOriginalDate()));
         assertThat(match.getPhase().getId(), equalTo(entity.getPhaseId()));
@@ -56,10 +58,12 @@ public class MatchUtils {
         assertThat(c2.getAwayPenaltyScore(), equalTo(c1.getAwayPenaltyScore()));
         assertThat(c2.getAwayScore(), equalTo(c1.getAwayScore()));
         assertThat(c2.getAwayTeam().getId(), equalTo(c1.getAwayTeam().getId()));
+        assertThat(c2.getAwayTeamLabel(), equalTo(c1.getAwayTeamLabel()));
         assertThat(c2.getHomeExtraTimeScore(), equalTo(c1.getHomeExtraTimeScore()));
         assertThat(c2.getHomePenaltyScore(), equalTo(c1.getHomePenaltyScore()));
         assertThat(c2.getHomeScore(), equalTo(c1.getHomeScore()));
         assertThat(c2.getHomeTeam().getId(), equalTo(c1.getHomeTeam().getId()));
+        assertThat(c2.getHomeTeamLabel(), equalTo(c1.getHomeTeamLabel()));
         assertThat(c2.getMatchDate(), equalTo(c1.getMatchDate()));
         assertThat(c2.getOriginalDate(), equalTo(c1.getOriginalDate()));
         assertThat(c2.getPhase().getId(), equalTo(c1.getPhase().getId()));
