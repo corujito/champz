@@ -25,6 +25,12 @@ public class GroupServiceImpl implements IGroupService {
     }
 
     @Override
+    public Group getGroupByPhaseIdAndName(String phaseId, String name) {
+        Optional<GroupEntity> opt = repository.findByPhaseIdAndName(phaseId, name);
+        return opt.map(c -> modelMapper.map(c, Group.class)).orElse(null);
+    }
+
+    @Override
     public List<Group> getAllGroups() {
         List<Group> groups = new ArrayList<>();
         List<GroupEntity> entities = repository.findAll();

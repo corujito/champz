@@ -25,6 +25,12 @@ public class ChampionshipServiceImpl implements IChampionshipService {
     }
 
     @Override
+    public Championship getChampionshipByUserIdAndName(String userId, String name) {
+        Optional<ChampionshipEntity> opt = repository.findByUserIdAndName(userId, name);
+        return opt.map(c -> modelMapper.map(c, Championship.class)).orElse(null);
+    }
+
+    @Override
     public List<Championship> getAllChampionships() {
         List<Championship> championships = new ArrayList<>();
         List<ChampionshipEntity> entities = repository.findAll();

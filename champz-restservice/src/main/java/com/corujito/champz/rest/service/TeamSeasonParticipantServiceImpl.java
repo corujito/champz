@@ -25,6 +25,12 @@ public class TeamSeasonParticipantServiceImpl implements ITeamSeasonParticipantS
     }
 
     @Override
+    public TeamSeasonParticipant getTeamSeasonParticipantBySeasonIdAndTeamId(String seasonId, String teamId) {
+        Optional<TeamSeasonParticipantEntity> opt = repository.findBySeasonIdAndTeamId(seasonId, teamId);
+        return opt.map(c -> modelMapper.map(c, TeamSeasonParticipant.class)).orElse(null);
+    }
+
+    @Override
     public List<TeamSeasonParticipant> getAllTeamSeasonParticipant() {
         List<TeamSeasonParticipant> teamSeasonParticipants = new ArrayList<>();
         List<TeamSeasonParticipantEntity> entities = repository.findAll();

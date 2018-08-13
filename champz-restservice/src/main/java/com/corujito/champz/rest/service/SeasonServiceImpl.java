@@ -25,6 +25,12 @@ public class SeasonServiceImpl implements ISeasonService {
     }
 
     @Override
+    public Season getSeasonByChampionshipIdAndTitle(String championshipId, String title) {
+        Optional<SeasonEntity> opt = repository.findByChampionshipIdAndTitle(championshipId, title);
+        return opt.map(s -> modelMapper.map(s, Season.class)).orElse(null);
+    }
+
+    @Override
     public List<Season> getAllSeasons() {
         List<Season> seasons = new ArrayList<>();
         List<SeasonEntity> entities = repository.findAll();

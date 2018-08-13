@@ -25,6 +25,14 @@ public class MatchServiceImpl implements IMatchService {
     }
 
     @Override
+    public Match getMatchBySeasonIdAndPhaseIdAndGroupIdAndHomeTeamIdAndAwayTeamIdAndRound(String seasonId,
+            String phaseId, String groupId, String homeTeamId, String awayTeamId, int round) {
+        Optional<MatchEntity> opt = repository.findBySeasonIdAndPhaseIdAndGroupIdAndHomeTeamIdAndAwayTeamIdAndRound(
+                seasonId, phaseId, groupId, homeTeamId, awayTeamId, round);
+        return opt.map(m -> modelMapper.map(m, Match.class)).orElse(null);
+    }
+
+    @Override
     public List<Match> getAllMatches() {
         List<Match> matchs = new ArrayList<>();
         List<MatchEntity> entities = repository.findAll();

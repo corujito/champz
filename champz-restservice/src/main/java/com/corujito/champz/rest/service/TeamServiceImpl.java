@@ -25,6 +25,12 @@ public class TeamServiceImpl implements ITeamService {
     }
 
     @Override
+    public Team getTeamByUserIdAndPopularName(String userId, String popularName) {
+        Optional<TeamEntity> opt = repository.findByUserIdAndPopularName(userId, popularName);
+        return opt.map(t -> modelMapper.map(t, Team.class)).orElse(null);
+    }
+
+    @Override
     public List<Team> getAllTeams() {
         List<Team> teams = new ArrayList<>();
         List<TeamEntity> entities = repository.findAll();

@@ -25,6 +25,12 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public User getUserByEmail(String email) {
+        Optional<UserEntity> opt = repository.findByEmail(email);
+        return opt.map(u -> modelMapper.map(u, User.class)).orElse(null);
+    }
+
+    @Override
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         List<UserEntity> entities = repository.findAll();

@@ -7,6 +7,8 @@ public interface IPhaseService {
 
     Phase getPhase(String id);
 
+    Phase getPhaseBySeasonIdAndName(String seasonId, String phaseName);
+
     List<Phase> getAllPhases();
 
     List<Phase> getPhasesBySeasonId(String seasonId);

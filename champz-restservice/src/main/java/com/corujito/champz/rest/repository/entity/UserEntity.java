@@ -1,11 +1,13 @@
 package com.corujito.champz.rest.repository.entity;
 
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "users")
 public class UserEntity extends BaseEntity {
 
     private String name;
+    @Indexed(unique = true)
     private String email;
     private String rg;
     private String cpf;

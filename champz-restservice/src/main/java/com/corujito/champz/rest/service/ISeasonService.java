@@ -7,6 +7,8 @@ public interface ISeasonService {
 
     Season getSeason(String id);
 
+    Season getSeasonByChampionshipIdAndTitle(String championshipId, String title);
+
     List<Season> getAllSeasons();
 
     Season addSeason(Season season);

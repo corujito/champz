@@ -25,6 +25,12 @@ public class PhaseServiceImpl implements IPhaseService {
     }
 
     @Override
+    public Phase getPhaseBySeasonIdAndName(String seasonId, String name) {
+        Optional<PhaseEntity> opt = repository.findBySeasonIdAndName(seasonId, name);
+        return opt.map(c -> modelMapper.map(c, Phase.class)).orElse(null);
+    }
+
+    @Override
     public List<Phase> getAllPhases() {
         List<Phase> phases = new ArrayList<>();
         List<PhaseEntity> entities = repository.findAll();

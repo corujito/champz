@@ -7,6 +7,8 @@ public interface ITeamService {
 
     Team getTeam(String id);
 
+    Team getTeamByUserIdAndPopularName(String userId, String popularName);
+
     List<Team> getAllTeams();
 
     Team addTeam(Team team);

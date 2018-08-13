@@ -7,6 +7,8 @@ public interface IUserService {
 
     User getUser(String id);
 
+    User getUserByEmail(String email);
+
     List<User> getAllUsers();
 
     User addUser(User user);

@@ -7,6 +7,8 @@ public interface IGroupService {
 
     Group getGroup(String id);
 
+    Group getGroupByPhaseIdAndName(String id, String name);
+
     List<Group> getAllGroups();
 
     List<Group> getGroupsByPhaseId(String phaseId);
