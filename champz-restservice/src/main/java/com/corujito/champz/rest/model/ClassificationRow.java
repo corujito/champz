@@ -17,7 +17,7 @@ public class ClassificationRow {
     private int proGoals = 0;
     private int againstGoals = 0;
     private int balanceGoals = 0;
-    private int percent = 0;
+    private double percent = 0;
     private int penaltyPoints = 0;
     private List<Integer> matchesHistory = new ArrayList<>();
 
@@ -109,11 +109,11 @@ public class ClassificationRow {
         this.balanceGoals = balanceGoals;
     }
 
-    public int getPercent() {
+    public double getPercent() {
         return percent;
     }
 
-    public void setPercent(int percent) {
+    public void setPercent(double percent) {
         this.percent = percent;
     }
 
@@ -188,7 +188,7 @@ public class ClassificationRow {
         return this;
     }
 
-    public ClassificationRow withPercent(int percent) {
+    public ClassificationRow withPercent(double percent) {
         setPercent(percent);
         return this;
     }

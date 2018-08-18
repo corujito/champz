@@ -74,7 +74,7 @@ public class ClassificationTableServiceImpl implements IClassificationTableServi
             row.setBalanceGoals(row.getProGoals() - row.getAgainstGoals());
             row.setPoints(row.getPoints() + row.getPenaltyPoints());
             if (row.getNumberMatches() > 0) {
-                row.setPercent((row.getPoints() * 100) / (row.getNumberMatches() * WIN_POINTS));
+                row.setPercent((double) (row.getPoints() * 100) / (row.getNumberMatches() * WIN_POINTS));
             }
         }
         Collections.sort(rows, new ClassificationRowComparator());
