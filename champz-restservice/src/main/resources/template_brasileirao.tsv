@@ -1,0 +1,60 @@
+USUÁRIO										
+Nome:	Kleber Manoel Infante									
+Email:	corujito@gmail.com									
+CAMPEONATO										
+Nome:	Campeonato Brasileirão									
+Ano:	2018									
+TIMES										
+nome	imagem do logo									
+All Blacks	https://clubejundiaiense.com.br/wp-content/uploads/2017/07/allblacks265x65px.jpg									
+Dudinka	https://clubejundiaiense.com.br/wp-content/uploads/2017/07/escudo-dudinka2.jpg									
+Parathinaikos	https://clubejundiaiense.com.br/wp-content/uploads/2017/07/parathinaikos-1.jpg									
+River Plate	https://clubejundiaiense.com.br/wp-content/uploads/2017/07/riverplate65x65px.jpg									
+Sinistro	https://clubejundiaiense.com.br/wp-content/uploads/2017/07/sinisatro65x65px.jpg									
+Tio Dirdo I	https://clubejundiaiense.com.br/wp-content/uploads/2017/07/tio-dirdo-3.jpg									
+Tio Dirdo II	https://clubejundiaiense.com.br/wp-content/uploads/2017/07/tio-dirdo-3.jpg									
+										
+JOGOS										
+jogo_nro	data	hora	local	time_mandante	gol_mandante	gol_visitante	time_visitante	rodada	fase	grupo
+1	24/03/2018	13:45	Campo E	All Blacks	2	0	Tio Dirdo II	1	Fase Única	Grupo Único
+2	24/03/2018	15:15	Campo B	Parathinaikos	2	0	River Plate	1	Fase Única	Grupo Único
+3	24/03/2018	16:45	Campo B	Sinistro	3	0	Dudinka	1	Fase Única	Grupo Único
+4	07/04/2018	13:45	Campo D	River Plate	4	1	Dudinka	2	Fase Única	Grupo Único
+5	07/04/2018	15:15	Campo B	Parathinaikos	4	3	Sinistro	2	Fase Única	Grupo Único
+6	07/04/2018	16:45	Campo B	All Blacks	5	1	Tio Dirdo I	2	Fase Única	Grupo Único
+7	14/04/2018	13:45	Campo B	All Blacks	6	1	Dudinka	3	Fase Única	Grupo Único
+8	14/04/2018	13:45	Campo E	River Plate	1	0	Sinistro	3	Fase Única	Grupo Único
+9	14/04/2018	15:15	Campo D	Tio Dirdo I	1	0	Tio Dirdo II	3	Fase Única	Grupo Único
+10	21/04/2018	13:45	Campo E	Parathinaikos	2	2	Tio Dirdo I	4	Fase Única	Grupo Único
+11	21/04/2018	15:15	Campo B	Tio Dirdo II	1	1	Dudinka	4	Fase Única	Grupo Único
+12	21/04/2018	15:15	Campo D	All Blacks	3	0	Sinistro	4	Fase Única	Grupo Único
+13	05/05/2018	13:45	Campo E	Sinistro	0	0	Tio Dirdo I	5	Fase Única	Grupo Único
+14	05/05/2018	15:15	Campo D	All Blacks	2	2	Parathinaikos	5	Fase Única	Grupo Único
+15	05/05/2018	15:15	Campo E	Tio Dirdo II	0	1	River Plate	5	Fase Única	Grupo Único
+16	12/05/2018	13:45	Campo D	All Blacks	1	1	River Plate	6	Fase Única	Grupo Único
+17	12/05/2018	15:15	Campo B	Tio Dirdo II	1	3	Parathinaikos	6	Fase Única	Grupo Único
+18	12/05/2018	15:15	Campo E	Dudinka	1	6	Tio Dirdo I	6	Fase Única	Grupo Único
+19	09/06/2018	13:45	Campo D	Tio Dirdo II	2	2	Sinistro	7	Fase Única	Grupo Único
+20	09/06/2018	15:15	Campo D	Parathinaikos	6	1	Dudinka	7	Fase Única	Grupo Único
+21	09/06/2018	16:45	Campo B	River Plate	1	1	Tio Dirdo I	7	Fase Única	Grupo Único
+22	21/07/2018	13:45	Campo B	Tio Dirdo II	0	2	Tio Dirdo I	8	Fase Única	Grupo Único
+23	21/07/2018	15:15	Campo B	Dudinka	2	4	All Blacks	8	Fase Única	Grupo Único
+24	21/07/2018	16:45	Campo B	Sinistro	1	2	River Plate	8	Fase Única	Grupo Único
+25	28/07/2018	13:45	Campo D	Dudinka	0	2	Tio Dirdo II	9	Fase Única	Grupo Único
+26	28/07/2018	15:15	Campo B	Sinistro	1	1	All Blacks	9	Fase Única	Grupo Único
+27	28/07/2018	16:45	Campo B	Tio Dirdo I	3	1	Parathinaikos	9	Fase Única	Grupo Único
+28	11/08/2018	13:45	Campo B	Dudinka	1	0	River Plate	10	Fase Única	Grupo Único
+29	11/08/2018	13:45	Campo D	Sinistro	1	2	Parathinaikos	10	Fase Única	Grupo Único
+30	11/08/2018	15:15	Campo B	Tio Dirdo I	1	0	All Blacks	10	Fase Única	Grupo Único
+31	18/08/2018	13:45	Campo B	All Blacks			Parathinaikos	11	Fase Única	Grupo Único
+32	18/08/2018	13:45	Campo D	Tio Dirdo I			Sinistro	11	Fase Única	Grupo Único
+33	18/08/2018	15:15	Campo B	River Plate			Tio Dirdo II	11	Fase Única	Grupo Único
+34	25/08/2018	13:45	Campo B	River Plate			Tio Dirdo I	12	Fase Única	Grupo Único
+35	25/08/2018	15:15	Campo B	Sinistro			Tio Dirdo II	12	Fase Única	Grupo Único
+36	25/08/2018	15:15	Campo E	Dudinka			Parathinaikos	12	Fase Única	Grupo Único
+37	01/09/2018	13:45	Campo D	River Plate			All Blacks	13	Fase Única	Grupo Único
+38	01/09/2018	15:15	Campo B	Parathinaikos			Tio Dirdo II	13	Fase Única	Grupo Único
+39	01/09/2018	15:15	Campo E	Tio Dirdo I			Dudinka	13	Fase Única	Grupo Único
+40	22/09/2018	13:45	Campo B	Dudinka			Sinistro	14	Fase Única	Grupo Único
+41	22/09/2018	13:45	Campo E	River Plate			Parathinaikos	14	Fase Única	Grupo Único
+42	22/09/2018	15:15	Campo E	Tio Dirdo II			All Blacks	14	Fase Única	Grupo Único

@@ -164,19 +164,19 @@ jogo_nro	data	hora	local	time_mandante	gol_mandante	gol_visitante	time_visitante
 123	28/07/2018	13:45	Campo D	Dudinka	0	2	Tio Dirdo II	9	Primeira Fase	Sério Ouro
 124	28/07/2018	15:15	Campo B	Sinistro	1	1	All Blacks	9	Primeira Fase	Sério Ouro
 125	28/07/2018	16:45	Campo B	Tio Dirdo I	3	1	Parathinaikos	9	Primeira Fase	Sério Ouro
-126	11/08/2018	11:00	Campo B	Real			Barcelona	10	Primeira Fase	Série Diamante
-127	11/08/2018	11:00	Campo C	Bayern			Galaxie 70	10	Primeira Fase	Série Diamante
-128	11/08/2018	11:00	Campo D	Alianza			Tio Dirdo	10	Primeira Fase	Série Diamante
-129	11/08/2018	13:45	Campo C	Galoucos e Danone			Clássicos	12	Primeira Fase	Série Bronze
-130	11/08/2018	15:15	Campo C	Santa Cruz			Fenerbate	12	Primeira Fase	Série Bronze
-131	11/08/2018	15:15	Campo E	Brasil			Íbis Barcelona	12	Primeira Fase	Série Bronze
-132	11/08/2018	16:45	Campo C	Sabadão			Lokomotiv	12	Primeira Fase	Série Bronze
-133	11/08/2018	13:45	Campo B	Dudinka			River Plate	10	Primeira Fase	Sério Ouro
-134	11/08/2018	13:45	Campo D	Sinistro			Parathinaikos	10	Primeira Fase	Sério Ouro
-135	11/08/2018	15:15	Campo B	Tio Dirdo I			All Blacks	10	Primeira Fase	Sério Ouro
-136	11/08/2018	13:45	Campo E	Aurora Cochabamba			Tsunami	10	Primeira Fase	Sério Prata
-137	11/08/2018	15:15	Campo D	Everest			Celeste	10	Primeira Fase	Sério Prata
-138	11/08/2018	16:45	Campo B	Colo-Colo			Mitos	10	Primeira Fase	Sério Prata
+126	11/08/2018	11:00	Campo B	Real	1	0	Barcelona	10	Primeira Fase	Série Diamante
+127	11/08/2018	11:00	Campo C	Bayern	6	0	Galaxie 70	10	Primeira Fase	Série Diamante
+128	11/08/2018	11:00	Campo D	Alianza	3	2	Tio Dirdo	10	Primeira Fase	Série Diamante
+129	11/08/2018	13:45	Campo C	Galoucos e Danone	1	0	Clássicos	12	Primeira Fase	Série Bronze
+130	11/08/2018	15:15	Campo C	Santa Cruz	4	1	Fenerbate	12	Primeira Fase	Série Bronze
+131	11/08/2018	15:15	Campo E	Brasil	4	1	Íbis Barcelona	12	Primeira Fase	Série Bronze
+132	11/08/2018	16:45	Campo C	Sabadão	5	0	Lokomotiv	12	Primeira Fase	Série Bronze
+133	11/08/2018	13:45	Campo B	Dudinka	1	0	River Plate	10	Primeira Fase	Sério Ouro
+134	11/08/2018	13:45	Campo D	Sinistro	1	2	Parathinaikos	10	Primeira Fase	Sério Ouro
+135	11/08/2018	15:15	Campo B	Tio Dirdo I	1	0	All Blacks	10	Primeira Fase	Sério Ouro
+136	11/08/2018	13:45	Campo E	Aurora Cochabamba	4	1	Tsunami	10	Primeira Fase	Sério Prata
+137	11/08/2018	15:15	Campo D	Everest	1	4	Celeste	10	Primeira Fase	Sério Prata
+138	11/08/2018	16:45	Campo B	Colo-Colo	2	7	Mitos	10	Primeira Fase	Sério Prata
 139	18/08/2018	11:00	Campo B	Real			Galaxie 70	11	Primeira Fase	Série Diamante
 140	18/08/2018	11:00	Campo C	Alianza			Barcelona	11	Primeira Fase	Série Diamante
 141	18/08/2018	11:00	Campo D	Bayern			Náutico	11	Primeira Fase	Série Diamante
@@ -233,25 +233,25 @@ jogo_nro	data	hora	local	time_mandante	gol_mandante	gol_visitante	time_visitante
 192	22/09/2018	15:15	Campo B	Rock na Teia			Clássicos	17	Primeira Fase	Série Bronze
 193	22/09/2018	15:15	Campo C	Lokomotiv			Íbis Barcelona	17	Primeira Fase	Série Bronze
 194	22/09/2018	15:15	Campo D	Fenerbate			Sabadão	17	Primeira Fase	Série Bronze
-195	29/09/2018	11:00	Campo B	3º colocado			6º colocado	1	Quartas	Série Diamante
-196	29/09/2018	11:00	Campo D	4º colocado			5º colocado	1	Quartas	Série Diamante
+195	29/09/2018	11:00	Campo B	3º colocado			6º colocado	1	Quartas	Quartas 1 Diamante
+196	29/09/2018	11:00	Campo D	4º colocado			5º colocado	1	Quartas	Quartas 2 Diamante
 197	29/09/2018	14:00	Campo C	Galoucos e Danone			Brasil	18	Primeira Fase	Série Bronze
 198	29/09/2018	14:00	Campo E	Rock na Teia			Íbis Barcelona	18	Primeira Fase	Série Bronze
 199	29/09/2018	15:30	Campo C	Sabadão			Santa Cruz	18	Primeira Fase	Série Bronze
 200	29/09/2018	15:30	Campo E	Lokomotiv			Clássicos	18	Primeira Fase	Série Bronze
-201	29/09/2018	14:00	Campo D	4º colocado			5º colocado	1	Quartas	Sério Prata
-202	29/09/2018	15:30	Campo D	3º colocado			6º colocado	1	Quartas	Sério Prata
-203	29/09/2018	14:00	Campo B	4º colocado			5º colocado	1	Quartas	Sério Ouro
-204	29/09/2018	15:30	Campo B	3º colocado			6º colocado	1	Quartas	Sério Ouro
-205	06/10/2018	11:00	Campo B	1º colocado			vencedor 4º e 5º	1	Semi	Série Diamante
-206	06/10/2018	11:00	Campo D	2º colocado			vencedor 3º e 6º	1	Semi	Série Diamante
-207	06/10/2018	14:00	Campo D	2º colocado			vencedor 3º e 6º	1	Semi	Sério Prata
-208	06/10/2018	15:30	Campo D	1º colocado			vencedor 4º e 5º	1	Semi	Sério Prata
-209	06/10/2018	14:00	Campo B	2º colocado			vencedor 3º e 6º	1	Semi	Sério Ouro
-210	06/10/2018	15:30	Campo B	1º colocado			vencedor 4º e 5º	1	Semi	Sério Ouro
-211	06/10/2018	14:00	Campo E	2º colocado			vencedor 3º e 6º	1	Semi	Série Bronze
-212	06/10/2018	15:30	Campo E	1º colocado			vencedor 4º e 5º	1	Semi	Série Bronze
-213	20/10/2018	14:00	Campo B	vencedor semi1			vencedor semi2	1	Final	Série Bronze
-214	20/10/2018	15:30	Campo B	vencedor semi1			vencedor semi2	1	Final	Série Diamante
-215	27/10/2018	14:00	Campo B	vencedor semi1			vencedor semi2	1	Final	Sério Prata
-216	27/10/2018	15:30	Campo B	vencedor semi1			vencedor semi2	1	Final	Sério Ouro
+201	29/09/2018	14:00	Campo D	4º colocado			5º colocado	1	Quartas	Quartas 1 Prata
+202	29/09/2018	15:30	Campo D	3º colocado			6º colocado	1	Quartas	Quartas 2 Prata
+203	29/09/2018	14:00	Campo B	4º colocado			5º colocado	1	Quartas	Quartas 1 Ouro
+204	29/09/2018	15:30	Campo B	3º colocado			6º colocado	1	Quartas	Quartas 2 Ouro
+205	06/10/2018	11:00	Campo B	1º colocado			vencedor 4º e 5º	1	Semi	Semi 1 Diamante
+206	06/10/2018	11:00	Campo D	2º colocado			vencedor 3º e 6º	1	Semi	Semi 2 Diamante
+207	06/10/2018	14:00	Campo D	2º colocado			vencedor 3º e 6º	1	Semi	Semi 1 Prata
+208	06/10/2018	15:30	Campo D	1º colocado			vencedor 4º e 5º	1	Semi	Semi 2 Prata
+209	06/10/2018	14:00	Campo B	2º colocado			vencedor 3º e 6º	1	Semi	Semi 1 Ouro
+210	06/10/2018	15:30	Campo B	1º colocado			vencedor 4º e 5º	1	Semi	Semi 2 Ouro
+211	06/10/2018	14:00	Campo E	2º colocado			vencedor 3º e 6º	1	Semi	Semi 1 Bronze
+212	06/10/2018	15:30	Campo E	1º colocado			vencedor 4º e 5º	1	Semi	Semi 2 Bronze
+213	20/10/2018	14:00	Campo B	vencedor semi1			vencedor semi2	1	Final	Final Bronze
+214	20/10/2018	15:30	Campo B	vencedor semi1			vencedor semi2	1	Final	Final Diamante
+215	27/10/2018	14:00	Campo B	vencedor semi1			vencedor semi2	1	Final	Final Prata
+216	27/10/2018	15:30	Campo B	vencedor semi1			vencedor semi2	1	Final	Final Ouro
