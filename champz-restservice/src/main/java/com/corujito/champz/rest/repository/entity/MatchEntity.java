@@ -11,8 +11,8 @@ public class MatchEntity extends BaseEntity {
     private int awayScore;
     private int homeExtraTimeScore;
     private int awayExtraTimeScore;
-    private int homePenaltyScore;
-    private int awayPenaltyScore;
+    private Integer homePenaltyScore;
+    private Integer awayPenaltyScore;
     private int round;
     private Date originalDate;
     private Date matchDate;
@@ -85,19 +85,19 @@ public class MatchEntity extends BaseEntity {
         this.awayExtraTimeScore = awayExtraTimeScore;
     }
 
-    public int getHomePenaltyScore() {
+    public Integer getHomePenaltyScore() {
         return homePenaltyScore;
     }
 
-    public void setHomePenaltyScore(int homePenaltyScore) {
+    public void setHomePenaltyScore(Integer homePenaltyScore) {
         this.homePenaltyScore = homePenaltyScore;
     }
 
-    public int getAwayPenaltyScore() {
+    public Integer getAwayPenaltyScore() {
         return awayPenaltyScore;
     }
 
-    public void setAwayPenaltyScore(int awayPenaltyScore) {
+    public void setAwayPenaltyScore(Integer awayPenaltyScore) {
         this.awayPenaltyScore = awayPenaltyScore;
     }
 
@@ -249,12 +249,12 @@ public class MatchEntity extends BaseEntity {
         return this;
     }
 
-    public MatchEntity withHomePenaltyScore(int homePenaltyScore) {
+    public MatchEntity withHomePenaltyScore(Integer homePenaltyScore) {
         setHomePenaltyScore(homePenaltyScore);
         return this;
     }
 
-    public MatchEntity withAwayPenaltyScore(int awayPenaltyScore) {
+    public MatchEntity withAwayPenaltyScore(Integer awayPenaltyScore) {
         setAwayPenaltyScore(awayPenaltyScore);
         return this;
     }
