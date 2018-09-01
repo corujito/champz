@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-08-20T01:51:32Z
+  labels:
+    run: lb-champz-restservice
+  name: champz-restservice-service
+  namespace: default
+  resourceVersion: "15071"
+  selfLink: /api/v1/namespaces/default/services/champz-restservice-service
+  uid: 90794462-a41b-11e8-9e59-025000000001
+spec:
+  clusterIP: 10.107.152.178
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32227
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    run: lb-champz-restservice
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost

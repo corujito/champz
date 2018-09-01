@@ -1,0 +1,63 @@
+ENV SETUP
+
+------------------------
+GERANDO DOCKER IMAGES
+------------------------
+rest-service:
+mvn install dockerfile:build (using pom plugin setting args name)
+docker build -t champz/rest-service . (if your Dockerfile doesnt need args)
+
+champz-web:
+docker build -t corujito/champz-web .
+
+------------------------
+RODAR EM DOCKER LOCAL
+------------------------
+
+docker network ls
+docker network create champz_net
+
+mongodb:
+docker run --name champz-mongodb --network=champz_net -p 27017:27017 -d mongo:4.1.2
+docker stop champz-mongodb
+docker start champz-mongodb
+
+rest-service:
+docker run --name champz-restservice --network=champz_net --env-file=container_env_file -p 8080:8080 -p 8000:8000 -t -d corujito/champz-restservice
+docker stop champz-restservice
+docker start champz-restservice
+
+postgres:
+docker run --name champz-postgresdb --network=champz_net -p 5432:5432 -d postgres:9.4.12-alpine
+docker stop champz-postgresdb
+docker start champz-postgresdb
+
+web:
+docker run -it --rm --name champz-web --network=champz_net --env-file=container_env_file -p 3000:3000 corujito/champz-web:latest bundle exec rails db:setup
+docker run --name champz-web --network=champz_net --env-file=container_env_file -p 3000:3000 -d corujito/champz-web:latest
+docker stop champz-web
+docker start champz-web
+
+
+------------------------
+RODAR EM KUBERNETES
+------------------------
+kubectl create -f champz-restservice-mongodb-dep.yaml
+kubectl create -f champz-restservice-mongodb-service.yaml
+kubectl create -f champz-restservice-dep.yaml
+kubectl create -f champz-restservice-service.yaml
+
+kubectl create -f champz-web-postgresdb-dep.yaml
+kubectl create -f champz-web-postgresdb-service.yaml
+kubectl create -f champz-web-dep.yaml
+kubectl create -f champz-web-service.yaml
+
+
+------------------------
+RODAR SEM DOCKER
+------------------------
+web:
+rails s
+
+rest-service:
+java -jar target/champz-restservice-0.0.1.jar

@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-08-20T00:49:10Z
+  labels:
+    run: champz-web-postgresdb
+  name: champz-web-postgresdb-service
+  namespace: default
+  resourceVersion: "10916"
+  selfLink: /api/v1/namespaces/default/services/champz-web-postgresdb-service
+  uid: d9a03fe9-a412-11e8-9e59-025000000001
+spec:
+  clusterIP: 10.106.50.62
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31725
+    port: 5432
+    protocol: TCP
+    targetPort: 5432
+  selector:
+    run: champz-web-postgresdb
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost
