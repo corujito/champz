@@ -156,7 +156,7 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
                         if (phaseMap.containsKey(phaseName)) {
                             phase = phaseMap.get(phaseName);
                         } else {
-                            phase = new Phase().withName(phaseName).withSeason(season);
+                            phase = new Phase().withName(phaseName).withSeason(season).withOrder(phaseMap.size() + 1);
                             Phase p = phaseService.getPhaseBySeasonIdAndName(season.getId(), phaseName);
                             if (p == null) {
                                 phase = phaseService.addPhase(phase);
@@ -275,6 +275,7 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
                 }
             }
         }
+        LOGGER.info(season.getId());
     }
 
     private static String descobreTipo(String tipo, String linha) {
