@@ -10,6 +10,12 @@ kubectl delete -f champz-restservice-dep.yaml
 kubectl delete -f champz-restservice-mongodb-service.yaml
 kubectl delete -f champz-restservice-mongodb-dep.yaml
 
+kubectl delete -f champz-restservice-secret.yaml
+kubectl delete -f champz-restservice-mongodb-secret.yaml
+
+#kubectl create -f champz-restservice-mongodb-secret.yaml
+#kubectl create -f champz-restservice-secret.yaml
+
 #kubectl create -f champz-restservice-mongodb-dep.yaml
 #kubectl create -f champz-restservice-mongodb-service.yaml
 #kubectl create -f champz-restservice-dep.yaml

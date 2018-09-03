@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: 2018-08-19T15:19:28Z
+  labels:
+    run: lb-champz-web
+  name: champz-web-service
+  namespace: default
+  resourceVersion: "4256"
+  selfLink: /api/v1/namespaces/default/services/champz-web-service
+  uid: 43cd6ff9-a3c3-11e8-9e59-025000000001
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 32379
+    port: 3000
+    protocol: TCP
+    targetPort: 3000
+  selector:
+    run: lb-champz-web
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - hostname: localhost
