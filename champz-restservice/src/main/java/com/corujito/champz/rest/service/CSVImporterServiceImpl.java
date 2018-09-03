@@ -2,6 +2,8 @@ package com.corujito.champz.rest.service;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -60,6 +62,20 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
     private IMatchService matchService;
 
     @Override
+    public void importCsv(InputStream inputStream) throws Exception {
+        User user = new User();
+        Championship championship = new Championship();
+        Season season = new Season();
+        Map<String, Team> teamMap = new HashMap<>();
+        Map<String, Phase> phaseMap = new HashMap<>();
+        Map<String, Group> groupMap = new HashMap<>();
+
+        season = importData(new InputStreamReader(inputStream, "UTF-8"), user, championship, season, teamMap, phaseMap,
+                groupMap);
+        LOGGER.info(season.getId());
+    }
+
+    @Override
     public void importCsv(String filename) throws Exception {
         User user = new User();
         Championship championship = new Championship();
@@ -68,7 +84,15 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
         Map<String, Phase> phaseMap = new HashMap<>();
         Map<String, Group> groupMap = new HashMap<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+        FileReader in = new FileReader(filename);
+        season = importData(in, user, championship, season, teamMap, phaseMap, groupMap);
+        LOGGER.info(season.getId());
+    }
+
+    private Season importData(InputStreamReader in, User user, Championship championship, Season season,
+            Map<String, Team> teamMap, Map<String, Phase> phaseMap, Map<String, Group> groupMap)
+            throws Exception {
+        try (BufferedReader reader = new BufferedReader(in)) {
             String linha = null;
             String tipo = "";
             while ((linha = reader.readLine()) != null) {
@@ -275,7 +299,7 @@ public class CSVImporterServiceImpl implements ICSVImporterService {
                 }
             }
         }
-        LOGGER.info(season.getId());
+        return season;
     }
 
     private static String descobreTipo(String tipo, String linha) {
