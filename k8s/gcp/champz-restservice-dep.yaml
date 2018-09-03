@@ -31,19 +31,35 @@ spec:
         run: lb-champz-restservice
     spec:
       containers:
-      - image: corujito/champz-restservice:latest
-        imagePullPolicy: Never
+      - image: gcr.io/champz-215213/corujito/champz-restservice:latest
+        imagePullPolicy: Always
         name: champz-restservice
         ports:
         - containerPort: 8080
           protocol: TCP
         env:
-        - name: MONGO_IP
-          value: champz-restservice-mongodb
-        - name: MONGO_PORT
-          value: '32356'
-        - name: MONGO_DB
-          value: 'champz-prod-db'
+          - name: CHAMPZ_RESTSERVICE_DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-secret
+                key: champz_username
+          - name: CHAMPZ_RESTSERVICE_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongodb-secret
+                key: champz_password
+          - name: CHAMPZ_RESTSERVICE_DB_NAME
+            value: 'champz-prod-db'
+          - name: CHAMPZ_RESTSERVICE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: restservice-secret
+                key: rest_username
+          - name: CHAMPZ_RESTSERVICE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: restservice-secret
+                key: rest_password
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File

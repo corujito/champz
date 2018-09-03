@@ -10,7 +10,6 @@ metadata:
   selfLink: /api/v1/namespaces/default/services/champz-web-service
   uid: 43cd6ff9-a3c3-11e8-9e59-025000000001
 spec:
-  clusterIP: 10.106.72.160
   externalTrafficPolicy: Cluster
   ports:
   - nodePort: 32379
@@ -20,7 +19,7 @@ spec:
   selector:
     run: lb-champz-web
   sessionAffinity: None
-  type: NodePort
+  type: LoadBalancer
 status:
   loadBalancer:
     ingress:

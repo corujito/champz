@@ -19,7 +19,7 @@ spec:
   selector:
     run: champz-restservice-mongodb
   sessionAffinity: None
-  type: LoadBalancer
+  type: NodePort
 status:
   loadBalancer:
     ingress:

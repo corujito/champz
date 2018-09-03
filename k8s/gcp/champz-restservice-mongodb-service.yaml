@@ -10,7 +10,6 @@ metadata:
   selfLink: /api/v1/namespaces/default/services/champz-restservice-mongodb-service
   uid: f21d0ec0-a416-11e8-9e59-025000000001
 spec:
-  clusterIP: 10.100.53.117
   externalTrafficPolicy: Cluster
   ports:
   - nodePort: 32356
