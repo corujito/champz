@@ -18,7 +18,7 @@ docker network ls
 docker network create champz_net
 
 mongodb:
-docker run --name champz-mongodb --network=champz_net -p 27017:27017 -d mongo:4.1.2
+docker run --name champz-mongodb --network=champz_net -p 27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=root -e MONGO_INITDB_ROOT_PASSWORD=root -e MONGO_INITDB_DATABASE=champz-prod-db -e MONGO_USERNAME=champz-prod -e MONGO_PASSWORD=password123 corujito/champz-mongo:4.1.2
 docker stop champz-mongodb
 docker start champz-mongodb
 
@@ -42,6 +42,9 @@ docker start champz-web
 ------------------------
 RODAR EM KUBERNETES
 ------------------------
+kubectl create -f champz-restservice-mongodb-secret.yaml
+kubectl create -f champz-restservice-secret.yaml
+
 kubectl create -f champz-restservice-mongodb-dep.yaml
 kubectl create -f champz-restservice-mongodb-service.yaml
 kubectl create -f champz-restservice-dep.yaml
